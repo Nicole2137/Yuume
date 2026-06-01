@@ -1,0 +1,25 @@
+<svg
+  width="1878"
+  height="597"
+  viewBox="0 0 1878 597"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="
+      M 128 568
+      C 118 505 124 449 153 400
+      C 87 379 37 312 37 224
+      C 37 124 116 43 211 43
+      H 1684
+      C 1771 43 1841 116 1841 205
+      C 1841 319 1771 410 1684 410
+      H 275
+      L 128 568
+    "
+    stroke="#B5A2CD"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

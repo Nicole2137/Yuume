@@ -1,0 +1,24 @@
+@use '@/styles' as *;
+
+.hero-tagline {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+    color:$main-color;
+
+	&__img {
+        width: 1.4rem;
+        height: auto;
+	}
+
+	&__dashed-line {
+        
+	}
+
+    &__text{
+        font-size: 2.4rem;
+        font-weight: 600;
+        font-family: $decorative-font;
+        font-style: italic;
+    }
+}

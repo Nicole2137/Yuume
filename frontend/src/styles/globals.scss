@@ -1,0 +1,34 @@
+@use '@/styles' as *;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	min-height: 100vh;
+	font-family: $main-font;
+	color: $text-color;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+main {
+	margin: 0 auto;
+	max-width: 120rem;
+}
