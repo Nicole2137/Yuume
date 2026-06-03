@@ -1,0 +1,11 @@
+@use 'sass:color';
+@use '@/styles/colors' as *;
+
+@mixin btn($background-color: $main-color) {
+	padding: 1.2rem 3.2rem;
+	text-transform: capitalize;
+	color: #fff;
+	background-color: $main-color;
+	border: 2px solid color.scale($main-color, $lightness: -5%);
+	border-radius: 2.4rem;
+}
