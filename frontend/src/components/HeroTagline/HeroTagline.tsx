@@ -7,7 +7,7 @@ export default function HeroTagline() {
 			<span className={styles['hero-tagline__dashed-line']}>- - - -</span>
 			<span className={styles['hero-tagline__text']}>soft thoughts, beautiful days.</span>
 			<span className={styles['hero-tagline__dashed-line']}>- - - -</span>
-			<img src='/img/decorations/tagline-star1.svg' alt='' className={styles['hero-tagline__img']} />
+			<img src='/img/decorations/tagline-star2.svg' alt='' className={styles['hero-tagline__img']} />
 		</div>
 	)
 }

@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use '@/styles' as *;
+
+.mood-card {
+	position: absolute;
+	bottom: 4rem;
+	right: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	padding: 1.6rem 2.4rem;
+	width: 24rem;
+	background-color: #fff;
+	border: 2px solid color.adjust($main-color, $lightness: 16%);
+	rotate: -5deg;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+
+		&-text {
+			font-size: 1.4rem;
+		}
+
+		&-img {
+			width: 2.4rem;
+		}
+	}
+
+	& > hr {
+		height: 1px;
+		background-color: color.adjust($main-color, $lightness: 16%);
+	}
+
+	&__body {
+		display: flex;
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		width: 50%;
+	}
+
+	&__current-mood {
+		font-size: 1.4rem;
+	}
+
+	&__list {
+		display: flex;
+		gap: 1.6rem;
+
+		&-btn {
+			padding: 0.4rem;
+			background-color: color.adjust($main-color, $lightness: 12%);
+			border: 1px solid $main-color;
+			border-radius: 50%;
+		}
+	}
+
+	&__cloud-icon {
+		position: absolute;
+		bottom: 2rem;
+		right: 2rem;
+		width: 3.2rem;
+	}
+}

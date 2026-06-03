@@ -1,13 +1,11 @@
 import styles from './Nav.module.scss'
-import Image from 'next/image'
 import Link from 'next/link'
-import logo from '@/../public/img/logo.png'
 import { navItems } from '@/constants/nav'
 
 export default function Nav() {
 	return (
 		<nav className={styles.nav}>
-			<Image src={logo} alt='Logo of Yuume portraying a cute kitty and name.' className={styles.nav__logo} priority />
+			<img src="/img/nav-logo.svg" alt="" className={styles.nav__logo} />
 			<ul className={styles.nav__list}>
 				{navItems.map(item => (
 					<li key={item.href} className={styles.nav__item}>

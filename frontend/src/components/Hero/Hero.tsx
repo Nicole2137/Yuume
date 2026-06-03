@@ -1,8 +1,6 @@
-import Image from 'next/image'
 import styles from './Hero.module.scss'
 import SpeechBubble from '@/components/SpeechBubble/SpeechBubble'
 import HeroTagline from '@/components/HeroTagline/HeroTagline'
-import cloudSpeechBubble from '@/../public/img/decorations/cloud-speech-bubble.png'
 import MoodCard from '@/components/MoodCard/MoodCard'
 
 export default function Hero() {
@@ -33,12 +31,7 @@ export default function Hero() {
 				</video>
 
 				<div className={styles['hero__cloud-speech-bubble']}>
-					<Image
-						src={cloudSpeechBubble}
-						alt='Decorative cloud speech bubble'
-						className={styles['hero__cloud-speech-bubble-img']}
-						priority
-					/>
+					<img src="/img/decorations/cloud-speech-bubble.svg" alt="" className={styles['hero__cloud-speech-bubble-img']} />
 					<p className={styles['hero__cloud-speech-bubble-text']}>
 						You don't <br />
 						have to <br />
