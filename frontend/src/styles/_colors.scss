@@ -1,2 +1,5 @@
+@use 'sass:color';
+
 $main-color: #b5a2cd;
 $text-color: #41414c;
+$light-border-color: color.adjust($main-color, $lightness: 16%);

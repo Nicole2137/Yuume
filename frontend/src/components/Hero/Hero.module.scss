@@ -1,13 +1,14 @@
 @use '@/styles' as *;
 
 .hero {
+	position: relative;
 	display: flex;
 	&__article {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		gap: 1.6rem;
 		flex: 1;
+		margin-top: 2.4rem;
 	}
 
 	&__heading {
@@ -33,11 +34,23 @@
 	}
 
 	&__btn {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
 		@include btn;
 
 		&--white {
 			color: $text-color;
 			background-color: #fff;
+		}
+
+		&-text {
+			letter-spacing: 0.09rem;
+		}
+
+		&-icon {
+			width: 1.8rem;
 		}
 	}
 
@@ -76,5 +89,12 @@
 			font-size: 1.8rem;
 			line-height: 3rem;
 		}
+	}
+
+	&__cards-list {
+		position: absolute;
+		bottom: -5rem;
+		display: flex;
+		gap: 1.2rem;
 	}
 }
