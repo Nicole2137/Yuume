@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './Hero.module.scss'
 import SpeechBubble from '@/components/SpeechBubble/SpeechBubble'
 import HeroTagline from '@/components/HeroTagline/HeroTagline'
@@ -5,6 +6,7 @@ import MoodCard from '@/components/MoodCard/MoodCard'
 import HeroInfoCard from '@/components/HeroInfoCard/HeroInfoCard'
 import NewsletterCard from '@/components/NewsletterCard/NewsletterCard'
 import { heroInfoCardItems } from '@/constants/heroInfoCard'
+import cloudBackground from '@public/img/decorations/cloud-background.png'
 
 export default function Hero() {
 	return (
@@ -34,11 +36,10 @@ export default function Hero() {
 			</article>
 			<figure className={styles.hero__figure}>
 				<video autoPlay loop muted playsInline className={styles['hero__girl-animation']}>
-					<source src='/img/girl-loop.webm' type='video/webm' />
-					<source src='/img/girl-loop.mp4' type='video/mp4' />
+					<source src='/videos/girl-animation.webm' type='video/webm' />
+					<source src='/videos/girl-animation.mp4' type='video/mp4' />
 					Videos are not supported by your browser.
 				</video>
-
 				<div className={styles['hero__cloud-speech-bubble']}>
 					<img
 						src='/img/decorations/cloud-speech-bubble.svg'
@@ -66,6 +67,7 @@ export default function Hero() {
 				))}
 			</ul>
 			<NewsletterCard />
+			<Image src={cloudBackground} alt='' className={styles['hero__cloud-background']} priority />
 		</section>
 	)
 }

@@ -7,8 +7,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.6rem;
-		flex: 1;
 		margin-top: 2.4rem;
+		width: 50%;
 	}
 
 	&__heading {
@@ -56,24 +56,38 @@
 
 	&__figure {
 		position: relative;
-		flex: 1;
 		height: 70vh;
 		overflow: hidden;
 	}
 
 	&__girl-animation {
-		width: 90%;
+		position: relative;
+		z-index: 10;
+		width: 75%;
+		height: auto;
+		transform: translate(8rem, 0rem);
+
+		-webkit-mask-image:
+			linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%),
+			radial-gradient(ellipse at left bottom, transparent 0%, black 28%);
+
+		mask-image:
+			linear-gradient(to right, transparent 0%, black 1%, black 92%, transparent 100%),
+			radial-gradient(ellipse at left bottom, transparent 0%, black 45%);
+
+		-webkit-mask-composite: source-in;
+		mask-composite: intersect;
 	}
 
 	&__cloud-speech-bubble {
 		position: absolute;
 		top: 0;
 		right: 0;
+		z-index: 10;
 		width: 33%;
 
 		&-img {
 			width: 100%;
-			height: auto;
 		}
 
 		&-text {
@@ -94,7 +108,17 @@
 	&__cards-list {
 		position: absolute;
 		bottom: -5rem;
+		z-index: 10;
 		display: flex;
 		gap: 1.2rem;
+	}
+
+	&__cloud-background {
+		position: absolute;
+		left: -13.5rem;
+		bottom: -19rem;
+		z-index: -1;
+		width: 100vw;
+		height: 80vh;
 	}
 }
