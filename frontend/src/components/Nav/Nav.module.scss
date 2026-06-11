@@ -60,5 +60,9 @@
 
 	&__btn {
 		@include btn;
+
+		&:hover {
+			@include btn-hover;
+		}
 	}
 }

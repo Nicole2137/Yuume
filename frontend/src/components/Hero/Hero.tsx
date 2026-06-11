@@ -36,8 +36,8 @@ export default function Hero() {
 			</article>
 			<figure className={styles.hero__figure}>
 				<video autoPlay loop muted playsInline className={styles['hero__girl-animation']}>
-					<source src='/videos/girl-animation.webm' type='video/webm' />
-					<source src='/videos/girl-animation.mp4' type='video/mp4' />
+					<source src='/video/girl-animation.webm' type='video/webm' />
+					<source src='/video/girl-animation.mp4' type='video/mp4' />
 					Videos are not supported by your browser.
 				</video>
 				<div className={styles['hero__cloud-speech-bubble']}>

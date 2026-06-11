@@ -4,10 +4,23 @@
 @mixin btn($background-color: $main-color) {
 	padding: 1.2rem 3.2rem;
 	text-transform: capitalize;
+	letter-spacing: 0.09rem;
 	color: #fff;
 	background-color: $background-color;
 	border: 2px solid color.scale($main-color, $lightness: -5%);
 	border-radius: 2.4rem;
+	transition:
+		background-color 0.3s,
+		box-shadow 0.3s,
+		border 0.3s,
+		scale 0.3s;
+}
+
+@mixin btn-hover($background-color: $main-color) {
+	background-color: color.scale($background-color, $lightness: 10%);
+	box-shadow: 0 0.625rem 1.5rem rgba(155, 134, 184, 0.35);
+	border: 2px solid color.scale($main-color, $lightness: 15%);
+	scale: 1.05;
 }
 
 @mixin round-border($border-radius: 1.2rem) {
