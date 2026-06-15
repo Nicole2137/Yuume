@@ -34,10 +34,6 @@
 	}
 
 	&__btn {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-
 		@include btn;
 
 		&:hover {
@@ -49,13 +45,18 @@
 			background-color: #fff;
 
 			&:hover {
-				@include btn-hover(#fff);
+				background-color: #fff;
 			}
+		}
+
+		&:hover &-icon {
+			filter: drop-shadow(0 0 0.4rem rgba(255, 255, 255, 0.9));
 		}
 	}
 
 	&__btn-icon {
 		width: 1.8rem;
+		transition: filter 0.3s;
 	}
 
 	&__figure {

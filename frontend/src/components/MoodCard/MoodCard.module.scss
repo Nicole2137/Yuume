@@ -19,14 +19,14 @@
 		display: flex;
 		align-items: center;
 		gap: 1.2rem;
+	}
 
-		&-text {
-			font-size: 1.4rem;
-		}
+	&__header-text {
+		font-size: 1.4rem;
+	}
 
-		&-img {
-			width: 2.4rem;
-		}
+	&__header-img {
+		width: 2.4rem;
 	}
 
 	& > hr {
@@ -34,15 +34,10 @@
 		background-color: color.adjust($main-color, $lightness: 16%);
 	}
 
-	&__body {
-		display: flex;
-	}
-
 	&__main {
 		display: flex;
 		flex-direction: column;
 		gap: 0.8rem;
-		width: 50%;
 	}
 
 	&__current-mood {
@@ -52,13 +47,13 @@
 	&__list {
 		display: flex;
 		gap: 1.6rem;
+	}
 
-		&-btn {
-			padding: 0.4rem;
-			background-color: color.adjust($main-color, $lightness: 12%);
-			border: 1px solid $main-color;
-			border-radius: 50%;
-		}
+	&__list-btn {
+		padding: 0.4rem;
+		background-color: color.adjust($main-color, $lightness: 12%);
+		border: 1px solid $main-color;
+		border-radius: 50%;
 	}
 
 	&__cloud-icon {
@@ -66,5 +61,15 @@
 		bottom: 2rem;
 		right: 2rem;
 		width: 3.2rem;
+		animation: cloudAnimation 1.6s ease-in-out infinite alternate;
+	}
+}
+
+@keyframes cloudAnimation {
+	from{
+		bottom: 2rem;
+	}
+	to{
+		bottom: 2.4rem;
 	}
 }

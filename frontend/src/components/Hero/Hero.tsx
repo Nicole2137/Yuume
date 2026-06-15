@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './Hero.module.scss'
 import SpeechBubble from '@/components/SpeechBubble/SpeechBubble'
 import HeroTagline from '@/components/HeroTagline/HeroTagline'
@@ -24,14 +25,19 @@ export default function Hero() {
 					But there is always a dream where someone understands.
 				</p>
 				<div className={styles.hero__btns}>
-					<button className={styles.hero__btn}>
+					<Link href='/journal' className={styles.hero__btn}>
 						<span className={styles['hero__btn-text']}>Begin Within</span>
-						<img src='/img/decorations/btn-feather.svg' alt='' className={styles['hero__btn-icon']} />
-					</button>
-					<button className={`${styles.hero__btn} ${styles['hero__btn--white']}`}>
+						<img
+							src='/img/decorations/btn-feather.svg'
+							alt=''
+							aria-hidden='true'
+							className={styles['hero__btn-icon']}
+						/>
+					</Link>
+					<Link href='/community' className={`${styles.hero__btn} ${styles['hero__btn--white']}`}>
 						<span className={styles['hero__btn-text']}>Explore Dreams</span>
-						<img src='/img/decorations/btn-star.svg' alt='' className={styles['hero__btn-icon']} />
-					</button>
+						<img src='/img/decorations/btn-star.svg' alt='' aria-hidden='true' className={styles['hero__btn-icon']} />
+					</Link>
 				</div>
 			</article>
 			<figure className={styles.hero__figure}>

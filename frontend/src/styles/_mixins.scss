@@ -2,7 +2,12 @@
 @use '@/styles/colors' as *;
 
 @mixin btn($background-color: $main-color) {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 	padding: 1.2rem 3.2rem;
+	font-size: 1.2rem;
+	font-weight: 600;
 	text-transform: capitalize;
 	letter-spacing: 0.09rem;
 	color: #fff;
@@ -16,10 +21,10 @@
 		scale 0.3s;
 }
 
-@mixin btn-hover($background-color: $main-color) {
-	background-color: color.scale($background-color, $lightness: 10%);
-	box-shadow: 0 0.625rem 1.5rem rgba(155, 134, 184, 0.35);
-	border: 2px solid color.scale($main-color, $lightness: 15%);
+@mixin btn-hover($background-color: $btn-hover-color) {
+	background-color: $background-color;
+	box-shadow: 0 0.625rem 1.6rem rgba(174, 130, 224, 0.35);
+	border: 2px solid color.scale($main-color, $lightness: 75%);
 	scale: 1.05;
 }
 
