@@ -50,10 +50,15 @@
 	}
 
 	&__list-btn {
-		padding: 0.4rem;
+		padding: 0.45rem;
 		background-color: color.adjust($main-color, $lightness: 12%);
-		border: 1px solid $main-color;
+		border: 2px solid $main-color;
 		border-radius: 50%;
+
+		&:hover,
+		&:focus {
+			scale: 1.2;
+		}
 	}
 
 	&__cloud-icon {
@@ -66,10 +71,10 @@
 }
 
 @keyframes cloudAnimation {
-	from{
-		bottom: 2rem;
+	from {
+		bottom: 1.6rem;
 	}
-	to{
+	to {
 		bottom: 2.4rem;
 	}
 }

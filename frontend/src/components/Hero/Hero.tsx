@@ -41,7 +41,14 @@ export default function Hero() {
 				</div>
 			</article>
 			<figure className={styles.hero__figure}>
-				<video autoPlay loop muted playsInline className={styles['hero__girl-animation']}>
+				<video
+					autoPlay
+					loop
+					muted
+					playsInline
+					aria-hidden='true'
+					poster='/img/girl-animation.webp'
+					className={styles['hero__girl-animation']}>
 					<source src='/video/girl-animation.webm' type='video/webm' />
 					<source src='/video/girl-animation.mp4' type='video/mp4' />
 					Videos are not supported by your browser.

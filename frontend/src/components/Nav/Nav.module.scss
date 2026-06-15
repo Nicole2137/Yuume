@@ -48,7 +48,7 @@
 			left: 50%;
 		}
 
-		&:hover {
+		&:hover,&:focus {
 			color: color.adjust($main-color, $lightness: -5%);
 
 			&::before,
@@ -61,7 +61,7 @@
 	&__btn {
 		@include btn;
 
-		&:hover {
+		&:hover,&:focus {
 			@include btn-hover;
 		}
 	}

@@ -31,11 +31,6 @@ select {
 	font-family: inherit;
 }
 
-a {
-	text-decoration: none;
-	color: $text-color;
-}
-
 ol,
 ul {
 	list-style: none;
@@ -48,6 +43,20 @@ main {
 
 button {
 	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: $text-color;
+}
+
+button,
+a {
+	transition:
+		background-color 0.3s,
+		box-shadow 0.3s,
+		border 0.3s,
+		scale 0.3s;
 }
 
 hr {
