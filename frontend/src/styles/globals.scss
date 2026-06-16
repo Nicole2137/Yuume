@@ -20,8 +20,8 @@ body {
 	height: 100vh;
 	font-family: $main-font;
 	color: $text-color;
-	overflow: hidden;
 	background-color: #fcfcfc;
+	overflow: hidden;
 }
 
 button,
@@ -38,10 +38,12 @@ ul {
 
 main {
 	margin: 0 auto;
-	max-width: 120rem;
+	width: 82vw;
 }
 
 button {
+	background-color: transparent;
+	border: none;
 	cursor: pointer;
 }
 
