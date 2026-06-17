@@ -3,6 +3,7 @@
 
 @mixin btn($background-color: $main-color) {
 	display: flex;
+	justify-content: center;
 	align-items: center;
 	gap: 1rem;
 	padding: 1.2rem 3.2rem;

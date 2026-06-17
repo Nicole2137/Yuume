@@ -1,9 +1,9 @@
 import styles from './SpeechBubble.module.scss'
-import type { LucideIcon } from 'lucide-react'
+import type { ElementType } from 'react'
 
 interface SpeechBubbleInterface {
 	text: string
-	Icon?: LucideIcon
+	Icon?: ElementType  //renderable element
 }
 
 export default function SpeechBubble({ text, Icon }: SpeechBubbleInterface) {

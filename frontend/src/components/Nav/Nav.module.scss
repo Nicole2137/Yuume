@@ -74,7 +74,23 @@
 	}
 
 	&__menu-icon {
+		z-index: 9001;
 		display: none;
+	}
+}
+
+.overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 8000;
+	background-color: rgba(0, 0, 0, 0.35);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s;
+
+	&--active {
+		opacity: 1;
+		pointer-events: auto;
 	}
 }
 
