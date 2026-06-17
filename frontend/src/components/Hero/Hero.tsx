@@ -13,7 +13,7 @@ export default function Hero() {
 	return (
 		<section className={styles.hero}>
 			<article className={styles.hero__article}>
-				<SpeechBubble />
+				<SpeechBubble text='welcome to yuume'/>
 				<h1 className={styles.hero__heading}>
 					How to Create <br />
 					<span>Gentle</span> Dreams.
