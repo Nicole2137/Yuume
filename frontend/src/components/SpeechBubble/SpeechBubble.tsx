@@ -1,10 +1,12 @@
 import styles from './SpeechBubble.module.scss'
+import type { LucideIcon } from 'lucide-react'
 
 interface SpeechBubbleInterface {
 	text: string
+	Icon?: LucideIcon
 }
 
-export default function SpeechBubble({ text }: SpeechBubbleInterface) {
+export default function SpeechBubble({ text, Icon }: SpeechBubbleInterface) {
 	return (
 		<div className={styles['speech-bubble']}>
 			<img
@@ -13,7 +15,9 @@ export default function SpeechBubble({ text }: SpeechBubbleInterface) {
 				aria-hidden='true'
 				className={styles['speech-bubble__img']}
 			/>
-			<span className={styles['speech-bubble__text']}>{text} ♡</span>
+			<span className={styles['speech-bubble__text']}>
+				{text} {Icon && <Icon aria-hidden='true' className={styles['speech-bubble__icon']} />}
+			</span>
 		</div>
 	)
 }

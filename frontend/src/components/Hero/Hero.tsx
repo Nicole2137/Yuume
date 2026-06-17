@@ -8,12 +8,13 @@ import HeroInfoCard from '@/components/HeroInfoCard/HeroInfoCard'
 import NewsletterCard from '@/components/NewsletterCard/NewsletterCard'
 import { heroInfoCardItems } from '@/constants/heroInfoCard'
 import cloudBackground from '@public/img/decorations/cloud-background.png'
+import { Heart } from 'lucide-react'
 
 export default function Hero() {
 	return (
 		<section className={styles.hero}>
 			<article className={styles.hero__article}>
-				<SpeechBubble text='welcome to yuume'/>
+				<SpeechBubble text='welcome to yuume' Icon={Heart} />
 				<h1 className={styles.hero__heading}>
 					How to Create <br />
 					<span>Gentle</span> Dreams.
