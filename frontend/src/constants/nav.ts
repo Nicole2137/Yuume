@@ -1,4 +1,4 @@
-const iconsFolder = '/img/nav-icons'
+const iconsFolder: string = '/img/mobile-nav-icons'
 
 export const navItems = [
 	{ href: '#', label: 'Home', iconPath: `${iconsFolder}/home.svg` },

@@ -53,10 +53,7 @@ export default function Nav() {
 
 			<MobileNav isOpen={isOpen} />
 
-			<div
-				onClick={() => setIsOpen(!isOpen)}
-				className={`${styles.overlay} ${isOpen ? styles['overlay--active'] : ''}`}
-			/>
+			<div onClick={() => setIsOpen(false)} className={`overlay ${isOpen ? 'overlay--active' : ''}`} />
 		</>
 	)
 }

@@ -1,8 +1,6 @@
 @use '@/styles' as *;
 
 .mobile-nav {
-	$nav-width: 30rem;
-
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -12,11 +10,11 @@
 	gap: 1.2rem;
 	z-index: 9000;
 	padding: 2.4rem;
-	width: $nav-width;
+	width: 30rem;
 	height: 100vh;
 	background-color: $background-color;
 	border-top-left-radius: 2.4rem;
-	translate: $nav-width 0;
+	translate: 100% 0;
 	transition: translate 0.3s ease-out;
 
 	&--active {
@@ -24,37 +22,32 @@
 	}
 
 	&__list {
-		margin-top: 4.8rem;
+		margin-top: 6.4rem;
 		width: 100%;
-	}
-
-	&__item {
-		border-bottom: 1px solid $light-border-color;
-		transition:
-			color 0.3s,
-			background-color 0.3s;
-
-		&:last-child {
-			border-bottom: none;
-		}
-
-		&:hover,
-		&:active {
-			background-color: #f7f2fb;
-		}
 	}
 
 	&__link {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1.2rem;
+		padding: 2.4rem;
+		color: currentColor;
+		border-radius: 1.6rem;
+		transition:
+			color 0.3s,
+			background-color 0.3s;
+
+		&:hover,
+		&:focus {
+			color: #935fe5;
+			background-color: #f7f2fb;
+		}
 	}
 
 	&__info {
 		display: flex;
 		align-items: center;
-		gap: 1.2rem;
+		gap: 1.6rem;
 	}
 
 	&__icon {
@@ -74,7 +67,15 @@
 		display: flex;
 		align-items: center;
 		gap: 0.4rem;
+		width: 90%;
 		color: $main-color;
+
+		&::before,
+		&::after {
+			content: '';
+			flex-grow: 1;
+			@include line-gradient;
+		}
 	}
 
 	&__star-icon {
@@ -93,5 +94,12 @@
 
 	&__btn-icon {
 		width: 1.6rem;
+	}
+}
+
+@media (width<$sm) {
+	.mobile-nav {
+		width: 100vw;
+		border-radius: 0;
 	}
 }

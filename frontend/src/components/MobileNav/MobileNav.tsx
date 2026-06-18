@@ -23,15 +23,13 @@ export default function MobileNav({ isOpen }: MobileNavInterface) {
 					</li>
 				))}
 			</ul>
-			<div className={styles['mobile-nav__decoration']}>
-				<span>--------------------</span>
+			<div aria-hidden='true' className={styles['mobile-nav__decoration']}>
 				<img
 					src='/img/decorations/tagline-star2.svg'
 					alt=''
 					aria-hidden='true'
 					className={styles['mobile-nav__star-icon']}
 				/>
-				<span>--------------------</span>
 			</div>
 			<Link href='/login' className={styles['mobile-nav__btn']}>
 				<span className={styles['mobile-nav__btn-text']}>join us</span>

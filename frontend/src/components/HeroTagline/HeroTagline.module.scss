@@ -11,10 +11,17 @@
 		height: auto;
 	}
 
+	&__dashed-line {
+		width: 2.4rem;
+
+		@include line-gradient;
+	}
+
 	&__text {
 		font-size: 2.4rem;
 		font-weight: 600;
 		font-family: $decorative-font;
 		font-style: italic;
+		white-space: nowrap;
 	}
 }

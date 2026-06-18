@@ -28,3 +28,14 @@
 	border: 2px solid $light-border-color;
 	border-radius: $border-radius;
 }
+
+@mixin line-gradient($height: 0.1rem, $line-width: 0.4rem, $space-width: 0.3rem) {
+	height: $height;
+	background-image: repeating-linear-gradient(
+		to right,
+		currentColor 0,
+		currentColor $line-width,
+		transparent $line-width,
+		transparent $line-width + $space-width
+	);
+}
