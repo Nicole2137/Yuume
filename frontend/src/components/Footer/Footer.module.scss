@@ -1,9 +1,13 @@
+@use '@/styles' as *;
+
 .footer {
 	position: fixed;
 	bottom: -1rem;
 
 	&__img {
-		width: 100vw;
+		width: 100%;
+		height: $footer-height;
+		object-fit: cover;
 	}
 
 	&__content {
@@ -18,15 +22,39 @@
 
 	&__logo {
 		margin-top: 0.7rem;
-		width: 10vw;
+		width: 15.4rem;
 	}
 
 	&__text {
 		font-size: 1.4rem;
 		font-style: italic;
+
+		&--mobile {
+			display: none;
+		}
 	}
 
 	&__decoration {
 		width: 1.6rem;
+	}
+}
+
+@media (width<$sm) {
+	.footer {
+		z-index: 8000;
+
+		&__logo {
+			// display: none;
+		}
+
+		&__text {
+			&--mobile {
+				display: block;
+			}
+
+			&--desktop {
+				display: none;
+			}
+		}
 	}
 }

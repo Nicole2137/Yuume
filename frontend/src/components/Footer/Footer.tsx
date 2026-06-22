@@ -10,8 +10,13 @@ export default function Footer() {
 					alt='Logo of yuume portraying a company name with stars'
 					className={styles['footer__logo']}
 				/>
-                <span className={styles.footer__text}>a soft little place that stays close to you</span>
-                <img src="/img/decorations/tagline-star2.svg" alt="" className={styles.footer__decoration} />
+				<span className={`${styles.footer__text} ${styles['footer__text--desktop']}`}>
+					a soft little place that stays close to you
+				</span>
+
+				<span className={`${styles.footer__text} ${styles['footer__text--mobile']}`}>your dreams</span>
+
+				<img src='/img/decorations/tagline-star2.svg' alt='' className={styles.footer__decoration} />
 			</div>
 		</footer>
 	)

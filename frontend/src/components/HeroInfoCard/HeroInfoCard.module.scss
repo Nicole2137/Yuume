@@ -5,6 +5,8 @@
 	display: flex;
 	align-items: center;
 	gap: 1.2rem;
+	max-width: 28rem;
+	height: 100%;
 	padding: 2.4rem;
 	background-color: rgba(255, 255, 255, 0.95);
 	@include round-border;
@@ -29,6 +31,12 @@
 	&__description {
 		font-size: 1.1rem;
 		line-height: 1.8rem;
-		white-space: pre-line;
+	}
+}
+
+@media(width<$sm)
+{
+	.hero-info-card{
+		max-width: 100%;
 	}
 }

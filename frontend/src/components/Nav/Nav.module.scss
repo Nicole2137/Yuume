@@ -2,11 +2,14 @@
 @use '@/styles' as *;
 
 .nav {
-	position: relative;
+	position: sticky;
+	top: 0;
+	z-index: 7000;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1.2rem 4.8rem 1.2rem 4.8rem;
+	background-color: $background-color;
 
 	&__logo {
 		width: 15.4rem;
@@ -74,6 +77,9 @@
 	}
 
 	&__menu-icon {
+		position: fixed;
+		top: 1.2rem;
+		right: calc(3.2rem - $burger-padding);
 		z-index: 9001;
 		display: none;
 	}

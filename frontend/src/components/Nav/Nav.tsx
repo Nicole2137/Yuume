@@ -48,8 +48,9 @@ export default function Nav() {
 					<Heart className={styles['nav__btn-icon']} />
 				</Link>
 
-				<BurgerButton className={styles['nav__menu-icon']} isOpen={isOpen} onClick={() => setIsOpen(prev => !prev)} />
 			</nav>
+
+			<BurgerButton className={styles['nav__menu-icon']} isOpen={isOpen} onClick={() => setIsOpen(prev => !prev)} />
 
 			<MobileNav isOpen={isOpen} />
 

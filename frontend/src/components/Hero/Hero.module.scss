@@ -3,6 +3,13 @@
 .hero {
 	position: relative;
 	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+
+	&__main {
+		display: flex;
+	}
+
 	&__article {
 		display: flex;
 		flex-direction: column;
@@ -128,5 +135,43 @@
 		z-index: -1;
 		width: 100vw;
 		height: 80vh;
+	}
+}
+
+@media (width<$sm) {
+	.hero {
+		&__main {
+			flex-direction: column;
+			gap: 4.8rem;
+		}
+
+		&__article {
+			width: 100%;
+		}
+
+		&__figure {
+			margin-inline: calc(50% - 50vw);
+			width: 100vw;
+			height: 100%;
+		}
+
+		&__girl-animation {
+			width: 95%;
+			transform: translate(1.6rem, 0rem);
+		}
+
+		&__cloud-speech-bubble {
+			display: none;
+		}
+
+		&__cards-list {
+			position: static;
+			flex-direction: column;
+			padding-bottom: calc($footer-height - 4.4rem);
+		}
+
+		&__cloud-background {
+			display: none;
+		}
 	}
 }

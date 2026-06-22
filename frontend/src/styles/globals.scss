@@ -17,7 +17,7 @@ html {
 }
 
 body {
-	height: 100vh;
+	min-height: 100vh;
 	font-family: $main-font;
 	color: $text-color;
 	background-color: $background-color;
@@ -73,9 +73,17 @@ hr {
 	opacity: 0;
 	pointer-events: none;
 	transition: opacity 0.5s;
+	cursor: pointer;
 
 	&--active {
 		opacity: 1;
 		pointer-events: auto;
+	}
+}
+
+@media(width<$sm)
+{
+	body{
+		overflow:visible;
 	}
 }

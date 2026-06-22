@@ -13,74 +13,80 @@ import { Heart } from 'lucide-react'
 export default function Hero() {
 	return (
 		<section className={styles.hero}>
-			<article className={styles.hero__article}>
-				<SpeechBubble text='welcome to yuume' Icon={Heart} />
-				<h1 className={styles.hero__heading}>
-					How to Create <br />
-					<span>Gentle</span> Dreams.
-				</h1>
-				<HeroTagline />
-				<p className={styles.hero__description}>
-					It's okay to feel alone sometimes.
-					<br />
-					But there is always a dream where someone understands.
-				</p>
-				<div className={styles.hero__btns}>
-					<Link href='/journal' className={styles.hero__btn}>
-						<span className={styles['hero__btn-text']}>Begin Within</span>
-						<img
-							src='/img/decorations/btn-feather.svg'
-							alt=''
-							aria-hidden='true'
-							className={styles['hero__btn-icon']}
-						/>
-					</Link>
-					<Link href='/community' className={`${styles.hero__btn} ${styles['hero__btn--white']}`}>
-						<span className={styles['hero__btn-text']}>Explore Dreams</span>
-						<img src='/img/decorations/btn-star.svg' alt='' aria-hidden='true' className={styles['hero__btn-icon']} />
-					</Link>
-				</div>
-			</article>
-			<figure className={styles.hero__figure}>
-				<video
-					autoPlay
-					loop
-					muted
-					playsInline
-					aria-hidden='true'
-					poster='/img/girl-animation.webp'
-					className={styles['hero__girl-animation']}>
-					<source src='/video/girl-animation.webm' type='video/webm' />
-					<source src='/video/girl-animation.mp4' type='video/mp4' />
-					Videos are not supported by your browser.
-				</video>
-				<div className={styles['hero__cloud-speech-bubble']}>
-					<img
-						src='/img/decorations/cloud-speech-bubble.svg'
-						alt=''
-						className={styles['hero__cloud-speech-bubble-img']}
-					/>
-					<p className={styles['hero__cloud-speech-bubble-text']}>
-						You don't <br />
-						have to <br />
-						know yet...
+			<div className={styles.hero__main}>
+				<article className={styles.hero__article}>
+					<SpeechBubble text='welcome to yuume' Icon={Heart} />
+					<h1 className={styles.hero__heading}>
+						How to Create <br />
+						<span>Gentle</span> Dreams.
+					</h1>
+					<HeroTagline />
+					<p className={styles.hero__description}>
+						It's okay to feel alone sometimes.
 						<br />
-						It's okay to <br />
-						feel a little <br />
-						shy.
+						But there is always a dream where someone understands.
 					</p>
-				</div>
+					<div className={styles.hero__btns}>
+						<Link href='/journal' className={styles.hero__btn}>
+							<span className={styles['hero__btn-text']}>Begin Within</span>
+							<img
+								src='/img/decorations/btn-feather.svg'
+								alt=''
+								aria-hidden='true'
+								className={styles['hero__btn-icon']}
+							/>
+						</Link>
+						<Link href='/community' className={`${styles.hero__btn} ${styles['hero__btn--white']}`}>
+							<span className={styles['hero__btn-text']}>Explore Dreams</span>
+							<img src='/img/decorations/btn-star.svg' alt='' aria-hidden='true' className={styles['hero__btn-icon']} />
+						</Link>
+					</div>
+				</article>
+				<figure className={styles.hero__figure}>
+					<video
+						autoPlay
+						loop
+						muted
+						playsInline
+						aria-hidden='true'
+						poster='/img/girl-animation.webp'
+						className={styles['hero__girl-animation']}>
+						<source src='/video/girl-animation.webm' type='video/webm' />
+						<source src='/video/girl-animation.mp4' type='video/mp4' />
+						Videos are not supported by your browser.
+					</video>
+					<div className={styles['hero__cloud-speech-bubble']}>
+						<img
+							src='/img/decorations/cloud-speech-bubble.svg'
+							alt=''
+							className={styles['hero__cloud-speech-bubble-img']}
+						/>
+						<p className={styles['hero__cloud-speech-bubble-text']}>
+							You don't <br />
+							have to <br />
+							know yet...
+							<br />
+							It's okay to <br />
+							feel a little <br />
+							shy.
+						</p>
+					</div>
 
-				<MoodCard />
-			</figure>
+					<MoodCard />
+				</figure>
+			</div>
+
 			<ul className={styles['hero__cards-list']}>
 				{heroInfoCardItems.map(item => (
 					<li key={item.imgSrc} className={styles['hero__card-item']}>
 						<HeroInfoCard {...item} />
 					</li>
 				))}
+				<li className={styles['hero__card-item']}>
+					<NewsletterCard />
+				</li>
 			</ul>
-			<NewsletterCard />
+
 			<Image src={cloudBackground} alt='' className={styles['hero__cloud-background']} priority />
 		</section>
 	)
