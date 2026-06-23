@@ -14,7 +14,7 @@ export default function Footer() {
 					a soft little place that stays close to you
 				</span>
 
-				<span className={`${styles.footer__text} ${styles['footer__text--mobile']}`}>your dreams</span>
+				<span className={`${styles.footer__text} ${styles['footer__text--mobile']}`}>dreams grow closer</span>
 
 				<img src='/img/decorations/tagline-star2.svg' alt='' className={styles.footer__decoration} />
 			</div>
