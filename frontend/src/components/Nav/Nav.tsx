@@ -1,37 +1,25 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import styles from './Nav.module.scss'
 import Link from 'next/link'
 import { navItems } from '@/constants/nav'
 import { Heart } from 'lucide-react'
 import BurgerButton from '@/components/BurgerButton/BurgerButton'
 import MobileNav from '@/components/MobileNav/MobileNav'
+import { useMobileNav } from '@/hooks/useMobileNav'
 
 export default function Nav() {
-	const [isOpen, setIsOpen] = useState(false)
-
-	useEffect(() => {
-		if (!isOpen) return
-
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key == 'Escape') {
-				setIsOpen(false)
-			}
-		}
-
-		document.addEventListener('keydown', handleKeyDown)
-
-		return () => {
-			document.removeEventListener('keydown', handleKeyDown)
-		}
-	}, [isOpen])
+	const { isOpen, setIsOpen, mobileNavRef, dragX } = useMobileNav()
 
 	return (
 		<>
 			<nav className={styles.nav}>
-				<Link href='#' aria-label='Return to homepage'>
-					<img src='/img/nav-logo.svg' alt='' className={styles.nav__logo} />
+				<Link href='/' aria-label='Return to homepage'>
+					<img
+						src='/img/nav-logo.svg'
+						alt='Logo of Yuume. Portraying a little cat icon and application name.'
+						className={styles.nav__logo}
+					/>
 				</Link>
 				<ul className={styles.nav__list}>
 					{navItems.map(item => (
@@ -47,14 +35,17 @@ export default function Nav() {
 					<span className={styles['nav__btn-text']}>join us</span>
 					<Heart className={styles['nav__btn-icon']} />
 				</Link>
-
 			</nav>
 
 			<BurgerButton className={styles['nav__menu-icon']} isOpen={isOpen} onClick={() => setIsOpen(prev => !prev)} />
 
-			<MobileNav isOpen={isOpen} />
+			<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} dragX={dragX} mobileNavRef={mobileNavRef} />
 
-			<div onClick={() => setIsOpen(false)} className={`overlay ${isOpen ? 'overlay--active' : ''}`} />
+			<div
+				aria-hidden='true'
+				onClick={() => setIsOpen(false)}
+				className={`overlay ${isOpen ? 'overlay--active' : ''}`}
+			/>
 		</>
 	)
 }

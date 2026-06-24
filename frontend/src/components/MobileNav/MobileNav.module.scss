@@ -14,12 +14,6 @@
 	height: 100vh;
 	background-color: $background-color;
 	border-top-left-radius: 2.4rem;
-	translate: 100% 0;
-	transition: translate 0.3s ease-out;
-
-	&--active {
-		translate: 0 0;
-	}
 
 	&__list {
 		margin-top: 6.4rem;

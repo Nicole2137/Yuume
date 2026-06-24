@@ -1,12 +1,12 @@
 import styles from './BurgerButton.module.scss'
 
-interface BurgerButtonInterface {
+interface BurgerButtonProps {
 	className?: string
 	isOpen: boolean
 	onClick: () => void
 }
 
-export default function BurgerButton({ onClick, className = '', isOpen }: BurgerButtonInterface) {
+export default function BurgerButton({ onClick, className = '', isOpen }: BurgerButtonProps) {
 	return (
 		<button
 			onClick={onClick}

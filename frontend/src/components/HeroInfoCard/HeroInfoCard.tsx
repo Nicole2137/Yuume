@@ -1,12 +1,12 @@
 import styles from './HeroInfoCard.module.scss'
 
-interface HeroInfoCardInterface {
+interface HeroInfoCardProps {
 	imgSrc: string
 	title: string
 	description: string
 }
 
-export default function HeroCard({ imgSrc, title, description }: HeroInfoCardInterface) {
+export default function HeroCard({ imgSrc, title, description }: HeroInfoCardProps) {
 	return (
 		<article className={styles['hero-info-card']}>
 			<img src={imgSrc} alt='' className={styles['hero-info-card__icon']} />
