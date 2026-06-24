@@ -3,8 +3,6 @@ export const mobileNavDragProperties = {
 	closedPosition: 100,
 	closeOffset: 50,
 	openOffset: 50,
-	verticalScrollThreshold: 20,
-	horizontalDragThreshold: 20,
 } as const
 
 export const mobileNavAnimation = {

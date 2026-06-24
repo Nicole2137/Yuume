@@ -61,10 +61,7 @@ export const useMobileNav = () => {
 			const deltaX = currentX - touchStartX
 			const deltaY = Math.abs(currentY - touchStartY)
 
-			if (
-				deltaY >= mobileNavDragProperties.verticalScrollThreshold &&
-				Math.abs(deltaX) < mobileNavDragProperties.horizontalDragThreshold
-			) {
+			if (deltaY > Math.abs(deltaX)) {
 				isDragging = false
 				return
 			}
@@ -82,7 +79,7 @@ export const useMobileNav = () => {
 			if (!isDragging || !mobileNav) return
 
 			isDragging = false
- 
+
 			const currentPercent = dragX.get()
 
 			const pixelsMoved = Math.abs(((isOpen ? currentPercent : 100 - currentPercent) / 100) * navWidth)
