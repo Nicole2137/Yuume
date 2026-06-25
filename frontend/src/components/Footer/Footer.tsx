@@ -3,7 +3,7 @@ import styles from './Footer.module.scss'
 export default function Footer() {
 	return (
 		<footer className={styles.footer}>
-			<img className={styles.footer__img} src='/img/decorations/footer-cloud.svg' alt='' />
+			<img className={styles.footer__img} src='/img/decorations/footer-cloud.svg' alt='' aria-hidden='true' />
 			<div className={styles.footer__content}>
 				<img
 					src='/img/footer-logo.svg'
@@ -16,7 +16,7 @@ export default function Footer() {
 
 				<span className={`${styles.footer__text} ${styles['footer__text--mobile']}`}>dreams grow closer</span>
 
-				<img src='/img/decorations/tagline-star2.svg' alt='' className={styles.footer__decoration} />
+				<img src='/img/decorations/tagline-star2.svg' alt='' aria-hidden='true' className={styles.footer__decoration} />
 			</div>
 		</footer>
 	)
