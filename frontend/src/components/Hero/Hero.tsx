@@ -22,7 +22,7 @@ export default function Hero() {
 					</h1>
 					<HeroTagline />
 					<p className={styles.hero__description}>
-						It's okay to feel alone sometimes.
+						It’s okay to feel alone sometimes.
 						<br />
 						But there is always a dream where someone understands.
 					</p>
@@ -62,11 +62,11 @@ export default function Hero() {
 							className={styles['hero__cloud-speech-bubble-img']}
 						/>
 						<p className={styles['hero__cloud-speech-bubble-text']}>
-							You don't <br />
+							You don’t <br />
 							have to <br />
 							know yet...
 							<br />
-							It's okay to <br />
+							It’s okay to <br />
 							feel a little <br />
 							shy.
 						</p>

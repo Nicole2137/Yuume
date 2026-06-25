@@ -10,7 +10,7 @@ export default function MoodCard() {
 	return (
 		<article className={styles['mood-card']}>
 			<div className={styles['mood-card__header']}>
-				<span className={styles['mood-card__header-text']}>Today's Mood</span>
+				<span className={styles['mood-card__header-text']}>Today’s Mood</span>
 				<img
 					className={styles['mood-card__header-img']}
 					src='/img/decorations/logo-cat.svg'

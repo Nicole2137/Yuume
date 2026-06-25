@@ -29,7 +29,7 @@ export const useMobileNav = () => {
 			duration: mobileNavAnimation.duration,
 			ease: mobileNavAnimation.ease,
 		})
-	}, [isOpen])
+	}, [dragX, isOpen])
 
 	useEffect(() => animateNavToState(), [animateNavToState])
 
@@ -102,7 +102,7 @@ export const useMobileNav = () => {
 			document.removeEventListener('touchmove', handleTouchMove)
 			document.removeEventListener('touchend', handleTouchEnd)
 		}
-	}, [isOpen, animateNavToState])
+	}, [dragX, isOpen, animateNavToState])
 
 	return {
 		isOpen,
