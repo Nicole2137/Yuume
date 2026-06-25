@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import BurgerButton from './BurgerButton'
 
-describe('BurgerButton Component', () => {
+describe('BurgerButton component', () => {
 	it('shows "Open navigation" label when closed', () => {
 		render(<BurgerButton isOpen={false} onClick={() => {}} />)
 		const button = screen.getByRole('button', { name: /open navigation/i })
