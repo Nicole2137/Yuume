@@ -2,7 +2,11 @@ name: Frontend CI
 
 on:
   push:
+    paths:
+      - 'frontend/**'
   pull_request:
+    paths:
+      - 'frontend/**'
 
 jobs:
   test-and-build:
@@ -24,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: latest
+          node-version: 24
           cache: pnpm
           cache-dependency-path: frontend/pnpm-lock.yaml
 
