@@ -45,6 +45,7 @@ export default function Nav() {
 				aria-hidden='true'
 				onClick={() => setIsOpen(false)}
 				className={`overlay ${isOpen ? 'overlay--active' : ''}`}
+				data-testid='overlay'
 			/>
 		</>
 	)

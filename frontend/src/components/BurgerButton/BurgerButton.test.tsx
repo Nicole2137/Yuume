@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import BurgerButton from './BurgerButton'
 
 describe('BurgerButton component', () => {
@@ -14,12 +15,14 @@ describe('BurgerButton component', () => {
 		expect(button).toBeInTheDocument()
 	})
 
-	it('calls onClick function when clicked', () => {
+	it('calls onClick function when clicked', async () => {
+		const user=userEvent.setup()
 		const mockOnClick = vi.fn()
+
 		render(<BurgerButton isOpen={true} onClick={mockOnClick} />)
 
 		const button = screen.getByRole('button')
-		button.click()
+		await user.click(button)
 
 		expect(mockOnClick).toHaveBeenCalledTimes(1)
 	})

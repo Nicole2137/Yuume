@@ -1,12 +1,12 @@
 import styles from './SpeechBubble.module.scss'
 import type { ElementType } from 'react'
 
-interface SpeechBubbleInterface {
+interface SpeechBubbleProps {
 	text: string
 	Icon?: ElementType  //renderable element
 }
 
-export default function SpeechBubble({ text, Icon }: SpeechBubbleInterface) {
+export default function SpeechBubble({ text, Icon }: SpeechBubbleProps) {
 	return (
 		<div className={styles['speech-bubble']}>
 			<img
