@@ -8,16 +8,21 @@ import Nav from './Nav'
 vi.mock('@/hooks/useMobileNav')
 
 describe('Nav component', () => {
-	it('closes mobile nav after clicking an overlay', async () => {
-		const mockSetIsOpen = vi.fn()
-		const user = userEvent.setup()
+    const mockSetIsOpen = vi.fn()
 
+	beforeEach(() => {
 		vi.mocked(useMobileNav).mockReturnValue({
 			isOpen: true,
 			setIsOpen: mockSetIsOpen,
 			mobileNavRef: { current: null },
 			dragX: motionValue(0),
 		})
+
+        mockSetIsOpen.mockClear()
+	})
+
+	it('closes mobile nav after clicking an overlay', async () => {
+		const user = userEvent.setup()
 
 		render(<Nav />)
 		const overlay = screen.getByTestId('overlay')
@@ -29,15 +34,7 @@ describe('Nav component', () => {
 	})
 
 	it('closes mobile nav after clicking a burger button', async () => {
-		const mockSetIsOpen = vi.fn()
 		const user = userEvent.setup()
-
-		vi.mocked(useMobileNav).mockReturnValue({
-			isOpen: true,
-			setIsOpen: mockSetIsOpen,
-			mobileNavRef: { current: null },
-			dragX: motionValue(0),
-		})
 
 		render(<Nav />)
 		const burgerBtn = screen.getByRole('button')
@@ -60,13 +57,6 @@ describe('Nav component', () => {
 	})
 
 	it('shows overlay when mobile nav is active', () => {
-		vi.mocked(useMobileNav).mockReturnValue({
-			isOpen: true,
-			setIsOpen: () => {},
-			mobileNavRef: { current: null },
-			dragX: motionValue(0),
-		})
-
 		render(<Nav />)
 
 		const overlay = screen.getByTestId('overlay')
@@ -74,8 +64,8 @@ describe('Nav component', () => {
 		expect(overlay).toHaveClass('overlay--active')
 	})
 
-    it('hides overlay when mobile nav is not active',()=>{
-        vi.mocked(useMobileNav).mockReturnValue({
+	it('hides overlay when mobile nav is not active', () => {
+		vi.mocked(useMobileNav).mockReturnValue({
 			isOpen: false,
 			setIsOpen: () => {},
 			mobileNavRef: { current: null },
@@ -87,5 +77,5 @@ describe('Nav component', () => {
 		const overlay = screen.getByTestId('overlay')
 
 		expect(overlay).not.toHaveClass('overlay--active')
-    })
+	})
 })
