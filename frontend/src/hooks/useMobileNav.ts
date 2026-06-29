@@ -56,8 +56,9 @@ export const useMobileNav = () => {
 
 			if (!isDragging || !mobileNav) return
 
-			const currentX = event.touches[0].screenX
-			const currentY = event.touches[0].screenY
+			const currentTouch = event.changedTouches[0]
+			const [currentX, currentY] = [currentTouch.screenX, currentTouch.screenY]
+
 			const deltaX = currentX - touchStartX
 			const deltaY = Math.abs(currentY - touchStartY)
 
