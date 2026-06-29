@@ -18,7 +18,12 @@
 		width: 50%;
 	}
 
-	&__heading {
+	&__heading-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__heading-text {
 		font-size: 6.2rem;
 		font-family: $decorative-font;
 		line-height: 1;
@@ -138,7 +143,7 @@
 	}
 }
 
-@media (width<$sm) {
+@media (width<$md) {
 	.hero {
 		&__main {
 			flex-direction: column;
@@ -146,6 +151,7 @@
 		}
 
 		&__article {
+			align-items: center;
 			width: 100%;
 		}
 
@@ -156,8 +162,8 @@
 		}
 
 		&__girl-animation {
-			width: 95%;
-			transform: translate(1.6rem, 0rem);
+			width: 80%;
+			transform: translate(6.4rem, 0rem);
 		}
 
 		&__cloud-speech-bubble {
@@ -172,6 +178,15 @@
 
 		&__cloud-background {
 			display: none;
+		}
+	}
+}
+
+@media (width<$sm) {
+	.hero {
+		&__girl-animation {
+			width: 95%;
+			transform: translate(1.6rem, 0rem);
 		}
 	}
 }

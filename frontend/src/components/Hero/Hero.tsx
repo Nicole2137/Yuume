@@ -15,11 +15,15 @@ export default function Hero() {
 		<section className={styles.hero}>
 			<div className={styles.hero__main}>
 				<article className={styles.hero__article}>
-					<SpeechBubble text='welcome to yuume' Icon={Heart} />
-					<h1 className={styles.hero__heading}>
-						How to Create <br />
-						<span>Gentle</span> Dreams.
-					</h1>
+
+					<div className={styles['hero__heading-wrapper']}>
+						<SpeechBubble text='welcome to yuume' Icon={Heart} />
+						<h1 className={styles['hero__heading-text']}>
+							How to Create <br />
+							<span>Gentle</span> Dreams.
+						</h1>
+					</div>
+
 					<HeroTagline />
 					<p className={styles.hero__description}>
 						It’s okay to feel alone sometimes.

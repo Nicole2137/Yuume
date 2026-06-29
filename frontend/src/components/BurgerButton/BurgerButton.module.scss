@@ -9,6 +9,7 @@
 	align-items: center;
 	gap: $line-gap;
 	padding: $burger-padding;
+	z-index: 9550;
 
 	& > span {
 		width: 3.2rem;
