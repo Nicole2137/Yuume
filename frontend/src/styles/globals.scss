@@ -8,8 +8,8 @@
 	padding: 0;
 }
 
-*:focus {
-	outline: none;
+*:focus-visible {
+	outline: 1px solid $light-border-color;
 }
 
 html {

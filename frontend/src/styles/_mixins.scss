@@ -21,6 +21,7 @@
 	background-color: $background-color;
 	box-shadow: 0 0.625rem 1.6rem rgba(174, 130, 224, 0.35);
 	border: 2px solid color.scale($main-color, $lightness: 75%);
+	outline: none;
 	scale: 1.05;
 }
 

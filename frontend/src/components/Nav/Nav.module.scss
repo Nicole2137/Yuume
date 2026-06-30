@@ -55,6 +55,7 @@
 		&:hover,
 		&:focus {
 			color: color.adjust($main-color, $lightness: -5%);
+			outline: none;
 
 			&::before,
 			&::after {
