@@ -1,5 +1,7 @@
 @use '@/styles' as *;
 
+$article-margin-top: 2.4rem;
+
 .hero {
 	position: relative;
 	display: flex;
@@ -14,7 +16,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.6rem;
-		margin-top: 2.4rem;
+		margin-top: $article-margin-top;
 		width: 50%;
 	}
 
@@ -89,7 +91,7 @@
 		position: relative;
 		z-index: $z-ui;
 		width: 76%;
-		transform: translate(8.5rem, -0.8rem);
+		translate: 8.5rem -0.8rem;
 
 		-webkit-mask-image: $girl-animation-mask;
 		mask-image: $girl-animation-mask;
@@ -146,12 +148,14 @@
 @media (width<$lg) {
 	.hero {
 		&__figure {
+			display: flex;
+			align-items: center;
 			margin-inline: calc(50% - 50vw);
 		}
 
 		&__girl-animation {
 			width: 90%;
-			transform: translate(9.6rem, 4.8rem);
+			translate: 9.6rem $article-margin-top;
 		}
 
 		&__cloud-speech-bubble {
@@ -196,7 +200,7 @@
 
 		&__girl-animation {
 			width: 80%;
-			transform: translate(6.4rem, 0rem);
+			translate: 6.4rem 0rem;
 		}
 
 		&__cards-list {
@@ -209,7 +213,7 @@
 	.hero {
 		&__girl-animation {
 			width: 95%;
-			transform: translate(1.6rem, 0rem);
+			translate: 1.6rem 0rem;
 		}
 	}
 }
