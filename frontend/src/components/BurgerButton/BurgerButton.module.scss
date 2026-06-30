@@ -4,12 +4,12 @@
 	$line-gap: 0.7rem;
 	$line-height: 0.3rem;
 
+	z-index: $z-burger-btn;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: $line-gap;
 	padding: $burger-padding;
-	z-index: 9550;
 
 	& > span {
 		width: 3.2rem;

@@ -87,7 +87,7 @@
 			radial-gradient(ellipse at left bottom, transparent 0%, black 45%);
 
 		position: relative;
-		z-index: 10;
+		z-index: $z-ui;
 		width: 76%;
 		transform: translate(8.5rem, -0.8rem);
 
@@ -102,7 +102,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		z-index: 10;
+		z-index: $z-ui;
 		width: 33%;
 
 		&-img {
@@ -127,7 +127,7 @@
 	&__cards-list {
 		position: absolute;
 		bottom: -5rem;
-		z-index: 10;
+		z-index: $z-ui;
 		display: flex;
 		gap: 1.2rem;
 	}
@@ -136,10 +136,44 @@
 		position: absolute;
 		left: 50%;
 		bottom: -19rem;
-		transform: translateX(-50%);
-		z-index: -1;
+		z-index: $z-background;
+		translate: -50% 0;
 		width: 100vw;
 		height: 80vh;
+	}
+}
+
+@media (width<$lg) {
+	.hero {
+		&__figure {
+			margin-inline: calc(50% - 50vw);
+		}
+
+		&__girl-animation {
+			width: 90%;
+			transform: translate(9.6rem, 4.8rem);
+		}
+
+		&__cloud-speech-bubble {
+			display: none;
+		}
+
+		&__cards-list {
+			position: static;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			padding-bottom: calc($footer-height - 4.4rem);
+		}
+
+		&__card-item {
+			&--newsletter {
+				grid-column: 1 / -1;
+			}
+		}
+
+		&__cloud-background {
+			display: none;
+		}
 	}
 }
 
@@ -156,7 +190,6 @@
 		}
 
 		&__figure {
-			margin-inline: calc(50% - 50vw);
 			width: 100vw;
 			height: 100%;
 		}
@@ -166,18 +199,8 @@
 			transform: translate(6.4rem, 0rem);
 		}
 
-		&__cloud-speech-bubble {
-			display: none;
-		}
-
 		&__cards-list {
-			position: static;
-			flex-direction: column;
-			padding-bottom: calc($footer-height - 4.4rem);
-		}
-
-		&__cloud-background {
-			display: none;
+			grid-template-columns: 1fr;
 		}
 	}
 }

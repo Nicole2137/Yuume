@@ -3,6 +3,7 @@
 .footer {
 	position: fixed;
 	bottom: -1rem;
+	z-index: $z-layout;
 
 	&__img {
 		width: 100%;
@@ -41,8 +42,6 @@
 
 @media (width<$md) {
 	.footer {
-		z-index: 8000;
-
 		&__content {
 			gap: 1.2rem;
 		}

@@ -4,7 +4,7 @@
 .nav {
 	position: sticky;
 	top: 0;
-	z-index: 7000;
+	z-index: $z-layout;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -80,7 +80,6 @@
 		position: fixed;
 		top: 1.2rem;
 		right: calc(3.2rem - $burger-padding);
-		z-index: 9001;
 		display: none;
 	}
 }

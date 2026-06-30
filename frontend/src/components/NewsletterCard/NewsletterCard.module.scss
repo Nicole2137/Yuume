@@ -4,7 +4,6 @@
 .newsletter-card {
 	position: absolute;
 	bottom: -6.4rem;
-	z-index: 1000;
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
@@ -71,9 +70,8 @@
 	}
 }
 
-@media(width<$md)
-{
-	.newsletter-card{
+@media (width<$lg) {
+	.newsletter-card {
 		position: static;
 		margin-left: 0;
 		width: 100%;

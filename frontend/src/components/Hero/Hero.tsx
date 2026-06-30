@@ -15,7 +15,6 @@ export default function Hero() {
 		<section className={styles.hero}>
 			<div className={styles.hero__main}>
 				<article className={styles.hero__article}>
-
 					<div className={styles['hero__heading-wrapper']}>
 						<SpeechBubble text='welcome to yuume' Icon={Heart} />
 						<h1 className={styles['hero__heading-text']}>
@@ -86,7 +85,7 @@ export default function Hero() {
 						<HeroInfoCard {...item} />
 					</li>
 				))}
-				<li className={styles['hero__card-item']}>
+				<li className={`${styles['hero__card-item']} ${styles['hero__card-item--newsletter']}`}>
 					<NewsletterCard />
 				</li>
 			</ul>
