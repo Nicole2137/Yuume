@@ -79,9 +79,11 @@
 	}
 }
 
-@media (width<$sm) {
-	.mood-card {
-		right: 2.4rem;
+@media(width<$xl)
+{
+	.mood-card{
+		right: 3.2rem;
 		bottom: 2.4rem;
 	}
 }
+

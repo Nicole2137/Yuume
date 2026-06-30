@@ -78,6 +78,8 @@ $article-margin-top: 2.4rem;
 
 	&__figure {
 		position: relative;
+		display: flex;
+		align-items: center;
 		height: 70vh;
 		overflow: hidden;
 	}
@@ -91,7 +93,7 @@ $article-margin-top: 2.4rem;
 		position: relative;
 		z-index: $z-ui;
 		width: 76%;
-		translate: 8.5rem -0.8rem;
+		translate: 8.5rem $article-margin-top;
 
 		-webkit-mask-image: $girl-animation-mask;
 		mask-image: $girl-animation-mask;
@@ -145,21 +147,30 @@ $article-margin-top: 2.4rem;
 	}
 }
 
-@media (width<$lg) {
+@media (width<$xxl) {
 	.hero {
+		
+		
+	}
+}
+
+@media (width<$xl) {
+	.hero {
+		&__article {
+			justify-content: center;
+		}
+
 		&__figure {
-			display: flex;
-			align-items: center;
 			margin-inline: calc(50% - 50vw);
 		}
 
 		&__girl-animation {
-			width: 90%;
+			width: 80%;
 			translate: 9.6rem $article-margin-top;
 		}
 
 		&__cloud-speech-bubble {
-			display: none;
+			top: $article-margin-top;
 		}
 
 		&__cards-list {
@@ -176,6 +187,19 @@ $article-margin-top: 2.4rem;
 		}
 
 		&__cloud-background {
+			display: none;
+		}
+	}
+}
+
+@media (width<$lg) {
+	.hero {
+		&__girl-animation {
+			width: 90%;
+			translate: 9.6rem $article-margin-top;
+		}
+
+		&__cloud-speech-bubble {
 			display: none;
 		}
 	}
