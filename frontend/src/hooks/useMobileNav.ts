@@ -1,11 +1,16 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useMotionValue, animate } from 'motion/react'
+import { useMotionValue, animate, useTransform } from 'motion/react'
 import { mobileNavDragProperties, mobileNavAnimation } from '@/constants/mobileNav'
 
 export const useMobileNav = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const mobileNavRef = useRef<HTMLElement>(null)
 	const dragX = useMotionValue<number>(mobileNavDragProperties.closedPosition)
+	const overlayOpacity = useTransform(
+		dragX,
+		[mobileNavDragProperties.openedPosition, mobileNavDragProperties.closedPosition],
+		[1, 0],
+	)
 
 	useEffect(() => {
 		if (!isOpen) return
@@ -42,15 +47,17 @@ export const useMobileNav = () => {
 			const currentTouch = event.changedTouches[0]
 			;[touchStartX, touchStartY] = [currentTouch.screenX, currentTouch.screenY]
 
-			isDragging = true
-
 			if (mobileNavRef.current) {
 				navWidth = mobileNavRef.current.getBoundingClientRect().width
 			}
+
+			if (navWidth === 0) return
+
+			isDragging = true
 		}
 
 		const handleTouchMove = (event: TouchEvent) => {
-			if (!isDragging || !mobileNavRef.current) return
+			if (!isDragging) return
 
 			const currentTouch = event.changedTouches[0]
 			const [currentX, currentY] = [currentTouch.screenX, currentTouch.screenY]
@@ -71,9 +78,7 @@ export const useMobileNav = () => {
 		}
 
 		const handleTouchEnd = () => {
-			if (!isDragging || !mobileNavRef.current) return
-
-			isDragging = false
+			if (!isDragging) return
 
 			const currentPercent = dragX.get()
 
@@ -86,16 +91,24 @@ export const useMobileNav = () => {
 			} else {
 				animateNavToState()
 			}
+
+			isDragging = false
+		}
+
+		const handleTouchCancel = () => {
+			isDragging = false
 		}
 
 		document.addEventListener('touchstart', handleTouchStart)
 		document.addEventListener('touchmove', handleTouchMove)
 		document.addEventListener('touchend', handleTouchEnd)
+		document.addEventListener('touchcancel', handleTouchCancel)
 
 		return () => {
 			document.removeEventListener('touchstart', handleTouchStart)
 			document.removeEventListener('touchmove', handleTouchMove)
 			document.removeEventListener('touchend', handleTouchEnd)
+			document.removeEventListener('touchcancel', handleTouchCancel)
 		}
 	}, [dragX, isOpen, animateNavToState])
 
@@ -104,5 +117,6 @@ export const useMobileNav = () => {
 		setIsOpen,
 		mobileNavRef,
 		dragX,
+		overlayOpacity,
 	}
 }

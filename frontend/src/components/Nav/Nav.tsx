@@ -7,9 +7,10 @@ import { Heart } from 'lucide-react'
 import BurgerButton from '@/components/BurgerButton/BurgerButton'
 import MobileNav from '@/components/MobileNav/MobileNav'
 import { useMobileNav } from '@/hooks/useMobileNav'
+import { motion } from 'motion/react'
 
 export default function Nav() {
-	const { isOpen, setIsOpen, mobileNavRef, dragX } = useMobileNav()
+	const { isOpen, setIsOpen, mobileNavRef, dragX, overlayOpacity } = useMobileNav()
 
 	return (
 		<>
@@ -41,11 +42,15 @@ export default function Nav() {
 
 			<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} dragX={dragX} mobileNavRef={mobileNavRef} />
 
-			<div
+			<motion.div
 				aria-hidden='true'
 				onClick={() => setIsOpen(false)}
-				className={`overlay ${isOpen ? 'overlay--active' : ''}`}
+				className='overlay'
 				data-testid='overlay'
+				style={{
+					opacity: overlayOpacity,
+					pointerEvents: isOpen ? 'auto' : 'none',
+				}}
 			/>
 		</>
 	)

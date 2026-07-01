@@ -71,15 +71,7 @@ hr {
 	inset: 0;
 	z-index: $z-overlay;
 	background-color: rgba(0, 0, 0, 0.35);
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 0.5s;
 	cursor: pointer;
-
-	&--active {
-		opacity: 1;
-		pointer-events: auto;
-	}
 }
 
 @media (width<$xxl) {
