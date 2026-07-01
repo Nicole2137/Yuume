@@ -96,7 +96,10 @@ export const useMobileNav = () => {
 		}
 
 		const handleTouchCancel = () => {
+			if (!isDragging) return
+
 			isDragging = false
+			animateNavToState()
 		}
 
 		document.addEventListener('touchstart', handleTouchStart)
