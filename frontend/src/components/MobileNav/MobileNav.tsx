@@ -3,11 +3,11 @@ import styles from './MobileNav.module.scss'
 import { navItems } from '@/constants/nav'
 import { ChevronRight, Heart } from 'lucide-react'
 import { motion, type MotionValue, useTransform } from 'motion/react'
-import { RefObject } from 'react'
+import { RefObject, Dispatch, SetStateAction } from 'react'
 
 interface MobileNavProps {
 	isOpen: boolean
-	setIsOpen: (isOpen: boolean) => void
+	setIsOpen: Dispatch<SetStateAction<boolean>>
 	dragX: MotionValue<number>
 	mobileNavRef: RefObject<HTMLElement | null>
 }
