@@ -1,42 +1,41 @@
-@use 'sass:color';
-@use '@/styles' as *;
+@use "sass:color";
+@use "@/styles" as *;
 
 .hero-info-card {
-	display: flex;
-	align-items: center;
-	gap: 1.2rem;
-	max-width: 28rem;
-	height: 100%;
-	padding: 2.4rem;
-	background-color: rgba(255, 255, 255, 0.95);
-	@include round-border;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 28rem;
+  height: 100%;
+  padding: 2.4rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  @include round-border;
 
-	&__icon {
-		width: 5.4rem;
-	}
+  &__icon {
+    width: 5.4rem;
+  }
 
-	&__content {
-		display: flex;
-		flex-direction: column;
-		gap: 1.2rem;
-	}
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
 
-	&__title {
-		font-size: 1.4rem;
-		font-weight: 600;
-		letter-spacing: 0.1rem;
-		color: $main-color;
-	}
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: $main-color;
+  }
 
-	&__description {
-		font-size: 1.1rem;
-		line-height: 1.8rem;
-	}
+  &__description {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+  }
 }
 
-@media(width<$xxl)
-{
-	.hero-info-card{
-		max-width: 100%;
-	}
+@media (width<$xxl) {
+  .hero-info-card {
+    max-width: 100%;
+  }
 }

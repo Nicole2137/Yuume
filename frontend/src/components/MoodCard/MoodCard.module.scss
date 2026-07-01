@@ -1,84 +1,84 @@
-@use 'sass:color';
-@use '@/styles' as *;
+@use "sass:color";
+@use "@/styles" as *;
 
 .mood-card {
-	position: absolute;
-	bottom: 8.4rem;
-	right: 2rem;
-	z-index: $z-ui-overlay;
-	display: flex;
-	flex-direction: column;
-	gap: 0.8rem;
-	padding: 1.6rem 2.4rem;
-	width: 24rem;
-	background-color: #fff;
-	border: 2px solid color.adjust($main-color, $lightness: 16%);
-	rotate: -5deg;
+  position: absolute;
+  bottom: 8.4rem;
+  right: 2rem;
+  z-index: $z-ui-overlay;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.6rem 2.4rem;
+  width: 24rem;
+  background-color: #fff;
+  border: 2px solid color.adjust($main-color, $lightness: 16%);
+  rotate: -5deg;
 
-	&__header {
-		display: flex;
-		align-items: center;
-		gap: 1.2rem;
-	}
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
 
-	&__header-text {
-		font-size: 1.4rem;
-	}
+  &__header-text {
+    font-size: 1.4rem;
+  }
 
-	&__header-img {
-		width: 2.4rem;
-	}
+  &__header-img {
+    width: 2.4rem;
+  }
 
-	& > hr {
-		height: 1px;
-		background-color: $light-border-color;
-	}
+  & > hr {
+    height: 1px;
+    background-color: $light-border-color;
+  }
 
-	&__main {
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-	}
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 
-	&__current-mood {
-		font-size: 1.4rem;
-	}
+  &__current-mood {
+    font-size: 1.4rem;
+  }
 
-	&__list {
-		display: flex;
-		gap: 1.6rem;
-	}
+  &__list {
+    display: flex;
+    gap: 1.6rem;
+  }
 
-	&__list-btn {
-		padding: 0.45rem;
-		background-color: color.adjust($main-color, $lightness: 12%);
-		border: 2px solid $main-color;
-		border-radius: 50%;
+  &__list-btn {
+    padding: 0.45rem;
+    background-color: color.adjust($main-color, $lightness: 12%);
+    border: 2px solid $main-color;
+    border-radius: 50%;
 
-		&:hover,
-		&:focus {
-			scale: 1.2;
-		}
-	}
+    &:hover,
+    &:focus {
+      scale: 1.2;
+    }
+  }
 
-	&__cloud-icon {
-		position: absolute;
-		bottom: 2rem;
-		right: 2rem;
-		width: 3.2rem;
-		animation: cloudAnimation 1.6s ease-in-out infinite alternate;
-	}
+  &__cloud-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.2rem;
+    animation: cloudAnimation 1.6s ease-in-out infinite alternate;
+  }
 }
 
 @keyframes cloudAnimation {
-	to {
-		transform: translateY(-0.8rem);
-	}
+  to {
+    transform: translateY(-0.8rem);
+  }
 }
 
 @media (width<$xxl) {
-	.mood-card {
-		right: 3.2rem;
-		bottom: 2.4rem;
-	}
+  .mood-card {
+    right: 3.2rem;
+    bottom: 2.4rem;
+  }
 }

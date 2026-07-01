@@ -1,27 +1,27 @@
-@use '@/styles' as *;
+@use "@/styles" as *;
 
 .hero-tagline {
-	display: flex;
-	align-items: center;
-	gap: 0.8rem;
-	color: $main-color;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: $main-color;
 
-	&__img {
-		width: 1.4rem;
-		height: auto;
-	}
+  &__img {
+    width: 1.4rem;
+    height: auto;
+  }
 
-	&__dashed-line {
-		width: 2.4rem;
+  &__dashed-line {
+    width: 2.4rem;
 
-		@include line-gradient;
-	}
+    @include line-gradient;
+  }
 
-	&__text {
-		font-size: 2.4rem;
-		font-weight: 600;
-		font-family: $decorative-font;
-		font-style: italic;
-		white-space: nowrap;
-	}
+  &__text {
+    font-size: 2.4rem;
+    font-weight: 600;
+    font-family: $decorative-font;
+    font-style: italic;
+    white-space: nowrap;
+  }
 }

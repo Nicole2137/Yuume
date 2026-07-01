@@ -1,250 +1,261 @@
-@use '@/styles' as *;
+@use "@/styles" as *;
 
 $article-margin-top: 2.4rem;
 
 .hero {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: 3.2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
 
-	&__main {
-		position: relative;
-		display: flex;
-	}
+  &__main {
+    position: relative;
+    display: flex;
+  }
 
-	&__article {
-		display: flex;
-		flex-direction: column;
-		gap: 1.6rem;
-		margin-top: $article-margin-top;
-		width: 50%;
-	}
+  &__article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: $article-margin-top;
+    width: 50%;
+  }
 
-	&__heading-wrapper {
-		display: flex;
-		flex-direction: column;
-	}
+  &__heading-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
-	&__heading-text {
-		font-size: 6.2rem;
-		font-family: $decorative-font;
-		line-height: 1;
-		letter-spacing: 0.2rem;
+  &__heading-text {
+    font-size: 6.2rem;
+    font-family: $decorative-font;
+    line-height: 1;
+    letter-spacing: 0.2rem;
 
-		& > span {
-			color: $main-color;
-		}
-	}
+    & > span {
+      color: $main-color;
+    }
+  }
 
-	&__description {
-		font-size: 1.4rem;
-		font-weight: 500;
-		line-height: 1.7;
-	}
+  &__description {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.7;
+  }
 
-	&__btns {
-		display: flex;
-		gap: 1.2rem;
-	}
+  &__btns {
+    display: flex;
+    gap: 1.2rem;
+  }
 
-	&__btn {
-		@include btn;
+  &__btn {
+    @include btn;
 
-		&:hover,
-		&:focus {
-			@include btn-hover;
-		}
+    &:hover,
+    &:focus {
+      @include btn-hover;
+    }
 
-		&--white {
-			color: $text-color;
-			background-color: #fff;
+    &--white {
+      color: $text-color;
+      background-color: #fff;
 
-			&:hover,
-			&:focus {
-				background-color: #fff;
-			}
-		}
+      &:hover,
+      &:focus {
+        background-color: #fff;
+      }
+    }
 
-		&:hover &-icon,
-		&:focus &-icon {
-			filter: drop-shadow(0 0 0.4rem rgba(255, 255, 255, 0.9));
-		}
-	}
+    &:hover &-icon,
+    &:focus &-icon {
+      filter: drop-shadow(0 0 0.4rem rgba(255, 255, 255, 0.9));
+    }
+  }
 
-	&__btn-icon {
-		width: 1.8rem;
-		transition: filter 0.3s;
-	}
+  &__btn-icon {
+    width: 1.8rem;
+    transition: filter 0.3s;
+  }
 
-	&__figure {
-		position: relative;
-		display: flex;
-		align-items: center;
-		height: 70vh;
-		overflow: hidden;
-	}
+  &__figure {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 70vh;
+    overflow: hidden;
+  }
 
-	&__girl-animation {
-		$girl-animation-mask:
-			linear-gradient(to right, transparent 0%, black 0%, black 92%, transparent 100%),
-			linear-gradient(to bottom, transparent 0%, black 7%, black 80%, transparent 100%),
-			radial-gradient(ellipse at left bottom, transparent 0%, black 45%);
+  &__girl-animation {
+    $girl-animation-mask: linear-gradient(
+        to right,
+        transparent 0%,
+        black 0%,
+        black 92%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 7%,
+        black 80%,
+        transparent 100%
+      ),
+      radial-gradient(ellipse at left bottom, transparent 0%, black 45%);
 
-		position: relative;
-		z-index: $z-ui;
-		width: 76%;
-		translate: 8.5rem $article-margin-top;
+    position: relative;
+    z-index: $z-ui;
+    width: 76%;
+    translate: 8.5rem $article-margin-top;
 
-		-webkit-mask-image: $girl-animation-mask;
-		mask-image: $girl-animation-mask;
+    -webkit-mask-image: $girl-animation-mask;
+    mask-image: $girl-animation-mask;
 
-		-webkit-mask-composite: source-in, source-in;
-		mask-composite: intersect, intersect;
-	}
+    -webkit-mask-composite: source-in, source-in;
+    mask-composite: intersect, intersect;
+  }
 
-	&__cloud-speech-bubble {
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: $z-ui;
-		width: 33%;
+  &__cloud-speech-bubble {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: $z-ui;
+    width: 33%;
 
-		&-img {
-			width: 100%;
-		}
+    &-img {
+      width: 100%;
+    }
 
-		&-text {
-			position: absolute;
-			top: 0;
-			right: -0.8rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 100%;
-			font-family: $handwriting-font;
-			font-size: 1.8rem;
-			line-height: 3rem;
-		}
-	}
+    &-text {
+      position: absolute;
+      top: 0;
+      right: -0.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-family: $handwriting-font;
+      font-size: 1.8rem;
+      line-height: 3rem;
+    }
+  }
 
-	&__cloud-background {
-		position: absolute;
-		left: 50%;
-		bottom: -19rem;
-		z-index: $z-background;
-		translate: -50% 0;
-		width: 100vw;
-		height: 80vh;
-	}
+  &__cloud-background {
+    position: absolute;
+    left: 50%;
+    bottom: -19rem;
+    z-index: $z-background;
+    translate: -50% 0;
+    width: 100vw;
+    height: 80vh;
+  }
 
-	&__cards-list {
-		position: absolute;
-		bottom: -5rem;
-		z-index: $z-layout;
-		display: flex;
-		gap: 1.2rem;
-	}
+  &__cards-list {
+    position: absolute;
+    bottom: -5rem;
+    z-index: $z-layout;
+    display: flex;
+    gap: 1.2rem;
+  }
 }
 
 @media (width<$xxl) {
-	.hero {
-		&__article {
-			justify-content: center;
-		}
+  .hero {
+    &__article {
+      justify-content: center;
+    }
 
-		&__figure {
-			margin-inline: calc(50% - 50vw);
-		}
+    &__figure {
+      margin-inline: calc(50% - 50vw);
+    }
 
-		&__girl-animation {
-			width: 70%;
-			translate: 12.4rem $article-margin-top;
-		}
+    &__girl-animation {
+      width: 70%;
+      translate: 12.4rem $article-margin-top;
+    }
 
-		&__cloud-background {
-			display: none;
-		}
+    &__cloud-background {
+      display: none;
+    }
 
-		&__cards-list {
-			position: static;
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			padding-bottom: calc($footer-height - 4.4rem);
-		}
+    &__cards-list {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding-bottom: calc($footer-height - 4.4rem);
+    }
 
-		&__card-item {
-			&--newsletter {
-				grid-column: 1 / -1;
-			}
-		}
-	}
+    &__card-item {
+      &--newsletter {
+        grid-column: 1 / -1;
+      }
+    }
+  }
 }
 
 @media (width<$xl) {
-	.hero {
-		&__girl-animation {
-			width: 80%;
-			translate: 9.6rem $article-margin-top;
-		}
+  .hero {
+    &__girl-animation {
+      width: 80%;
+      translate: 9.6rem $article-margin-top;
+    }
 
-		&__cloud-speech-bubble {
-			top: $article-margin-top;
-		}
-	}
+    &__cloud-speech-bubble {
+      top: $article-margin-top;
+    }
+  }
 }
 
 @media (width<$lg) {
-	.hero {
-		&__girl-animation {
-			width: 90%;
-			translate: 9.6rem $article-margin-top;
-		}
+  .hero {
+    &__girl-animation {
+      width: 90%;
+      translate: 9.6rem $article-margin-top;
+    }
 
-		&__cloud-speech-bubble {
-			display: none;
-		}
-	}
+    &__cloud-speech-bubble {
+      display: none;
+    }
+  }
 }
 
 @media (width<$md) {
-	.hero {
-		&__main {
-			flex-direction: column;
-			gap: 4.8rem;
-		}
+  .hero {
+    &__main {
+      flex-direction: column;
+      gap: 4.8rem;
+    }
 
-		&__article {
-			align-items: center;
-			width: 100%;
-		}
+    &__article {
+      align-items: center;
+      width: 100%;
+    }
 
-		&__figure {
-			width: 100vw;
-			height: 100%;
-		}
+    &__figure {
+      width: 100vw;
+      height: 100%;
+    }
 
-		&__girl-animation {
-			width: 80%;
-			translate: 6.4rem 0rem;
-		}
+    &__girl-animation {
+      width: 80%;
+      translate: 6.4rem 0rem;
+    }
 
-		// &__cloud-background {
-		// 	display: none;
-		// }
+    // &__cloud-background {
+    // 	display: none;
+    // }
 
-		&__cards-list {
-			grid-template-columns: 1fr;
-		}
-	}
+    &__cards-list {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
 @media (width<$sm) {
-	.hero {
-		&__girl-animation {
-			width: 95%;
-			translate: 1.6rem 0rem;
-		}
-	}
+  .hero {
+    &__girl-animation {
+      width: 95%;
+      translate: 1.6rem 0rem;
+    }
+  }
 }

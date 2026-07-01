@@ -1,42 +1,46 @@
-@use 'sass:color';
-@use '@/styles/colors' as *;
+@use "sass:color";
+@use "@/styles/colors" as *;
 
 @mixin btn($background-color: $main-color) {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-	padding: 1.2rem 3.2rem;
-	font-size: 1.2rem;
-	font-weight: 600;
-	text-transform: capitalize;
-	letter-spacing: 0.09rem;
-	color: #fff;
-	background-color: $background-color;
-	border: 2px solid color.scale($main-color, $lightness: -5%);
-	border-radius: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 3.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.09rem;
+  color: #fff;
+  background-color: $background-color;
+  border: 2px solid color.scale($main-color, $lightness: -5%);
+  border-radius: 2.4rem;
 }
 
 @mixin btn-hover($background-color: $btn-hover-color) {
-	background-color: $background-color;
-	box-shadow: 0 0.625rem 1.6rem rgba(174, 130, 224, 0.35);
-	border: 2px solid color.scale($main-color, $lightness: 75%);
-	outline: none;
-	scale: 1.05;
+  background-color: $background-color;
+  box-shadow: 0 0.625rem 1.6rem rgba(174, 130, 224, 0.35);
+  border: 2px solid color.scale($main-color, $lightness: 75%);
+  outline: none;
+  scale: 1.05;
 }
 
 @mixin round-border($border-radius: 1.2rem) {
-	border: 2px solid $light-border-color;
-	border-radius: $border-radius;
+  border: 2px solid $light-border-color;
+  border-radius: $border-radius;
 }
 
-@mixin line-gradient($height: 0.1rem, $line-width: 0.4rem, $space-width: 0.3rem) {
-	height: $height;
-	background-image: repeating-linear-gradient(
-		to right,
-		currentColor 0,
-		currentColor $line-width,
-		transparent $line-width,
-		transparent $line-width + $space-width
-	);
+@mixin line-gradient(
+  $height: 0.1rem,
+  $line-width: 0.4rem,
+  $space-width: 0.3rem
+) {
+  height: $height;
+  background-image: repeating-linear-gradient(
+    to right,
+    currentColor 0,
+    currentColor $line-width,
+    transparent $line-width,
+    transparent $line-width + $space-width
+  );
 }

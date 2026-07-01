@@ -1,66 +1,66 @@
-@use '@/styles' as *;
+@use "@/styles" as *;
 
 .footer {
-	position: fixed;
-	bottom: -1rem;
-	z-index: $z-ui-overlay;
-	pointer-events: none;
+  position: fixed;
+  bottom: -1rem;
+  z-index: $z-ui-overlay;
+  pointer-events: none;
 
-	&__img {
-		width: 100%;
-		height: $footer-height;
-		object-fit: cover;
-	}
+  &__img {
+    width: 100%;
+    height: $footer-height;
+    object-fit: cover;
+  }
 
-	&__content {
-		position: absolute;
-		bottom: 2rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1.6rem;
-		width: 100%;
-	}
+  &__content {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    width: 100%;
+  }
 
-	&__logo {
-		margin-top: 0.7rem;
-		width: 15.4rem;
-	}
+  &__logo {
+    margin-top: 0.7rem;
+    width: 15.4rem;
+  }
 
-	&__text {
-		font-size: 1.4rem;
-		font-style: italic;
+  &__text {
+    font-size: 1.4rem;
+    font-style: italic;
 
-		&--mobile {
-			display: none;
-		}
-	}
+    &--mobile {
+      display: none;
+    }
+  }
 
-	&__decoration {
-		width: 1.6rem;
-	}
+  &__decoration {
+    width: 1.6rem;
+  }
 }
 
 @media (width<$xxl) {
-	.footer {
-		z-index: $z-layout;
-	}
+  .footer {
+    z-index: $z-layout;
+  }
 }
 
 @media (width<$md) {
-	.footer {
-		&__content {
-			gap: 1.2rem;
-		}
+  .footer {
+    &__content {
+      gap: 1.2rem;
+    }
 
-		&__text {
-			&--mobile {
-				display: block;
-			}
+    &__text {
+      &--mobile {
+        display: block;
+      }
 
-			&--desktop {
-				display: none;
-			}
-		}
-	}
+      &--desktop {
+        display: none;
+      }
+    }
+  }
 }
