@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
+    env:
+      BACKEND_API_URL: http://localhost:5043
+
     defaults:
       run:
         working-directory: frontend

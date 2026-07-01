@@ -37,24 +37,20 @@ export const useMobileNav = () => {
 		let [touchStartX, touchStartY] = [0, 0]
 		let isDragging = false
 		let navWidth = 0
-		let mobileNav: HTMLElement | null = null
 
 		const handleTouchStart = (event: TouchEvent) => {
-			mobileNav = mobileNavRef.current
 			const currentTouch = event.changedTouches[0]
 			;[touchStartX, touchStartY] = [currentTouch.screenX, currentTouch.screenY]
 
 			isDragging = true
 
-			if (mobileNav) {
-				navWidth = mobileNav.getBoundingClientRect().width
+			if (mobileNavRef.current) {
+				navWidth = mobileNavRef.current.getBoundingClientRect().width
 			}
 		}
 
 		const handleTouchMove = (event: TouchEvent) => {
-			mobileNav = mobileNavRef.current
-
-			if (!isDragging || !mobileNav) return
+			if (!isDragging || !mobileNavRef.current) return
 
 			const currentTouch = event.changedTouches[0]
 			const [currentX, currentY] = [currentTouch.screenX, currentTouch.screenY]
@@ -75,9 +71,7 @@ export const useMobileNav = () => {
 		}
 
 		const handleTouchEnd = () => {
-			mobileNav = mobileNavRef.current
-
-			if (!isDragging || !mobileNav) return
+			if (!isDragging || !mobileNavRef.current) return
 
 			isDragging = false
 
