@@ -77,6 +77,7 @@ export default function Hero() {
 
 					<MoodCard />
 				</figure>
+				<Image src={cloudBackground} alt='' aria-hidden='true' className={styles['hero__cloud-background']} priority />
 			</div>
 
 			<ul className={styles['hero__cards-list']}>
@@ -89,8 +90,6 @@ export default function Hero() {
 					<NewsletterCard />
 				</li>
 			</ul>
-
-			<Image src={cloudBackground} alt='' className={styles['hero__cloud-background']} priority />
 		</section>
 	)
 }

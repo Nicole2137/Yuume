@@ -9,6 +9,7 @@ $article-margin-top: 2.4rem;
 	gap: 3.2rem;
 
 	&__main {
+		position: relative;
 		display: flex;
 	}
 
@@ -128,14 +129,6 @@ $article-margin-top: 2.4rem;
 		}
 	}
 
-	&__cards-list {
-		position: absolute;
-		bottom: -5rem;
-		z-index: $z-ui;
-		display: flex;
-		gap: 1.2rem;
-	}
-
 	&__cloud-background {
 		position: absolute;
 		left: 50%;
@@ -144,6 +137,14 @@ $article-margin-top: 2.4rem;
 		translate: -50% 0;
 		width: 100vw;
 		height: 80vh;
+	}
+
+	&__cards-list {
+		position: absolute;
+		bottom: -5rem;
+		z-index: $z-layout;
+		display: flex;
+		gap: 1.2rem;
 	}
 }
 
@@ -162,6 +163,10 @@ $article-margin-top: 2.4rem;
 			translate: 12.4rem $article-margin-top;
 		}
 
+		&__cloud-background {
+			display: none;
+		}
+
 		&__cards-list {
 			position: static;
 			display: grid;
@@ -173,10 +178,6 @@ $article-margin-top: 2.4rem;
 			&--newsletter {
 				grid-column: 1 / -1;
 			}
-		}
-
-		&__cloud-background {
-			display: none;
 		}
 	}
 }
@@ -228,6 +229,10 @@ $article-margin-top: 2.4rem;
 			width: 80%;
 			translate: 6.4rem 0rem;
 		}
+
+		// &__cloud-background {
+		// 	display: none;
+		// }
 
 		&__cards-list {
 			grid-template-columns: 1fr;

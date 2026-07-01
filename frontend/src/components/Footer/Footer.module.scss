@@ -3,7 +3,7 @@
 .footer {
 	position: fixed;
 	bottom: -1rem;
-	z-index: $z-layout;
+	z-index: $z-ui-overlay;
 	pointer-events: none;
 
 	&__img {
@@ -38,6 +38,12 @@
 
 	&__decoration {
 		width: 1.6rem;
+	}
+}
+
+@media (width<$xxl) {
+	.footer {
+		z-index: $z-layout;
 	}
 }
 
