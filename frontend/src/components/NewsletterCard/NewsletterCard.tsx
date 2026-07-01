@@ -19,7 +19,7 @@ export default function NewsletterCard() {
 					className={styles['newsletter-card__input']}
 					required
 				/>
-				<button className={styles['newsletter-card__btn']} aria-label='Sign to newsletter'>
+				<button className={styles['newsletter-card__btn']} aria-label='Subscribe to newsletter'>
 					<img src='/img/decorations/send-icon.svg' alt='' className={styles['newsletter-card__img']} />
 				</button>
 			</form>

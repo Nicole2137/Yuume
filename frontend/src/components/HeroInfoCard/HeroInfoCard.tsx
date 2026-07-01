@@ -6,7 +6,7 @@ interface HeroInfoCardProps {
 	description: string
 }
 
-export default function HeroCard({ imgSrc, title, description }: HeroInfoCardProps) {
+export default function HeroInfoCard({ imgSrc, title, description }: HeroInfoCardProps) {
 	return (
 		<article className={styles['hero-info-card']}>
 			<img src={imgSrc} alt='' className={styles['hero-info-card__icon']} />
