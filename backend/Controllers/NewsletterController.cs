@@ -1,47 +1,24 @@
-using Microsoft.AspNetCore.Mvc;
-using Backend.DTOs;
-using System.Net.Http.Json;
+using Backend.Services;
+using System.Net;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class NewsletterController(IConfiguration configuration, IHttpClientFactory httpClientFactory) : ControllerBase
+public class NewsletterController(INewsletterService newsletterService) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> Subscribe([FromBody] NewsletterRequest request)
+    public async Task<IActionResult> Subscribe(NewsletterRequest request, CancellationToken cancellationToken)
     {
-        var apiKey = configuration["NewsletterApiKey"];
+        var result = await newsletterService.SubscribeAsync(request.Email, cancellationToken);
 
-        if (string.IsNullOrWhiteSpace(apiKey))
+        if (!result.IsSuccess)
         {
-            return StatusCode(500, new { error = "API key is missing" });
+            var errorCode = (int)(result.StatusCode ?? HttpStatusCode.InternalServerError);
+
+            return StatusCode(errorCode, new { error = result.ErrorMessage });
         }
 
-        var client = httpClientFactory.CreateClient();
-        client.DefaultRequestHeaders.Add("api-key", apiKey);
-
-        var payload = new
-        {
-            email = request.Email,
-            updateEnabled = true
-        };
-
-        try
-        {
-            var response = await client.PostAsJsonAsync("https://api.brevo.com/v3/contacts", payload);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                return StatusCode((int)response.StatusCode, new { error = errorContent });
-            }
-
-            return Ok();
-        }
-        catch (Exception exception)
-        {
-            return StatusCode(500, new { error = $"Connection error: {exception.Message}" });
-        }
+        return Ok();
     }
 }
