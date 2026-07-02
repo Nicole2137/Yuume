@@ -87,7 +87,11 @@ export const useMobileNav = () => {
 
 			const currentPercent = dragX.get()
 
-			const pixelsMoved = Math.abs(((isOpen ? currentPercent : 100 - currentPercent) / 100) * navWidth)
+			const pixelsMoved = Math.abs(
+				((isOpen ? currentPercent : mobileNavDragProperties.closedPosition - currentPercent) /
+					mobileNavDragProperties.closedPosition) *
+					navWidth,
+			)
 
 			if (!isOpen && pixelsMoved >= mobileNavDragProperties.openOffset) {
 				setIsOpen(true)

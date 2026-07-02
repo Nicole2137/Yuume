@@ -1,28 +1,39 @@
-import { useState, type SubmitEvent } from "react";
+import { error } from 'console'
+import { useState, type SubmitEvent } from 'react'
 
 export const useNewsletter = () => {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+	const [email, setEmail] = useState('')
+	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setStatus("loading");
+	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
+		event.preventDefault()
+		setStatus('loading')
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("success");
-      setEmail("");
-    } catch (error) {
-      setStatus("error");
-    }
-  };
+		try {
+			const response = await fetch('/api/newsletter', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ email }),
+			})
 
-  return {
-    email,
-    setEmail,
-    status,
-    handleSubmit,
-  };
-};
+			if (!response.ok) {
+				throw new Error(`Newsletter request failed with status ${response.status}`)
+			}
+
+			setStatus('success')
+			setEmail('')
+		} catch (error) {
+			console.error(error)
+			setStatus('error')
+		}
+	}
+
+	return {
+		email,
+		setEmail,
+		status,
+		handleSubmit,
+	}
+}
