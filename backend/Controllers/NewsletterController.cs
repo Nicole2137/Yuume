@@ -1,5 +1,6 @@
 using Backend.Services;
-using System.Net;
+using Backend.Extensions;
+using Backend.DTOs;
 
 namespace Backend.Controllers;
 
@@ -12,13 +13,8 @@ public class NewsletterController(INewsletterService newsletterService) : Contro
     {
         var result = await newsletterService.SubscribeAsync(request.Email, cancellationToken);
 
-        if (!result.IsSuccess)
-        {
-            var errorCode = (int)(result.StatusCode ?? HttpStatusCode.InternalServerError);
+        if (result.IsSuccess) return Ok();
 
-            return StatusCode(errorCode, new { error = result.ErrorMessage });
-        }
-
-        return Ok();
+        return StatusCode(result.ErrorType.ToHttpStatusCode(), new { error = result.ErrorMessage });
     }
 }

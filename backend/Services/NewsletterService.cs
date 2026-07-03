@@ -1,7 +1,5 @@
 
-using System.Net;
 using System.Net.Http.Json;
-using Microsoft.Extensions.Logging;
 
 namespace Backend.Services;
 
@@ -19,21 +17,19 @@ public class NewsletterService(HttpClient client, ILogger<NewsletterService> log
         {
             var response = await client.PostAsJsonAsync("contacts", payload, cancellationToken);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorContent = await response.Content.ReadAsStringAsync(cancellationToken);
+            if (response.IsSuccessStatusCode) return new NewsletterResult(IsSuccess: true);
 
-                logger.LogWarning("Newsletter API returned error status {StatusCode}: {Response}",
-                    response.StatusCode, errorContent);
+            var errorContent = await response.Content.ReadAsStringAsync(cancellationToken);
 
-                return new NewsletterResult(
-                    IsSuccess: false,
-                    StatusCode: response.StatusCode,
-                    ErrorMessage: "Newsletter API returned error status"
-                );
-            }
+            logger.LogWarning("Newsletter API returned error status {StatusCode}: {Response}",
+                response.StatusCode, errorContent);
 
-            return new NewsletterResult(IsSuccess: true);
+            return new NewsletterResult(
+                IsSuccess: false,
+                ErrorType: NewsletterError.ExternalApiFailure,
+                ErrorMessage: "Newsletter API returned error status"
+            );
+
         }
         catch (OperationCanceledException)
         {
@@ -41,7 +37,7 @@ public class NewsletterService(HttpClient client, ILogger<NewsletterService> log
 
             return new NewsletterResult(
                IsSuccess: false,
-               StatusCode: (HttpStatusCode)499,
+               ErrorType: NewsletterError.RequestCancelled,
                ErrorMessage: "Request cancelled"
            );
         }
@@ -50,7 +46,7 @@ public class NewsletterService(HttpClient client, ILogger<NewsletterService> log
             logger.LogError(exception, "Error while trying to connect with newsletter service with {Email} address", email);
             return new NewsletterResult(
                 IsSuccess: false,
-                StatusCode: HttpStatusCode.InternalServerError,
+                ErrorType: NewsletterError.ConnectionFailed,
                 ErrorMessage: "Connection error. Try again later."
             );
         }

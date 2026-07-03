@@ -1,8 +1,15 @@
-using System.Net;
-
 namespace Backend.Services;
 
-public record NewsletterResult(bool IsSuccess, HttpStatusCode? StatusCode = null, string? ErrorMessage = null);
+public enum NewsletterError
+{
+    None,
+    ApiKeyMissing,
+    ExternalApiFailure,
+    RequestCancelled,
+    ConnectionFailed
+}
+
+public record NewsletterResult(bool IsSuccess, NewsletterError ErrorType = NewsletterError.None, string? ErrorMessage = null);
 
 public interface INewsletterService
 {
