@@ -31,9 +31,9 @@ public class NewsletterService(HttpClient client, ILogger<NewsletterService> log
             );
 
         }
-        catch (OperationCanceledException)
+        catch (OperationCanceledException operationCanceledException)
         {
-            logger.LogInformation("Request for {Email} got cancelled by client.", email);
+            logger.LogInformation(operationCanceledException, "Newsletter subscription request was cancelled.");
 
             return new NewsletterResult(
                IsSuccess: false,
@@ -41,9 +41,19 @@ public class NewsletterService(HttpClient client, ILogger<NewsletterService> log
                ErrorMessage: "Request cancelled"
            );
         }
+        catch (HttpRequestException httpRequestException)
+        {
+            logger.LogError(httpRequestException, "Network error occurred while connecting to the newsletter service.");
+
+            return new NewsletterResult(
+                IsSuccess: false,
+                ErrorType: NewsletterError.ConnectionFailed,
+                ErrorMessage: "Connection error. Try again later."
+            );
+        }
         catch (Exception exception)
         {
-            logger.LogError(exception, "Error while trying to connect with newsletter service with {Email} address", email);
+            logger.LogError(exception, "Error occurred while connecting to the newsletter service.");
             return new NewsletterResult(
                 IsSuccess: false,
                 ErrorType: NewsletterError.ConnectionFailed,

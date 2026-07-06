@@ -3,7 +3,6 @@ namespace Backend.Services;
 public enum NewsletterError
 {
     None,
-    ApiKeyMissing,
     ExternalApiFailure,
     RequestCancelled,
     ConnectionFailed
