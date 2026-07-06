@@ -7,12 +7,12 @@ updates:
       interval: weekly
 
   - package-ecosystem: npm
-    directory: /frontend
+    directory: /Frontend
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
     groups:
       react-packages:
         patterns:
-          - "react"
-          - "react-dom"
+          - 'react'
+          - 'react-dom'

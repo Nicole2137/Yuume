@@ -3,10 +3,10 @@ name: Frontend CI
 on:
   push:
     paths:
-      - "frontend/**"
+      - 'Frontend/**'
   pull_request:
     paths:
-      - "frontend/**"
+      - 'Frontend/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -19,7 +19,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend
+        working-directory: Frontend
 
     steps:
       - name: Checkout repository
@@ -28,14 +28,14 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
         with:
-          package_json_file: frontend/package.json
+          package_json_file: Frontend/package.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: pnpm
-          cache-dependency-path: frontend/pnpm-lock.yaml
+          cache-dependency-path: Frontend/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
