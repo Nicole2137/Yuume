@@ -32,11 +32,11 @@ jobs:
           cache: true
           cache-dependency-path: '**/packages.lock.json'
 
-      - name: Check formatting (Linter)
-        run: dotnet format --verify-no-changes --severity info
-
       - name: Restore dependencies
         run: dotnet restore
+
+      - name: Check formatting (Linter)
+        run: dotnet format --verify-no-changes --severity info
 
       - name: Build project
         run: dotnet build --no-restore --configuration Release
