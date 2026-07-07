@@ -16,3 +16,20 @@ updates:
         patterns:
           - 'react'
           - 'react-dom'
+
+  - package-ecosystem: nuget
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    groups:
+      ef-core:
+        patterns:
+          - 'Microsoft.EntityFrameworkCore*'
+      microsoft-extensions:
+        patterns:
+          - 'Microsoft.Extensions.*'
+      testing-framework:
+        patterns:
+          - 'xunit*'
+          - 'RichardSzalay.MockHttp*'
