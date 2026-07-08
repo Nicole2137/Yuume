@@ -7,7 +7,7 @@ namespace Backend.IntegrationTests.Endpoints.Newsletter;
 public class SubscribeTests(CustomWebApplicationFactory factory) : IClassFixture<CustomWebApplicationFactory>
 {
     private readonly HttpClient _client = factory.CreateClient();
-    
+
     [Fact]
     public async Task Subscribe_WhenEmailIsInvalid_ShouldReturn400BadRequest()
     {
