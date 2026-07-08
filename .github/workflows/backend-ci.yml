@@ -4,12 +4,14 @@ on:
   push:
     paths:
       - 'Backend/**'
-      - 'Backend.Tests/**'
+      - 'Backend.UnitTests/**'
+      - 'Backend.IntegrationTests/**'
       - '*.sln'
   pull_request:
     paths:
       - 'Backend/**'
-      - 'Backend.Tests/**'
+      - 'Backend.UnitTests/**'
+      - 'Backend.IntegrationTests/**'
       - '*.sln'
 
 concurrency:
