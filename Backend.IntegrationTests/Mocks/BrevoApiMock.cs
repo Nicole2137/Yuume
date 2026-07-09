@@ -15,4 +15,9 @@ public class BrevoApiMock(string contactsUrl = "https://api.brevo.com/v3/contact
     {
         this.When(contactsUrl).Respond(statusCode, "application/json", "{\"error\":\"API Error\"}");
     }
+
+    public void SetupSubscribeException(Exception exception)
+    {
+        this.When(contactsUrl).Throw(exception);
+    }
 }
