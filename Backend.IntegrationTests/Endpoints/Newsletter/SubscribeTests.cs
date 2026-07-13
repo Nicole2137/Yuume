@@ -32,6 +32,14 @@ public class SubscribeTests(CustomWebApplicationFactory factory) : IClassFixture
     }
 
     [Fact]
+    public async Task Subscribe_WhenExternalApiReturnsError_ShouldReturnErrorStatusCode()
+    {
+        var response = await SendRequestAsync(mock => mock.SetupSubscribeFailure());
+
+        Assert.Equal(HttpStatusCode.BadGateway, response.StatusCode);
+    }
+
+    [Fact]
     public async Task Subscribe_WhenExternalApiSucceeds_ShouldReturn200Ok()
     {
         var response = await SendRequestAsync(mock => mock.SetupSubscribeSuccess());
