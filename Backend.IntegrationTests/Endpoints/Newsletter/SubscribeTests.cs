@@ -9,6 +9,18 @@ public class SubscribeTests(CustomWebApplicationFactory factory) : IClassFixture
 {
     private readonly HttpClient _client = factory.CreateClient();
 
+    private async Task<HttpResponseMessage> SendRequestAsync(Action<BrevoApiMock> configureMock)
+    {
+        var brevoMock = new BrevoApiMock();
+        configureMock(brevoMock);
+
+        var client = factory.CreateClientWithBrevoMock(brevoMock);
+
+        var validRequest = new { Email = "test@example.com" };
+
+        return await client.PostAsJsonAsync("api/newsletter", validRequest, cancellationToken: TestContext.Current.CancellationToken);
+    }
+
     [Fact]
     public async Task Subscribe_WhenEmailIsInvalid_ShouldReturn400BadRequest()
     {
@@ -22,13 +34,7 @@ public class SubscribeTests(CustomWebApplicationFactory factory) : IClassFixture
     [Fact]
     public async Task Subscribe_WhenExternalApiSucceeds_ShouldReturn200Ok()
     {
-        var brevoMock = new BrevoApiMock();
-        brevoMock.SetupSubscribeSuccess();
-
-        var client = factory.CreateClientWithBrevoMock(brevoMock);
-
-        var validRequest = new { Email = "test@example.com" };
-        var response = await client.PostAsJsonAsync("api/newsletter", validRequest, cancellationToken: TestContext.Current.CancellationToken);
+        var response = await SendRequestAsync(mock => mock.SetupSubscribeSuccess());
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
@@ -36,14 +42,17 @@ public class SubscribeTests(CustomWebApplicationFactory factory) : IClassFixture
     [Fact]
     public async Task Subscribe_WhenConnectionFailed_ShouldReturnErrorStatusCode()
     {
-        var brevoMock = new BrevoApiMock();
-        brevoMock.SetupSubscribeException(new HttpRequestException());
-
-        var client = factory.CreateClientWithBrevoMock(brevoMock);
-
-        var validRequest = new { Email = "test@example.com" };
-        var response = await client.PostAsJsonAsync("api/newsletter", validRequest, cancellationToken: TestContext.Current.CancellationToken);
+        var response = await SendRequestAsync(mock => mock.SetupSubscribeException(new HttpRequestException()));
 
         Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode);
     }
+
+    [Fact]
+    public async Task Subscribe_WhenOperationCancelled_ShouldReturnErrorStatusCode()
+    {
+        var response = await SendRequestAsync(mock => mock.SetupSubscribeException(new OperationCanceledException()));
+
+        Assert.Equal((HttpStatusCode)499, response.StatusCode);
+    }
+
 }
