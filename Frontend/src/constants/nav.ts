@@ -20,3 +20,21 @@ export const navItems = [
 		iconPath: `${iconsFolder}/community.svg`,
 	},
 ] as const
+
+export type NavVariant = 'home' | 'login'
+
+interface NavConfig {
+	variant: NavVariant
+	logoSrc: string
+}
+
+export const navVariants: Record<string, NavConfig> = {
+	'/': {
+		variant: 'home',
+		logoSrc: '/img/branding/nav-logo.svg',
+	},
+	'/login': {
+		variant: 'login',
+		logoSrc: '/img/branding/nav-logo.svg',
+	},
+}

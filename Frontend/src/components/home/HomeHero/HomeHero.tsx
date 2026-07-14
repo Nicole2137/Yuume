@@ -4,11 +4,11 @@ import styles from './HomeHero.module.scss'
 import { homeInfoCardItems } from '@/constants/homeInfoCard'
 import cloudBackground from '@public/img/decorations/clouds/cloud-background.png'
 import { Heart } from 'lucide-react'
-import HomeSpeechBubble from '@/components/home/HomeSpeechBubble/HomeSpeechBubble'
-import HomeHeroTagline from '@/components/home/HomeHeroTagline/HomeHeroTagline'
-import HomeMoodCard from '@/components/home/HomeMoodCard/HomeMoodCard'
-import HomeInfoCard from '@/components/home/HomeInfoCard/HomeInfoCard'
-import HomeNewsletterCard from '@/components/home/HomeNewsletterCard/HomeNewsletterCard'
+import HomeSpeechBubble from "@/components/home/HomeSpeechBubble/HomeSpeechBubble";
+import HomeHeroTagline from "@/components/home/HomeHeroTagline/HomeHeroTagline";
+import HomeMoodCard from "@/components/home/HomeMoodCard/HomeMoodCard";
+import HomeInfoCard from "@/components/home/HomeInfoCard/HomeInfoCard";
+import HomeNewsletterCard from "@/components/home/HomeNewsletterCard/HomeNewsletterCard";
 
 export default function HomeHero() {
 	return (
@@ -25,7 +25,7 @@ export default function HomeHero() {
 
 					<HomeHeroTagline />
 					<p className={styles['home-hero__description']}>
-						It’s okay to feel alone sometimes.
+						It's okay to feel alone sometimes.
 						<br />
 						But there is always a dream where someone understands.
 					</p>
@@ -70,11 +70,11 @@ export default function HomeHero() {
 							className={styles['home-hero__cloud-speech-bubble-img']}
 						/>
 						<p className={styles['home-hero__cloud-speech-bubble-text']}>
-							You don’t <br />
+							You don't <br />
 							have to <br />
 							know yet...
 							<br />
-							It’s okay to <br />
+							It's okay to <br />
 							feel a little <br />
 							shy.
 						</p>

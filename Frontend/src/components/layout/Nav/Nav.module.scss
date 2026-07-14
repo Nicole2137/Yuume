@@ -8,8 +8,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.2rem 4.8rem 1.2rem 4.8rem;
+	padding: 1.2rem 4.8rem;
+	width: 100%;
 	background-color: $background-color;
+
+	&--login {
+		position: fixed;
+		background-color: transparent;
+	}
 
 	&__logo {
 		width: 15.4rem;

@@ -6,6 +6,7 @@ export const useNewsletter = () => {
 
 	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault()
+		
 		setStatus('loading')
 
 		try {
