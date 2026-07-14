@@ -1,102 +1,102 @@
-@use "sass:color";
-@use "@/styles" as *;
+@use 'sass:color';
+@use '@/styles' as *;
 
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: $z-layout;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 4.8rem 1.2rem 4.8rem;
-  background-color: $background-color;
+	position: sticky;
+	top: 0;
+	z-index: $z-layout;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.2rem 4.8rem 1.2rem 4.8rem;
+	background-color: $background-color;
 
-  &__logo {
-    width: 15.4rem;
-    height: auto;
-  }
+	&__logo {
+		width: 15.4rem;
+		height: auto;
+	}
 
-  &__list {
-    display: flex;
-    gap: 4.8rem;
-  }
+	&__list {
+		display: flex;
+		gap: 4.8rem;
+	}
 
-  &__link,
-  &__link::before,
-  &__link::after {
-    transition:
-      color 0.2s,
-      width 0.2s;
-  }
+	&__link,
+	&__link::before,
+	&__link::after {
+		transition:
+			color 0.2s,
+			width 0.2s;
+	}
 
-  &__link {
-    position: relative;
-    font-size: 1.4rem;
-    font-weight: 500;
-    text-transform: capitalize;
+	&__link {
+		position: relative;
+		font-size: 1.4rem;
+		font-weight: 500;
+		text-transform: capitalize;
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -0.3rem;
-      width: 0;
-      border-bottom: 2px solid $main-color;
-    }
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -0.3rem;
+			width: 0;
+			border-bottom: 2px solid $main-color;
+		}
 
-    &::before {
-      right: 50%;
-    }
+		&::before {
+			right: 50%;
+		}
 
-    &::after {
-      left: 50%;
-    }
+		&::after {
+			left: 50%;
+		}
 
-    &:hover,
-    &:focus {
-      color: color.adjust($main-color, $lightness: -5%);
-      outline: none;
+		&:hover,
+		&:focus-visible {
+			color: color.adjust($main-color, $lightness: -5%);
+			outline: none;
 
-      &::before,
-      &::after {
-        width: 50%;
-      }
-    }
-  }
+			&::before,
+			&::after {
+				width: 50%;
+			}
+		}
+	}
 
-  &__btn {
-    @include btn;
+	&__btn {
+		@include btn;
 
-    &:hover,
-    &:focus {
-      @include btn-hover;
-    }
-  }
+		&:hover,
+		&:focus-visible {
+			@include btn-hover;
+		}
+	}
 
-  &__btn-icon {
-    width: 1.6rem;
-  }
+	&__btn-icon {
+		width: 1.6rem;
+	}
 
-  &__menu-icon {
-    position: fixed;
-    top: 1.2rem;
-    right: calc(3.2rem - $burger-padding);
-    display: none;
-  }
+	&__menu-icon {
+		position: fixed;
+		top: 1.2rem;
+		right: calc(3.2rem - $burger-padding);
+		display: none;
+	}
 }
 
 @media (width<$lg) {
-  .nav {
-    padding-left: 3.2rem;
-    padding-right: calc(3.2rem - $burger-padding);
+	.nav {
+		padding-left: 3.2rem;
+		padding-right: calc(3.2rem - $burger-padding);
 
-    &__list,
-    &__btn {
-      display: none;
-    }
+		&__list,
+		&__btn {
+			display: none;
+		}
 
-    &__menu-icon {
-      display: flex;
-    }
-  }
+		&__menu-icon {
+			display: flex;
+		}
+	}
 }

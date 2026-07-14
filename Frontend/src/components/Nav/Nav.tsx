@@ -18,7 +18,7 @@ export default function Nav() {
       <nav className={styles.nav}>
         <Link href="/" aria-label="Return to homepage">
           <img
-            src="/img/nav-logo.svg"
+            src="/img/branding/nav-logo.svg"
             alt="Logo of Yuume. Portraying a little cat icon and application name."
             className={styles.nav__logo}
           />

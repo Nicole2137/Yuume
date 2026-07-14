@@ -7,7 +7,7 @@ import MoodCard from "@/components/MoodCard/MoodCard";
 import HeroInfoCard from "@/components/HeroInfoCard/HeroInfoCard";
 import NewsletterCard from "@/components/NewsletterCard/NewsletterCard";
 import { heroInfoCardItems } from "@/constants/heroInfoCard";
-import cloudBackground from "@public/img/decorations/cloud-background.png";
+import cloudBackground from "@public/img/decorations/clouds/cloud-background.png";
 import { Heart } from "lucide-react";
 
 export default function Hero() {
@@ -45,7 +45,7 @@ export default function Hero() {
             >
               <span className={styles["hero__btn-text"]}>Explore Dreams</span>
               <img
-                src="/img/decorations/btn-star.svg"
+                src="/img/decorations/stars/btn-star.svg"
                 alt=""
                 aria-hidden="true"
                 className={styles["hero__btn-icon"]}
@@ -60,7 +60,7 @@ export default function Hero() {
             muted
             playsInline
             aria-hidden="true"
-            poster="/img/girl-animation.webp"
+            poster="/img/hero/girl-animation.webp"
             className={styles["hero__girl-animation"]}
           >
             <source src="/video/girl-animation.webm" type="video/webm" />
@@ -69,7 +69,7 @@ export default function Hero() {
           </video>
           <div className={styles["hero__cloud-speech-bubble"]}>
             <img
-              src="/img/decorations/cloud-speech-bubble.svg"
+              src="/img/decorations/clouds/cloud-speech-bubble.svg"
               alt=""
               className={styles["hero__cloud-speech-bubble-img"]}
             />

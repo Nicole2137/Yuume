@@ -13,7 +13,7 @@ export default function MoodCard() {
         <span className={styles["mood-card__header-text"]}>Today’s Mood</span>
         <img
           className={styles["mood-card__header-img"]}
-          src="/img/decorations/logo-cat.svg"
+          src="/img/branding/logo-cat.svg"
           alt=""
           aria-hidden="true"
         />
@@ -38,7 +38,7 @@ export default function MoodCard() {
       </div>
 
       <img
-        src="/img/decorations/little-cloud.svg"
+        src="/img/decorations/clouds/little-cloud.svg"
         alt=""
         aria-hidden="true"
         className={styles["mood-card__cloud-icon"]}

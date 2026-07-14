@@ -5,13 +5,13 @@ export default function Footer() {
     <footer className={styles.footer}>
       <img
         className={styles.footer__img}
-        src="/img/decorations/footer-cloud.svg"
+        src="/img/decorations/clouds/footer-cloud.svg"
         alt=""
         aria-hidden="true"
       />
       <div className={styles.footer__content}>
         <img
-          src="/img/footer-logo.svg"
+          src="/img/branding/footer-logo.svg"
           alt="Logo of yuume portraying a company name with stars"
           className={styles["footer__logo"]}
         />
@@ -28,7 +28,7 @@ export default function Footer() {
         </span>
 
         <img
-          src="/img/decorations/tagline-star2.svg"
+          src="/img/decorations/stars/tagline-star2.svg"
           alt=""
           aria-hidden="true"
           className={styles.footer__decoration}

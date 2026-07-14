@@ -1,81 +1,81 @@
-@use "@/styles" as *;
+@use '@/styles' as *;
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 *:focus-visible {
-  outline: 1px solid $light-border-color;
+	outline: 1px solid $light-border-color;
 }
 
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-  min-height: 100vh;
-  font-family: $main-font;
-  color: $text-color;
-  background-color: $background-color;
-  overflow: hidden;
-  touch-action: pan-y;
+	min-height: 100vh;
+	font-family: $main-font;
+	color: $text-color;
+	background-color: $background-color;
+	overflow: hidden;
+	touch-action: pan-y;
 }
 
 button,
 input,
 textarea,
 select {
-  font-family: inherit;
+	font-family: inherit;
 }
 
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 main {
-  margin: 0 auto;
-  width: 82vw;
+	margin: 0 auto;
+	width: 82vw;
 }
 
 button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }
 
 a {
-  text-decoration: none;
-  color: $text-color;
+	text-decoration: none;
+	color: $text-color;
 }
 
 button,
 a {
-  transition:
-    background-color 0.3s,
-    box-shadow 0.3s,
-    border 0.3s,
-    scale 0.3s;
+	transition:
+		background-color 0.3s,
+		box-shadow 0.3s,
+		border 0.3s,
+		scale 0.3s;
 }
 
 hr {
-  border: 0;
+	border: 0;
 }
 
 .overlay {
-  position: fixed;
-  inset: 0;
-  z-index: $z-overlay;
-  background-color: rgba(0, 0, 0, 0.35);
-  cursor: pointer;
+	position: fixed;
+	inset: 0;
+	z-index: $z-overlay;
+	background-color: rgba(0, 0, 0, 0.35);
+	cursor: pointer;
 }
 
 @media (width<$xxl) {
-  body {
-    overflow-y: visible;
-  }
+	body {
+		overflow-y: visible;
+	}
 }

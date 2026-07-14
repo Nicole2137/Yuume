@@ -54,7 +54,7 @@ export default function MobileNav({
       </ul>
       <div aria-hidden="true" className={styles["mobile-nav__decoration"]}>
         <img
-          src="/img/decorations/tagline-star2.svg"
+          src="/img/decorations/stars/tagline-star2.svg"
           alt=""
           aria-hidden="true"
           className={styles["mobile-nav__star-icon"]}

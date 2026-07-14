@@ -35,7 +35,7 @@ export default function NewsletterCard() {
           disabled={status === "loading"}
         >
           <img
-            src="/img/decorations/send-icon.svg"
+            src="/img/icons/send.svg"
             alt=""
             className={styles["newsletter-card__img"]}
           />

@@ -4,7 +4,7 @@ export default function HeroTagline() {
   return (
     <div className={styles["hero-tagline"]}>
       <img
-        src="/img/decorations/tagline-star1.svg"
+        src="/img/decorations/stars/tagline-star1.svg"
         alt=""
         aria-hidden="true"
         className={styles["hero-tagline__img"]}
@@ -21,7 +21,7 @@ export default function HeroTagline() {
         className={styles["hero-tagline__dashed-line"]}
       ></span>
       <img
-        src="/img/decorations/tagline-star2.svg"
+        src="/img/decorations/stars/tagline-star2.svg"
         alt=""
         aria-hidden="true"
         className={styles["hero-tagline__img"]}
