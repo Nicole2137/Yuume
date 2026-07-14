@@ -2,7 +2,7 @@
 
 $article-margin-top: 2.4rem;
 
-.hero {
+.home-hero {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -160,7 +160,7 @@ $article-margin-top: 2.4rem;
 }
 
 @media (width<$xxl) {
-  .hero {
+  .home-hero {
     &__article {
       justify-content: center;
     }
@@ -194,7 +194,7 @@ $article-margin-top: 2.4rem;
 }
 
 @media (width<$xl) {
-  .hero {
+  .home-hero {
     &__girl-animation {
       width: 80%;
       translate: 9.6rem $article-margin-top;
@@ -207,7 +207,7 @@ $article-margin-top: 2.4rem;
 }
 
 @media (width<$lg) {
-  .hero {
+  .home-hero {
     &__girl-animation {
       width: 90%;
       translate: 9.6rem $article-margin-top;
@@ -220,7 +220,7 @@ $article-margin-top: 2.4rem;
 }
 
 @media (width<$md) {
-  .hero {
+  .home-hero {
     &__main {
       flex-direction: column;
       gap: 4.8rem;
@@ -252,7 +252,7 @@ $article-margin-top: 2.4rem;
 }
 
 @media (width<$sm) {
-  .hero {
+  .home-hero {
     &__girl-animation {
       width: 95%;
       translate: 1.6rem 0rem;

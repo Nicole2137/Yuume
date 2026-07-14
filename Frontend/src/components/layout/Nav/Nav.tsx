@@ -4,8 +4,8 @@ import styles from "./Nav.module.scss";
 import Link from "next/link";
 import { navItems } from "@/constants/nav";
 import { Heart } from "lucide-react";
-import BurgerButton from "@/components/BurgerButton/BurgerButton";
-import MobileNav from "@/components/MobileNav/MobileNav";
+import BurgerButton from "@/components/layout/BurgerButton/BurgerButton";
+import MobileNav from "@/components/layout/MobileNav/MobileNav";
 import { useMobileNav } from "@/hooks/useMobileNav";
 import { motion } from "motion/react";
 

@@ -1,6 +1,6 @@
 @use "@/styles" as *;
 
-.footer {
+.home-footer {
   position: fixed;
   bottom: -1rem;
   z-index: $z-ui-overlay;
@@ -42,13 +42,13 @@
 }
 
 @media (width<$xxl) {
-  .footer {
+  .home-footer {
     z-index: $z-layout;
   }
 }
 
 @media (width<$md) {
-  .footer {
+  .home-footer {
     &__content {
       gap: 1.2rem;
     }

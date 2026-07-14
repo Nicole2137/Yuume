@@ -1,13 +1,13 @@
-import Footer from '@/components/Footer/Footer'
-import Hero from '@/components/Hero/Hero'
+import HomeHero from '@/components/home/HomeHero/HomeHero'
+import HomeFooter from '@/components/home/HomeFooter/HomeFooter'
 
 export default function HomePage() {
 	return (
 		<>
 			<main>
-				<Hero />
+				<HomeHero />
 			</main>
-			<Footer />
+			<HomeFooter />
 		</>
 	)
 }

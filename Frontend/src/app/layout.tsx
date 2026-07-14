@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.scss'
-import Nav from '@/components/Nav/Nav'
+import Nav from '@/components/layout/Nav/Nav'
 import { plusJakartaSans, cormorantGaramond, quickSand } from '@/constants/fonts'
 
 export const metadata: Metadata = {

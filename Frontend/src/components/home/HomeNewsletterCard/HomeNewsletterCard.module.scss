@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "@/styles" as *;
 
-.newsletter-card {
+.home-newsletter-card {
   position: absolute;
   bottom: -6.4rem;
   display: flex;
@@ -72,7 +72,7 @@
 }
 
 @media (width<$xxl) {
-  .newsletter-card {
+  .home-newsletter-card {
     position: static;
     margin-left: 0;
     width: 100%;

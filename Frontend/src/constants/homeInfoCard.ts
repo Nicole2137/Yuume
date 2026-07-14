@@ -1,4 +1,4 @@
-export const heroInfoCardItems = [
+export const homeInfoCardItems = [
   {
     imgSrc: "/img/icons/notebook.svg",
     title: "Your Journal",

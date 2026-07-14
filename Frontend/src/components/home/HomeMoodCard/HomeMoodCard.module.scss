@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "@/styles" as *;
 
-.mood-card {
+.home-mood-card {
   position: absolute;
   bottom: 8.4rem;
   right: 2rem;
@@ -77,7 +77,7 @@
 }
 
 @media (width<$xxl) {
-  .mood-card {
+  .home-mood-card {
     right: 3.2rem;
     bottom: 2.4rem;
   }
