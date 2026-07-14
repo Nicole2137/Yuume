@@ -1,4 +1,3 @@
-import { error } from 'console'
 import { useState, type SubmitEvent } from 'react'
 
 export const useNewsletter = () => {
