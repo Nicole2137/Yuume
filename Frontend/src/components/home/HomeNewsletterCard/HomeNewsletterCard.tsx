@@ -9,7 +9,7 @@ export default function HomeNewsletterCard() {
 	return (
 		<article className={styles['home-newsletter-card']}>
 			<div className={styles['home-newsletter-card__text-content']}>
-				<span className={styles['home-newsletter-card__title']}>Follow Yuume's growth</span>
+				<span className={styles['home-newsletter-card__title']}>Follow Yuume’s growth</span>
 				<p className={styles['home-newsletter-card__text']}>
 					Receive updates about new features
 					<br />
