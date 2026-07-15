@@ -8,6 +8,7 @@ import BurgerButton from '@/components/layout/BurgerButton/BurgerButton'
 import MobileNav from '@/components/layout/MobileNav/MobileNav'
 import { useMobileNav } from '@/hooks/useMobileNav'
 import { motion } from 'motion/react'
+import clsx from 'clsx'
 
 interface NavProps {
 	variant: NavVariant
@@ -19,7 +20,7 @@ export default function Nav({ variant, logoSrc }: NavProps) {
 
 	return (
 		<>
-			<nav className={`${styles.nav} ${variant !== 'home' ? styles[`nav--${variant}`] : ''}`}>
+			<nav className={clsx(styles.nav, variant !== 'home' && styles[`nav--${variant}`])}>
 				<Link href='/' aria-label='Return to homepage'>
 					<img
 						src={logoSrc}

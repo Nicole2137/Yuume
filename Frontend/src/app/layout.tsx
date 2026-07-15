@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.scss'
-import { plusJakartaSans, cormorantGaramond, quickSand } from '@/constants/fonts'
 
 export const metadata: Metadata = {
 	title: 'Yuume',
@@ -17,10 +16,8 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en' className={`${plusJakartaSans.variable} ${cormorantGaramond.variable} ${quickSand.variable}`}>
-			<body>
-				{children}
-			</body>
+		<html lang='en'>
+			<body>{children}</body>
 		</html>
 	)
 }
