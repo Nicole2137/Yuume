@@ -87,7 +87,7 @@ export default function HomeHero() {
 					alt=''
 					aria-hidden='true'
 					className={styles['home-hero__cloud-background']}
-					priority
+					preload
 				/>
 			</div>
 

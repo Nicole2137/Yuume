@@ -46,7 +46,7 @@ export default function Nav({ variant, logoSrc }: NavProps) {
 
 			<BurgerButton className={styles['nav__menu-icon']} isOpen={isOpen} onClick={() => setIsOpen(prev => !prev)} />
 
-			<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} dragX={dragX} mobileNavRef={mobileNavRef} />
+			<MobileNav isOpen={isOpen} onClose={() => setIsOpen(false)} dragX={dragX} mobileNavRef={mobileNavRef} />
 
 			<motion.div
 				aria-hidden='true'
