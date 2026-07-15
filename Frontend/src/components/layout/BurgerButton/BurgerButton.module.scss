@@ -14,7 +14,7 @@
   & > span {
     width: 3.2rem;
     height: $line-height;
-    background-color: $text-color;
+    background-color: var(--text-color);
     border-radius: 2.4rem;
     transition:
       transform 0.3s,

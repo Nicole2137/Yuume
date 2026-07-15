@@ -1,4 +1,5 @@
 @use '@/styles' as *;
+@use '@/styles/themes';
 
 *,
 *::after,
@@ -9,7 +10,7 @@
 }
 
 *:focus-visible {
-	outline: 1px solid $light-border-color;
+	outline: 1px solid var(--light-border-color);
 }
 
 html {
@@ -17,12 +18,15 @@ html {
 }
 
 body {
-	min-height: 100vh;
-	font-family: $main-font;
-	color: $text-color;
-	background-color: $background-color;
 	overflow: hidden;
 	touch-action: pan-y;
+}
+
+.page-theme {
+	min-height: 100dvh;
+	font-family: var(--main-font);
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 button,
@@ -50,7 +54,7 @@ button {
 
 a {
 	text-decoration: none;
-	color: $text-color;
+	color: var(--text-color);
 }
 
 button,

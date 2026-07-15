@@ -1,0 +1,16 @@
+[data-theme='home'] {
+	//colors
+	--main-color: #b5a2cd;
+	--main-color-dark: #ac96c7;
+	--text-color: #41414c;
+	--light-border-color: #dfd7ea;
+	--btn-hover-border-color: #ede8f3;
+	--btn-hover-shadow-color: rgba(174, 130, 224, 0.35);
+	--btn-hover-color: #c9b4e9;
+	--background-color: #fcfcfc;
+
+	//fonts
+	--main-font: var(--font-jakarta), sans-serif;
+	--decorative-font: var(--font-cormorant), serif;
+	--handwriting-font: var(--font-quicksand), sans-serif;
+}

@@ -1,14 +1,21 @@
 const iconsFolder = '/img/icons/mobile-nav'
 
 export const navItems = [
-	{ href: '/', label: 'Home', iconPath: `${iconsFolder}/home.svg` },
-	// { href: "/about", label: "About", iconPath: `${iconsFolder}/about.svg` },
+	{
+		href: '/',
+		label: 'Home',
+		iconPath: `${iconsFolder}/home.svg`,
+	},
 	{
 		href: '/gallery',
 		label: 'Gallery',
 		iconPath: `${iconsFolder}/gallery.svg`,
 	},
-	{ href: '/shop', label: 'Shop', iconPath: `${iconsFolder}/shop.svg` },
+	{
+		href: '/shop',
+		label: 'Shop',
+		iconPath: `${iconsFolder}/shop.svg`,
+	},
 	{
 		href: '/journal',
 		label: 'Journal',
@@ -21,20 +28,17 @@ export const navItems = [
 	},
 ] as const
 
-export type NavVariant = 'home' | 'login'
+export type NavVariant = 'home' | 'auth'
 
 interface NavConfig {
-	variant: NavVariant
 	logoSrc: string
 }
 
-export const navVariants: Record<string, NavConfig> = {
-	'/': {
-		variant: 'home',
+export const navVariants: Record<NavVariant, NavConfig> = {
+	home: {
 		logoSrc: '/img/branding/nav-logo.svg',
 	},
-	'/login': {
-		variant: 'login',
+	auth: {
 		logoSrc: '/img/branding/nav-logo.svg',
 	},
 }

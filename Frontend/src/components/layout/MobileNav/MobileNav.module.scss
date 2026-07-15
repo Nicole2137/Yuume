@@ -12,7 +12,7 @@
   padding: 2.4rem;
   width: 30rem;
   height: 100vh;
-  background-color: $background-color;
+  background-color: var(--background-color);
   border-top-left-radius: 2.4rem;
 
   &__list {
@@ -63,7 +63,7 @@
     align-items: center;
     gap: 0.4rem;
     width: 90%;
-    color: $main-color;
+    color: var(--main-color);
 
     &::before,
     &::after {

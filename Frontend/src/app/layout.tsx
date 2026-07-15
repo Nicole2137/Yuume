@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.scss'
-import Nav from '@/components/layout/Nav/Nav'
 import { plusJakartaSans, cormorantGaramond, quickSand } from '@/constants/fonts'
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function RootLayout({
 	return (
 		<html lang='en' className={`${plusJakartaSans.variable} ${cormorantGaramond.variable} ${quickSand.variable}`}>
 			<body>
-				<Nav />
 				{children}
 			</body>
 		</html>

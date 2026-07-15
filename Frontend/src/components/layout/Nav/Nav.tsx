@@ -2,17 +2,20 @@
 
 import styles from './Nav.module.scss'
 import Link from 'next/link'
-import { navItems } from '@/constants/nav'
+import { type NavVariant, navItems } from '@/constants/nav'
 import { Heart } from 'lucide-react'
 import BurgerButton from '@/components/layout/BurgerButton/BurgerButton'
 import MobileNav from '@/components/layout/MobileNav/MobileNav'
 import { useMobileNav } from '@/hooks/useMobileNav'
 import { motion } from 'motion/react'
-import { useNavVariant } from '@/hooks/useNavVariant'
 
-export default function Nav() {
+interface NavProps {
+	variant: NavVariant
+	logoSrc: string
+}
+
+export default function Nav({ variant, logoSrc }: NavProps) {
 	const { isOpen, setIsOpen, mobileNavRef, dragX, overlayOpacity } = useMobileNav()
-	const { variant, logoSrc } = useNavVariant()
 
 	return (
 		<>
