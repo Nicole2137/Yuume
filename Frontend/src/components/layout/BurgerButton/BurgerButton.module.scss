@@ -1,38 +1,37 @@
-@use "@/styles" as *;
+@use '@/styles' as *;
 
 .burger-btn {
-  $line-gap: 0.7rem;
-  $line-height: 0.3rem;
+	$line-gap: 0.7rem;
+	$line-height: 0.3rem;
 
-  z-index: $z-burger-btn;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: $line-gap;
-  padding: $burger-padding;
+	z-index: $z-burger-btn;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: $line-gap;
+	padding: $burger-padding;
 
-  & > span {
-    width: 3.2rem;
-    height: $line-height;
-    background-color: var(--text-color);
-    border-radius: 2.4rem;
-    transition:
-      transform 0.3s,
-      opacity 0.2s ease-out;
-  }
+	& > span {
+		width: 3.2rem;
+		height: $line-height;
+		background-color: var(--burger-line-color);
+		border-radius: 2.4rem;
+		transition:
+			transform 0.3s,
+			opacity 0.2s ease-out;
+	}
 
-  &--active {
-    span:nth-child(1) {
-      transform: translateY(calc($line-gap + $line-height)) rotate(45deg);
-    }
+	&--active {
+		span:nth-child(1) {
+			transform: translateY(calc($line-gap + $line-height)) rotate(45deg);
+		}
 
-    span:nth-child(2) {
-      opacity: 0;
-    }
+		span:nth-child(2) {
+			opacity: 0;
+		}
 
-    span:nth-child(3) {
-      transform: translateY(calc(($line-gap + $line-height) * -1))
-        rotate(-45deg);
-    }
-  }
+		span:nth-child(3) {
+			transform: translateY(calc(($line-gap + $line-height) * -1)) rotate(-45deg);
+		}
+	}
 }

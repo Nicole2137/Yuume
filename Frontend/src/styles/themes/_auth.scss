@@ -1,4 +1,19 @@
 [data-theme='auth'] {
+	--main-font: var(--font-single-day), sans-serif;
+	--nav-font-size: 1.8rem;
+	--btn-font-size: 1.6rem;
+
+	--main-color: #fde08a;
+	--main-color-dark: #fddb78;
+	--text-color: #41414c;
+	--nav-text-color: #fbfaf4;
+	--btn-text-color: #525e6f;
+	--btn-background-color: #feeacd;
+	--btn-hover-color: #fdd476;
+	--btn-hover-shadow-color: rgba(253, 212, 118, 0.55);
+	--btn-hover-border-color: #e8b15a;
+	--burger-line-color:#41414c;
+	--mobile-nav-background-color: #fcfcfc;
 	--background-color: transparent;
 
 	background-image: url('/img/animations/login-background.png');

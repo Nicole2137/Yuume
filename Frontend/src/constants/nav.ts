@@ -36,9 +36,9 @@ interface NavConfig {
 
 export const navVariants: Record<NavVariant, NavConfig> = {
 	home: {
-		logoSrc: '/img/branding/nav-logo.svg',
+		logoSrc: '/img/branding/nav-logo-home.svg',
 	},
 	auth: {
-		logoSrc: '/img/branding/nav-logo.svg',
+		logoSrc: '/img/branding/nav-logo-auth2.svg',
 	},
 }
