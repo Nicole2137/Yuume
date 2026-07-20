@@ -1,4 +1,6 @@
 import PageTheme from '@/components/layout/PageTheme/PageTheme'
+import AuthFormSection from '@/components/auth/AuthFormSection/AuthFormSection'
+import AuthAboutSection from '@/components/auth/AuthAboutSection/AuthAboutSection'
 import { singleDay } from '@/constants/fonts'
 
 export default function AuthLayout({
@@ -8,7 +10,10 @@ export default function AuthLayout({
 }>) {
 	return (
 		<PageTheme variant='auth' className={`${singleDay.variable}`}>
-			{children}
+			<main>
+				<AuthFormSection>{children}</AuthFormSection>
+				<AuthAboutSection />
+			</main>
 		</PageTheme>
 	)
 }

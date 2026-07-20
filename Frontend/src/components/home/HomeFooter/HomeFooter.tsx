@@ -28,7 +28,7 @@ export default function HomeFooter() {
         </span>
 
         <img
-          src="/img/decorations/stars/tagline-star2.svg"
+          src="/img/decorations/stars/diamond-sparkle.svg"
           alt=""
           aria-hidden="true"
           className={styles["home-footer__decoration"]}

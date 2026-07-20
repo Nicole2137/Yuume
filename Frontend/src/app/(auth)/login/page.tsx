@@ -1,9 +1,5 @@
-import LoginHero from '@/components/login/LoginHero/LoginHero'
+import LoginForm from '@/components/auth/LoginForm/LoginForm'
 
 export default function LoginPage() {
-	return (
-		<main>
-			<LoginHero />
-		</main>
-	)
+	return <LoginForm />
 }
