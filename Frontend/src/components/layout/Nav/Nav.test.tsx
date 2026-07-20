@@ -25,7 +25,7 @@ describe('Nav component', () => {
 	it('closes mobile nav after clicking an overlay', async () => {
 		const user = userEvent.setup()
 
-		render(<Nav variant='home' {...navVariants.home} />)
+		render(<Nav {...navVariants.home} />)
 		const overlay = screen.getByTestId('overlay')
 
 		await user.click(overlay)
@@ -37,7 +37,7 @@ describe('Nav component', () => {
 	it('closes mobile nav after clicking a burger button', async () => {
 		const user = userEvent.setup()
 
-		render(<Nav variant='home' {...navVariants.home} />)
+		render(<Nav {...navVariants.home} />)
 		const burgerBtn = screen.getByRole('button')
 
 		await user.click(burgerBtn)
@@ -50,7 +50,7 @@ describe('Nav component', () => {
 	})
 
 	it('renders every link', () => {
-		render(<Nav variant='home' {...navVariants.home} />)
+		render(<Nav {...navVariants.home} />)
 
 		const navListItems = screen.getAllByRole('listitem')
 
@@ -58,7 +58,7 @@ describe('Nav component', () => {
 	})
 
 	it('shows overlay when mobile nav is active', () => {
-		render(<Nav variant='home' {...navVariants.home} />)
+		render(<Nav {...navVariants.home} />)
 
 		const overlay = screen.getByTestId('overlay')
 
@@ -74,7 +74,7 @@ describe('Nav component', () => {
 			overlayOpacity: motionValue(0),
 		})
 
-		render(<Nav variant='home' {...navVariants.home} />)
+		render(<Nav {...navVariants.home} />)
 
 		const overlay = screen.getByTestId('overlay')
 

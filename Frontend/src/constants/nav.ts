@@ -28,17 +28,13 @@ export const navItems = [
 	},
 ] as const
 
-export type NavVariant = 'home' | 'auth'
-
-interface NavConfig {
-	logoSrc: string
-}
-
-export const navVariants: Record<NavVariant, NavConfig> = {
+export const navVariants = {
 	home: {
 		logoSrc: '/img/branding/nav-logo-home.svg',
 	},
 	auth: {
-		logoSrc: '/img/branding/nav-logo-auth2.svg',
+		logoSrc: '/img/branding/nav-logo-auth.svg',
 	},
 }
+
+export type PageThemeVariant = keyof typeof navVariants
