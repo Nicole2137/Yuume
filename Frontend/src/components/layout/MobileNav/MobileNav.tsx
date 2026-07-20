@@ -3,7 +3,7 @@ import styles from './MobileNav.module.scss'
 import { navItems } from '@/constants/nav'
 import { ChevronRight, Heart } from 'lucide-react'
 import { motion, type MotionValue, useTransform } from 'motion/react'
-import type { RefObject } from 'react'
+import type { CSSProperties, RefObject } from 'react'
 
 interface MobileNavProps {
 	isOpen: boolean
@@ -27,7 +27,11 @@ export default function MobileNav({ isOpen, onClose, dragX, mobileNavRef }: Mobi
 					<li key={item.href} className={styles['mobile-nav__item']}>
 						<Link href={item.href} onClick={onClose} className={styles['mobile-nav__link']}>
 							<div className={styles['mobile-nav__info']}>
-								<img src={item.iconPath} alt='' aria-hidden='true' className={styles['mobile-nav__icon']} />
+								<span
+									style={{ '--mobile-nav-icon-path': `url(${item.iconPath})` } as CSSProperties}
+									aria-hidden='true'
+									className={styles['mobile-nav__icon']}
+								/>
 								<span className={styles['mobile-nav__label']}>{item.label}</span>
 							</div>
 							<ChevronRight className={styles['mobile-nav__chevron-icon']} />
@@ -36,12 +40,7 @@ export default function MobileNav({ isOpen, onClose, dragX, mobileNavRef }: Mobi
 				))}
 			</ul>
 			<div aria-hidden='true' className={styles['mobile-nav__decoration']}>
-				<img
-					src='/img/decorations/stars/tagline-star2.svg'
-					alt=''
-					aria-hidden='true'
-					className={styles['mobile-nav__star-icon']}
-				/>
+				<span className={styles['mobile-nav__star-icon']} />
 			</div>
 			<Link href='/login' onClick={onClose} className={styles['mobile-nav__btn']}>
 				<span className={styles['mobile-nav__btn-text']}>join us</span>
