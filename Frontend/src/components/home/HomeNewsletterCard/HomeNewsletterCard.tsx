@@ -21,6 +21,7 @@ export default function HomeNewsletterCard() {
 					placeholder='Enter your email address'
 					type='email'
 					aria-label='Email address'
+					autoComplete='email'
 					className={styles['home-newsletter-card__input']}
 					required
 					value={email}

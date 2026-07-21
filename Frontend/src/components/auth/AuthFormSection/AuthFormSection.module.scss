@@ -1,3 +1,26 @@
-.auth-form-section{
-    
+.auth-form-section {
+	width: 30%;
+	color: var(--light-text-color);
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+		margin-bottom: 1.2rem;
+	}
+
+	&__greeting {
+		font-size: 1.8rem;
+		color: var(--main-color);
+	}
+
+	&__title {
+		font-size: 6.4rem;
+		font-family: var(--header-font);
+		line-height: 6rem;
+	}
+
+	&__subtitle {
+		font-size: 2rem;
+	}
 }

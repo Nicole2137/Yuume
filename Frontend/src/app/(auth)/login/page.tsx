@@ -1,5 +1,10 @@
+import AuthFormSection from '@/components/auth/AuthFormSection/AuthFormSection'
 import LoginForm from '@/components/auth/LoginForm/LoginForm'
 
 export default function LoginPage() {
-	return <LoginForm />
+	return (
+		<AuthFormSection title='Log in to your dreams'>
+			<LoginForm />
+		</AuthFormSection>
+	)
 }

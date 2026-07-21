@@ -1,7 +1,6 @@
 import PageTheme from '@/components/layout/PageTheme/PageTheme'
-import AuthFormSection from '@/components/auth/AuthFormSection/AuthFormSection'
 import AuthAboutSection from '@/components/auth/AuthAboutSection/AuthAboutSection'
-import { singleDay } from '@/constants/fonts'
+import { singleDay, gaegu } from '@/constants/fonts'
 
 export default function AuthLayout({
 	children,
@@ -9,9 +8,9 @@ export default function AuthLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<PageTheme variant='auth' className={`${singleDay.variable}`}>
+		<PageTheme variant='auth' className={`${singleDay.variable} ${gaegu.variable}`}>
 			<main>
-				<AuthFormSection>{children}</AuthFormSection>
+				{children}
 				<AuthAboutSection />
 			</main>
 		</PageTheme>

@@ -1,9 +1,19 @@
 import styles from './AuthFormSection.module.scss'
 
-export default function AuthFormSection({
-	children,
-}: Readonly<{
+interface AuthFormSectionProps {
+	title: string
 	children: React.ReactNode
-}>) {
-	return <section className={styles['auth-form-section']}>{children}</section>
+}
+
+export default function AuthFormSection({ title, children }: AuthFormSectionProps) {
+	return (
+		<section className={styles['auth-form-section']}>
+			<header className={styles['auth-form-section__header']}>
+				<span className={styles['auth-form-section__greeting']}>welcome back</span>
+				<h2 className={styles['auth-form-section__title']}>{title}</h2>
+				<span className={styles['auth-form-section__subtitle']}>a soft place for gentle souls</span>
+			</header>
+			{children}
+		</section>
+	)
 }
