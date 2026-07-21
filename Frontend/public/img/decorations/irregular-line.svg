@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 18" role="img" aria-labelledby="title">
+  <title id="title">Irregular decorative line</title>
+  <defs>
+    <filter id="lineGlow" x="-10%" y="-80%" width="120%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path
+    d="M4 9.6
+       C14 9.7 21 9.1 30 9.2
+       C39 9.3 45 9.8 53 9.2
+       C63 8.8 72 9.1 82 9.2
+       C91 9.2 99 9.7 106 10.3
+       C114 10.7 120 9.4 128 9.1
+       C132 9 134 9.2 136 9.3"
+    fill="none"
+    stroke="#F7F4E8"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    filter="url(#lineGlow)"
+  />
+</svg>

@@ -41,7 +41,9 @@ export default function LoginForm() {
 				<img src='' alt='' aria-hidden='true' className={styles['login-form__btn-icon']} />
 			</button>
 			<div className={styles['login-form__socials-divider']}>
+				<span className={styles['login-form__socials-icon']}/>
 				<span className={styles['login-form__text']}>or continue with</span>
+                <span className={styles['login-form__socials-icon']}/>
 			</div>
 			<div className={styles['login-form__socials']}>
 				<button type='button' className={styles['login-form__social-btn']}>
