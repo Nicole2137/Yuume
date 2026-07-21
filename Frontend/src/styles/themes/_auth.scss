@@ -2,6 +2,7 @@
 	--main-font: var(--font-single-day), sans-serif;
 	--header-font: var(--font-gaegu), sans-serif;
 	--nav-font-size: 2rem;
+	--header-font-size: 6.4rem;
 	--btn-font-size: 1.6rem;
 
 	--main-color: #fde08a;
@@ -23,6 +24,16 @@
 	--mobile-nav-accent-color: #b5823b;
 	--mobile-nav-hover-background-color: #fdeacd;
 
+	--input-background-color: rgba(255, 255, 255, 0.1);
+	--input-border-color: rgba(251, 250, 244, 0.4);
+
 	background-image: url('/img/animations/login-background.png');
 	background-size: cover;
+
+	> main {
+		display: flex;
+		align-items: center;
+		gap: 15.2rem;
+		margin-top: 2.4rem;
+	}
 }

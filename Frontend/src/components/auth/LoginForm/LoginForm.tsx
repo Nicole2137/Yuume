@@ -32,7 +32,9 @@ export default function LoginForm() {
 					<input type='checkbox' className={styles['login-form__checkbox']} />
 					<span className={styles['login-form__text']}>Remember me</span>
 				</div>
-				<Link href='/reset-password'>Forgot password?</Link>
+				<Link className={styles['login-form__text']} href='/reset-password'>
+					Forgot password?
+				</Link>
 			</label>
 			<button className={styles['login-form__btn']}>
 				<span>Log in</span>
@@ -42,19 +44,19 @@ export default function LoginForm() {
 				<span className={styles['login-form__text']}>or continue with</span>
 			</div>
 			<div className={styles['login-form__socials']}>
-				<button type='button' className={styles['login-form__social-link']}>
-					<img src='' alt='Google logo' className={styles['login-form__social-img']} />
+				<button type='button' className={styles['login-form__social-btn']}>
+					<img src='/img/icons/auth/google.svg' alt='Google logo' className={styles['login-form__social-img']} />
 				</button>
-				<button type='button' className={styles['login-form__social-link']}>
-					<img src='' alt='Discord logo' className={styles['login-form__social-img']} />
+				<button type='button' className={styles['login-form__social-btn']}>
+					<img src='/img/icons/auth/discord.svg' alt='Discord logo' className={styles['login-form__social-img']} />
 				</button>
 			</div>
-			<span className={styles['login-form__text']}>
-				Don’t have an account?
+			<div className={styles['login-form__footer']}>
+				<span className={styles['login-form__text']}>Don’t have an account?</span>
 				<Link href='/register' className={styles['login-form__register-link']}>
 					Sign up
 				</Link>
-			</span>
+			</div>
 		</form>
 	)
 }

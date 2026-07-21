@@ -1,3 +1,25 @@
-.auth-about-section{
-    
+.auth-about-section {
+	width: 20%;
+
+	&__header {
+        margin-bottom: 1.2rem;
+		font-size: var(--header-font-size);
+		font-family: var(--header-font);
+	}
+
+	&__text-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+	}
+
+	&__text {
+		font-size: 1.8rem;
+
+		& > br {
+			width: 2.4rem;
+			height: 2.4rem;
+			background-color: red;
+		}
+	}
 }

@@ -15,7 +15,7 @@
 	}
 
 	&__title {
-		font-size: 6.4rem;
+		font-size: var(--header-font-size);
 		font-family: var(--header-font);
 		line-height: 6rem;
 	}

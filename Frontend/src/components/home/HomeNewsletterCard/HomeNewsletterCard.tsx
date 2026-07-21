@@ -32,7 +32,7 @@ export default function HomeNewsletterCard() {
 					className={styles['home-newsletter-card__btn']}
 					aria-label='Subscribe to newsletter'
 					disabled={status === 'loading'}>
-					<img src='/img/icons/send.svg' alt='' className={styles['home-newsletter-card__img']} />
+					<img src='/img/icons/home/send.svg' alt='' className={styles['home-newsletter-card__img']} />
 				</button>
 			</form>
 		</article>
