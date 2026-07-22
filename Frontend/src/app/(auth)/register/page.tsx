@@ -3,7 +3,10 @@ import RegisterForm from '@/components/auth/RegisterForm/RegisterForm'
 
 export default function RegisterPage() {
 	return (
-		<AuthFormSection title='Register to your dreams'>
+		<AuthFormSection
+			greeting='welcome, dreamer'
+			title='Create your account'
+			subtitle='join Yuume and begin your journey'>
 			<RegisterForm />
 		</AuthFormSection>
 	)

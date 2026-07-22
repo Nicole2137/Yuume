@@ -27,13 +27,19 @@
 	--input-background-color: rgba(255, 255, 255, 0.1);
 	--input-border-color: rgba(251, 250, 244, 0.4);
 
+	display: flex;
+	flex-direction: column;
 	background-image: url('/img/animations/login-background.png');
 	background-size: cover;
 
+	> nav{
+		position: absolute;
+	}
+
 	> main {
 		display: flex;
-		align-items: center;
+		flex-grow: 1;
 		gap: 15.2rem;
-		margin-top: 2.4rem;
+		align-items: center;
 	}
 }

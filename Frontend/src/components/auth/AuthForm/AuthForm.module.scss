@@ -1,6 +1,8 @@
 @use '@/styles' as *;
 
-.login-form {
+$underline-hight: 0.5rem;
+
+.auth-form {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
@@ -27,6 +29,11 @@
 	&__options {
 		display: flex;
 		justify-content: space-between;
+
+		&--register {
+			justify-content: flex-start;
+			gap: 0.8rem;
+		}
 	}
 
 	&__checkbox-options {
@@ -118,10 +125,12 @@
 		margin-top: 1.2rem;
 	}
 
-	&__register-link {
+	&__link,
+	&__modal-btn {
 		position: relative;
 		font-size: 1.8rem;
 		color: var(--main-color);
+		translate: 0px calc(($underline-hight / 2) * -1);
 
 		&::after {
 			content: '';
@@ -129,7 +138,7 @@
 			left: 0;
 			bottom: -0.5rem;
 			width: 100%;
-			height: 0.5rem;
+			height: $underline-hight;
 			background-color: currentColor;
 			mask: url('/img/decorations/underline.svg') center / 100% 100% no-repeat;
 		}

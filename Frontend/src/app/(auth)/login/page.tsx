@@ -3,7 +3,7 @@ import LoginForm from '@/components/auth/LoginForm/LoginForm'
 
 export default function LoginPage() {
 	return (
-		<AuthFormSection title='Log in to your dreams'>
+		<AuthFormSection greeting='welcome back' title='Log in to your dreams' subtitle='a soft place for gentle souls'>
 			<LoginForm />
 		</AuthFormSection>
 	)
