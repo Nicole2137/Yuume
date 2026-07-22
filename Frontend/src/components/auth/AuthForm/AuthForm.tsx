@@ -24,7 +24,6 @@ export default function AuthForm({
 			{children}
 			<button className={styles['auth-form__btn']}>
 				<span>{submitText}</span>
-				<img src='' alt='' aria-hidden='true' className={styles['auth-form__btn-icon']} />
 			</button>
 			<div className={styles['auth-form__socials-divider']}>
 				<span className={styles['auth-form__socials-icon']} />
@@ -32,11 +31,18 @@ export default function AuthForm({
 				<span className={styles['auth-form__socials-icon']} />
 			</div>
 			<div className={styles['auth-form__socials']}>
-				<button type='button' className={styles['auth-form__social-btn']}>
-					<img src='/img/icons/auth/google.svg' alt='Google logo' className={styles['auth-form__social-img']} />
+				<button type='button' aria-label='Continue with Google' className={styles['auth-form__social-btn']}>
+					<span
+						aria-hidden='true'
+						className={`${styles['auth-form__social-icon']} ${styles['auth-form__social-icon--google']}`}
+					/>
 				</button>
-				<button type='button' className={styles['auth-form__social-btn']}>
-					<img src='/img/icons/auth/discord.svg' alt='Discord logo' className={styles['auth-form__social-img']} />
+
+				<button type='button' aria-label='Continue with Discord' className={styles['auth-form__social-btn']}>
+					<span
+						aria-hidden='true'
+						className={`${styles['auth-form__social-icon']} ${styles['auth-form__social-icon--discord']}`}
+					/>
 				</button>
 			</div>
 			<div className={styles['auth-form__footer']}>

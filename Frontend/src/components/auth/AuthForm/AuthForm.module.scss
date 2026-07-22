@@ -40,6 +40,7 @@ $underline-hight: 0.5rem;
 		display: flex;
 		align-items: center;
 		gap: 0.8rem;
+        cursor: pointer;
 	}
 
 	&__checkbox {
@@ -51,6 +52,7 @@ $underline-hight: 0.5rem;
 		height: 2rem;
 		background-color: #fff;
 		border-radius: 0.2rem;
+        cursor: pointer;
 
 		&:checked::after {
 			content: '✓';
@@ -109,12 +111,35 @@ $underline-hight: 0.5rem;
 		align-items: center;
 		padding: 1.2rem 2rem;
 		background-color: var(--input-background-color);
-		border: 1px solid var(--input-border-color);
+		border: 2px solid var(--input-border-color);
 		border-radius: 1.2rem;
+
+		&:hover,
+		&:focus-visible {
+			@include btn-hover;
+			scale: 1;
+		}
 	}
 
-	&__social-img {
+	&__social-icon {
 		width: 3.2rem;
+		height: 3.2rem;
+		background-color: var(--light-text-color);
+		mask: center / contain no-repeat;
+		transition: background-color 0.3s;
+
+		&--google {
+			mask-image: url('/img/icons/auth/google.svg');
+		}
+
+		&--discord {
+			mask-image: url('/img/icons/auth/discord.svg');
+		}
+	}
+
+	&__social-btn:hover &__social-icon,
+	&__social-btn:focus-visible &__social-icon {
+		background-color: var(--btn-text-color);
 	}
 
 	&__footer {
