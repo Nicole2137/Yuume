@@ -1,6 +1,9 @@
 @use '@/styles' as *;
 
 $underline-hight: 0.5rem;
+$input-icon-right-space: 1.2rem;
+$input-icon-width: 3.2rem;
+$input-scale: 1.02;
 
 .auth-form {
 	display: flex;
@@ -9,6 +12,13 @@ $underline-hight: 0.5rem;
 
 	&__input-field {
 		position: relative;
+		display: flex;
+		align-items: center;
+		transition: scale 0.3s;
+
+		&:focus-within {
+			scale: $input-scale;
+		}
 	}
 
 	&__input {
@@ -19,11 +29,36 @@ $underline-hight: 0.5rem;
 		background-color: var(--input-background-color);
 		border: 1px solid var(--input-border-color);
 		border-radius: 1.2rem;
+		transition:
+			scale 0.3s,
+			box-shadow 0.3s;
 
 		&::placeholder {
 			font-size: 1.6rem;
 			color: var(--light-text-color);
 		}
+
+		&:focus-visible {
+			box-shadow: 0px 0px 1px 2px var(--main-color) inset;
+		}
+
+		&:not(.auth-form__input--password):focus-visible {
+			scale: $input-scale;
+		}
+
+		&--password {
+			padding-right: calc($input-icon-right-space + $input-icon-width + 1.2rem);
+		}
+	}
+
+	&__input-btn {
+		position: absolute;
+		right: $input-icon-right-space;
+	}
+
+	&__input-icon {
+		display: block;
+		width: $input-icon-width;
 	}
 
 	&__options {
@@ -40,7 +75,7 @@ $underline-hight: 0.5rem;
 		display: flex;
 		align-items: center;
 		gap: 0.8rem;
-        cursor: pointer;
+		cursor: pointer;
 	}
 
 	&__checkbox {
@@ -52,7 +87,7 @@ $underline-hight: 0.5rem;
 		height: 2rem;
 		background-color: #fff;
 		border-radius: 0.2rem;
-        cursor: pointer;
+		cursor: pointer;
 
 		&:checked::after {
 			content: '✓';
@@ -166,6 +201,11 @@ $underline-hight: 0.5rem;
 			height: $underline-hight;
 			background-color: currentColor;
 			mask: url('/img/decorations/underline.svg') center / 100% 100% no-repeat;
+		}
+
+		&:hover,
+		&:focus-visible {
+			color: var(--main-color-dark);
 		}
 	}
 }

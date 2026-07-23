@@ -1,5 +1,8 @@
+'use client'
+
 import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
+import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 
 export default function RegisterForm() {
 	return (
@@ -10,39 +13,17 @@ export default function RegisterForm() {
 			footerHref='/login'
 			footerLinkText='Log in'>
 			<input
-				placeholder='Email'
 				type='email'
+				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
 				required
 				className={styles['auth-form__input']}
 			/>
 
-			<div className={styles['auth-form__input-field']}>
-				<input
-					placeholder='Password'
-					type='password'
-					aria-label='Password'
-					autoComplete='new-password'
-					required
-					className={styles['auth-form__input']}
-				/>
+			<PasswordInput placeholder='Password' autoComplete='new-password' />
 
-				<img src='' alt='' aria-hidden='true' className={styles['auth-form__input-icon']} />
-			</div>
-
-			<div className={styles['auth-form__input-field']}>
-				<input
-					placeholder='Confirm password'
-					type='password'
-					aria-label='Confirm password'
-					autoComplete='new-password'
-					required
-					className={styles['auth-form__input']}
-				/>
-
-				<img src='' alt='' aria-hidden='true' className={styles['auth-form__input-icon']} />
-			</div>
+			<PasswordInput placeholder='Confirm password' autoComplete='new-password' />
 
 			<div className={`${styles['auth-form__options']} ${styles['auth-form__options--register']}`}>
 				<label className={styles['auth-form__checkbox-options']}>

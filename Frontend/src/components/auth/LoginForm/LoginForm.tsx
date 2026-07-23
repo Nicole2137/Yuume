@@ -1,5 +1,8 @@
+'use client'
+
 import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
+import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import Link from 'next/link'
 
 export default function LoginForm() {
@@ -11,26 +14,15 @@ export default function LoginForm() {
 			footerHref='/register'
 			footerLinkText='Sign up'>
 			<input
-				placeholder='Email'
 				type='email'
+				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
 				required
 				className={styles['auth-form__input']}
 			/>
 
-			<div className={styles['auth-form__input-field']}>
-				<input
-					placeholder='Password'
-					type='password'
-					aria-label='Password'
-					autoComplete='current-password'
-					required
-					className={styles['auth-form__input']}
-				/>
-
-				<img src='' alt='' aria-hidden='true' className={styles['auth-form__input-icon']} />
-			</div>
+			<PasswordInput placeholder='Password' autoComplete='current-password' />
 
 			<div className={styles['auth-form__options']}>
 				<label className={styles['auth-form__checkbox-options']}>
