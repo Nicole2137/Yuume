@@ -21,6 +21,10 @@ $input-scale: 1.02;
 		}
 	}
 
+	&__input-field:focus-within &__input {
+		box-shadow: 0 0 1px 2px var(--main-color) inset;
+	}
+
 	&__input {
 		padding: 1.2rem;
 		width: 100%;
@@ -76,6 +80,7 @@ $input-scale: 1.02;
 		align-items: center;
 		gap: 0.8rem;
 		cursor: pointer;
+		user-select: none;
 	}
 
 	&__checkbox {
@@ -89,17 +94,32 @@ $input-scale: 1.02;
 		border-radius: 0.2rem;
 		cursor: pointer;
 
+		&:checked {
+			background-color: var(--main-color);
+		}
+
 		&:checked::after {
 			content: '✓';
 			font-size: 1.8rem;
 			font-weight: bold;
-			color: #3e75a7;
+			color: var(--text-color);
 		}
 	}
 
 	&__text {
 		font-size: 1.6rem;
 		color: var(--light-text-color);
+		transition:
+			scale 0.3s,
+			color 0.3s;
+
+		&--focus {
+			&:hover,
+			&:focus-visible {
+				scale: 1.05;
+				color: var(--main-color);
+			}
+		}
 	}
 
 	&__btn {
@@ -191,6 +211,9 @@ $input-scale: 1.02;
 		font-size: 1.8rem;
 		color: var(--main-color);
 		translate: 0px calc(($underline-hight / 2) * -1);
+		transition:
+			scale 0.3s,
+			color 0.3s;
 
 		&::after {
 			content: '';
@@ -205,7 +228,8 @@ $input-scale: 1.02;
 
 		&:hover,
 		&:focus-visible {
-			color: var(--main-color-dark);
+			scale: 1.05;
+			color: var(--text-color);
 		}
 	}
 }

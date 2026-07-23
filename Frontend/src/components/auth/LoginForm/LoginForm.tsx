@@ -27,10 +27,10 @@ export default function LoginForm() {
 			<div className={styles['auth-form__options']}>
 				<label className={styles['auth-form__checkbox-options']}>
 					<input type='checkbox' className={styles['auth-form__checkbox']} />
-					<span className={styles['auth-form__text']}>Remember me</span>
+					<span className={`${styles['auth-form__text']} ${styles['auth-form__text--focus']}`}>Remember me</span>
 				</label>
 
-				<Link href='/reset-password' className={styles['auth-form__text']}>
+				<Link href='/reset-password' className={`${styles['auth-form__text']} ${styles['auth-form__text--focus']}`}>
 					Forgot password?
 				</Link>
 			</div>
