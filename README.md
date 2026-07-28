@@ -1,10 +1,10 @@
 <div align="center">
   <img src="./Frontend/public/img/branding/nav-logo-home.svg" alt="Yuume" width="280" />
 
-  <p><strong>The world shaped by your thoughts.</strong></p>
+  <p><strong>Every mind becomes a world.</strong></p>
   <p>
-    A gentle digital space for journaling, meaningful connections,
-    and shared dreamscapes.
+    An AI-powered multiplayer game where a player's inner world
+    becomes a living, evolving dream.
   </p>
 
   <p>
@@ -30,10 +30,18 @@
 
 ## About
 
-Yuume is a calm online space built around the idea that words can bring people
-closer. It is designed to let people capture thoughts, poems, and feelings,
-discover kindred souls through what they write, and eventually shape shared
-dream worlds together.
+Yuume is an AI-powered multiplayer game built around one idea: every person
+dreams differently because every person is different.
+
+The game interprets a player's reflections, emotions, choices, and recurring
+themes to build an evolving in-game psychological profile. AI systems use that
+profile to generate a personal dream — from its atmosphere, locations, and
+characters to its events and gameplay. The result is a world that reflects the
+person behind the player and changes as they do.
+
+Multiplayer begins when individual dreams intersect. Players can enter worlds
+shaped by one another, creating shared experiences influenced by their combined
+profiles, decisions, and interactions.
 
 The project pairs a carefully crafted, responsive interface with a small
 ASP.NET Core API. Its current implementation focuses on the visual foundation,
@@ -41,8 +49,8 @@ authentication views, responsive navigation, and newsletter subscriptions.
 
 > [!NOTE]
 > Yuume is in active development. The home and authentication experiences are
-> implemented; journaling, dream matching, and shared spaces describe the
-> product direction and are still on the roadmap.
+> implemented. AI profile analysis, dream generation, and multiplayer gameplay
+> are the core product direction and are still on the roadmap.
 
 ## Features
 
@@ -56,12 +64,20 @@ authentication views, responsive navigation, and newsletter subscriptions.
 - Frontend unit tests plus backend unit and integration tests
 - Separate GitHub Actions pipelines for the frontend and backend
 
-### Product vision
+### Core gameplay vision
 
-- **Your Journal** — a private place for thoughts, poems, and feelings
-- **Dream Matching** — connections shaped by the meaning behind your words
-- **Shared Space** — a world that grows when two dreamscapes meet
-- **Gallery, community, and shop** — new ways to explore and support Yuume
+- **A dream shaped by you** — reflections, emotions, and choices become input
+  for an evolving psychological model of the player
+- **AI-generated worlds** — environments, characters, stories, and encounters
+  are created to mirror the player's personality and inner state
+- **Adaptive gameplay** — the dream changes over time in response to new
+  thoughts, decisions, and behavior
+- **Multiplayer dream convergence** — individual worlds can overlap and form a
+  shared dream influenced by everyone inside it
+- **A reflective journal** — writing is not just stored; it helps shape the
+  world the player later explores
+- **Gallery, community, and shop** — additional ways to discover, share, and
+  support the Yuume universe
 
 ## Tech stack
 
@@ -75,18 +91,23 @@ authentication views, responsive navigation, and newsletter subscriptions.
 | Backend tests | xUnit v3, ASP.NET Core integration testing, MockHttp |
 | Automation | GitHub Actions, Dependabot |
 
-## How it fits together
+## Core gameplay loop
 
 ```mermaid
-flowchart LR
-    A["Browser"] --> B["Next.js frontend"]
-    B -->|"POST /api/newsletter"| C["ASP.NET Core API"]
-    C -->|"Create or update contact"| D["Brevo API"]
+flowchart TB
+    A["Reflections, emotions, and choices"] --> B["Evolving in-game psychological profile"]
+    B --> C["AI dream engine"]
+    C --> D["Personal world, story, and gameplay"]
+    D -->|"New actions and experiences"| B
+    D --> E["Multiplayer dream convergence"]
+    F["Another player's dream"] --> E
+    E --> G["Shared world shaped by its players"]
 ```
 
-Next.js serves the interface and proxies `/api/*` requests to the backend.
-The backend validates the request, keeps the Brevo API key server-side, and
-translates external-service failures into appropriate HTTP responses.
+The current repository contains the web experience and the first backend
+service. Next.js serves the interface and proxies `/api/*` requests to ASP.NET
+Core, which currently handles newsletter subscriptions through Brevo. The AI
+dream engine and multiplayer services will be introduced in later stages.
 
 ## Project structure
 
@@ -189,7 +210,7 @@ and pull requests.
 Yuume is still taking shape. If you would like to help:
 
 1. Fork the repository and create a focused branch.
-2. Keep changes consistent with the project's gentle visual language.
+2. Keep changes consistent with the project's dreamlike visual language.
 3. Add or update tests for changed behavior.
 4. Run the relevant checks locally.
 5. Open a pull request describing both the change and its motivation.
