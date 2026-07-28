@@ -5,6 +5,7 @@ import Link from 'next/link'
 interface AuthFormProps {
 	children: ReactNode
 	onSubmit: SubmitEventHandler<HTMLFormElement>
+	status: string
 	submitText: string
 	dividerText: string
 	footerText: string
@@ -15,6 +16,7 @@ interface AuthFormProps {
 export default function AuthForm({
 	children,
 	onSubmit,
+	status,
 	submitText,
 	dividerText,
 	footerText,
@@ -24,7 +26,7 @@ export default function AuthForm({
 	return (
 		<form onSubmit={onSubmit} className={styles['auth-form']}>
 			{children}
-			<button className={styles['auth-form__btn']}>
+			<button disabled={status === 'loading'} className={styles['auth-form__btn']}>
 				<span>{submitText}</span>
 			</button>
 			<div className={styles['auth-form__socials-divider']}>

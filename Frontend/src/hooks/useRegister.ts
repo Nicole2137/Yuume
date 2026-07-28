@@ -9,13 +9,13 @@ export const useRegister = () => {
 	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault()
 
-		setStatus('loading')
-
-		if (password === repeatedPassword) {
-			throw new Error(`Passwords are not the same.`)
-		}
-
 		try {
+			if (password !== repeatedPassword) {
+				throw new Error(`Passwords are not the same.`)
+			}
+
+			setStatus('loading')
+
 			const response = await fetch('/api/register', {
 				method: 'POST',
 				headers: {
@@ -39,5 +39,14 @@ export const useRegister = () => {
 		}
 	}
 
-	return { email, setEmail, password, setPassword, repeatedPassword, setRepeatedPassword, status, handleSubmit }
+	return {
+		email,
+		setEmail,
+		password,
+		setPassword,
+		repeatedPassword,
+		setRepeatedPassword,
+		status,
+		handleSubmit,
+	}
 }

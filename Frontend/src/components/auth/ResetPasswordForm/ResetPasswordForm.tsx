@@ -1,3 +1,5 @@
+'use client'
+
 import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
 import { usePasswordReset } from '@/hooks/usePasswordReset'
@@ -8,6 +10,7 @@ export default function ResetPasswordForm() {
 	return (
 		<AuthForm
 			onSubmit={handleSubmit}
+			status={status}
 			submitText='Send reset link'
 			dividerText='or continue with'
 			footerText='Remember your password?'

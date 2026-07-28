@@ -12,6 +12,7 @@ export default function RegisterForm() {
 	return (
 		<AuthForm
 			onSubmit={handleSubmit}
+			status={status}
 			submitText='Sign up'
 			dividerText='or sign up with'
 			footerText='Already have an account?'
@@ -47,7 +48,7 @@ export default function RegisterForm() {
 
 			<div className={`${styles['auth-form__options']} ${styles['auth-form__options--register']}`}>
 				<label className={styles['auth-form__checkbox-options']}>
-					<input type='checkbox' className={styles['auth-form__checkbox']} />
+					<input type='checkbox' required className={styles['auth-form__checkbox']} />
 					<span className={styles['auth-form__text']}>I agree to the</span>
 				</label>
 

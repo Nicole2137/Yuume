@@ -11,6 +11,7 @@ export default function LoginForm() {
 	return (
 		<AuthForm
 			onSubmit={handleSubmit}
+			status={status}
 			submitText='Log in'
 			dividerText='or continue with'
 			footerText='Don’t have an account?'
