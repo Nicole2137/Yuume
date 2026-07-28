@@ -1,9 +1,10 @@
 import styles from './AuthForm.module.scss'
-import type { ReactNode } from 'react'
+import { SubmitEventHandler, type ReactNode, type SubmitEvent } from 'react'
 import Link from 'next/link'
 
 interface AuthFormProps {
 	children: ReactNode
+	onSubmit: SubmitEventHandler<HTMLFormElement>
 	submitText: string
 	dividerText: string
 	footerText: string
@@ -13,6 +14,7 @@ interface AuthFormProps {
 
 export default function AuthForm({
 	children,
+	onSubmit,
 	submitText,
 	dividerText,
 	footerText,
@@ -20,7 +22,7 @@ export default function AuthForm({
 	footerLinkText,
 }: AuthFormProps) {
 	return (
-		<form className={styles['auth-form']}>
+		<form onSubmit={onSubmit} className={styles['auth-form']}>
 			{children}
 			<button className={styles['auth-form__btn']}>
 				<span>{submitText}</span>

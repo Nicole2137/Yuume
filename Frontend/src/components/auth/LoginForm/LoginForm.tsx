@@ -4,10 +4,13 @@ import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
 import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import Link from 'next/link'
+import { useLogin } from '@/hooks/useLogin'
 
 export default function LoginForm() {
+	const { email, setEmail, password, setPassword, status, handleSubmit } = useLogin()
 	return (
 		<AuthForm
+			onSubmit={handleSubmit}
 			submitText='Log in'
 			dividerText='or continue with'
 			footerText='Don’t have an account?'
@@ -15,6 +18,9 @@ export default function LoginForm() {
 			footerLinkText='Sign up'>
 			<input
 				type='email'
+				value={email}
+				onChange={event => setEmail(event.target.value)}
+				disabled={status === 'loading'}
 				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
@@ -22,7 +28,13 @@ export default function LoginForm() {
 				className={styles['auth-form__input']}
 			/>
 
-			<PasswordInput placeholder='Password' autoComplete='current-password' />
+			<PasswordInput
+				value={password}
+				onChange={event => setPassword(event.target.value)}
+				disabled={status === 'loading'}
+				placeholder='Password'
+				autoComplete='current-password'
+			/>
 
 			<div className={styles['auth-form__options']}>
 				<label className={styles['auth-form__checkbox-options']}>

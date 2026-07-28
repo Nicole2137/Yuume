@@ -1,39 +1,36 @@
-import { useState, type SubmitEvent } from 'react'
+import { type SubmitEvent, useState } from 'react'
 
-export const useNewsletter = () => {
+export const useLogin = () => {
 	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
 	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		
+
 		setStatus('loading')
 
 		try {
-			const response = await fetch('/api/newsletter', {
+			const response = await fetch('/api/login', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email }),
+				body: JSON.stringify({ email, password }),
 			})
 
 			if (!response.ok) {
-				throw new Error(`Newsletter request failed with status ${response.status}.`)
+				throw new Error(`Login request failed with status ${response.status}.`)
 			}
 
-			setStatus('success')
 			setEmail('')
+			setPassword('')
+			setStatus('success')
 		} catch (error) {
 			console.error(error)
 			setStatus('error')
 		}
 	}
 
-	return {
-		email,
-		setEmail,
-		status,
-		handleSubmit,
-	}
+	return { email, setEmail, password, setPassword, status, handleSubmit }
 }
