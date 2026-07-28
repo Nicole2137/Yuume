@@ -95,14 +95,19 @@ authentication views, responsive navigation, and newsletter subscriptions.
 
 ```mermaid
 flowchart TB
-    A["Reflections, emotions, and choices"] --> B["Evolving in-game psychological profile"]
-    B --> C["AI dream engine"]
-    C --> D["Personal world, story, and gameplay"]
-    D -->|"New actions and experiences"| B
-    D --> E["Multiplayer dream convergence"]
+    A["Player input"] --> B["Psychological profile"]
+    B --> C["AI dream generation"]
+    C --> D["Personal dream"]
+    D -->|"Actions update profile"| B
+    D --> E["Dream convergence"]
     F["Another player's dream"] --> E
-    E --> G["Shared world shaped by its players"]
+    E --> G["Shared multiplayer world"]
 ```
+
+Player input includes reflections, emotions, choices, and recurring themes.
+The AI uses the resulting profile to shape the dream's world, story, and
+gameplay. Actions taken inside the dream feed back into that profile, while
+multiplayer convergence combines it with another player's world.
 
 The current repository contains the web experience and the first backend
 service. Next.js serves the interface and proxies `/api/*` requests to ASP.NET
