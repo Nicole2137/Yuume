@@ -10,6 +10,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.5.7",
     "clsx": "^2.1.1",
     "lucide-react": "^1.23.0",
     "motion": "^12.42.2",

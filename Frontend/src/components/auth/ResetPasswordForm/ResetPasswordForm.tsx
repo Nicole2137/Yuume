@@ -5,7 +5,7 @@ import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
 import { usePasswordReset } from '@/hooks/usePasswordReset'
 
 export default function ResetPasswordForm() {
-	const { register, isSubmitting, handleSubmit } = usePasswordReset()
+	const { register, errors, isSubmitting, handleSubmit } = usePasswordReset()
 
 	return (
 		<AuthForm

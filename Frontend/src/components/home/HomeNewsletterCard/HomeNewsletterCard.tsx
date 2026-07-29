@@ -4,7 +4,7 @@ import styles from './HomeNewsletterCard.module.scss'
 import { useNewsletter } from '@/hooks/useNewsletter'
 
 export default function HomeNewsletterCard() {
-	const { register, isSubmitting, handleSubmit } = useNewsletter()
+	const { register, errors, isSubmitting, handleSubmit } = useNewsletter()
 
 	return (
 		<article className={styles['home-newsletter-card']}>
@@ -24,7 +24,6 @@ export default function HomeNewsletterCard() {
 					placeholder='Enter your email address'
 					aria-label='Email address'
 					autoComplete='email'
-					required
 					className={styles['home-newsletter-card__input']}
 				/>
 				<button

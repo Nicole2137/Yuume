@@ -1,17 +1,14 @@
 import { useForm } from 'react-hook-form'
-
-interface LoginFields {
-	email: string
-	password: string
-}
+import { zodResolver } from '@hookform/resolvers/zod'
+import { loginSchema, type LoginFields } from '@/schemas/auth/loginSchema'
 
 export const useLogin = () => {
 	const {
 		register,
 		handleSubmit,
 		reset,
-		formState: { isSubmitting },
-	} = useForm<LoginFields>()
+		formState: { errors, isSubmitting },
+	} = useForm<LoginFields>({ resolver: zodResolver(loginSchema) })
 
 	const onSubmit = async (data: LoginFields) => {
 		try {
@@ -35,6 +32,7 @@ export const useLogin = () => {
 
 	return {
 		register,
+		errors,
 		isSubmitting,
 		handleSubmit: handleSubmit(onSubmit),
 	}

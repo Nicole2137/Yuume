@@ -1,16 +1,14 @@
 import { useForm } from 'react-hook-form'
-
-interface NewsletterFields {
-	email: string
-}
+import { zodResolver } from '@hookform/resolvers/zod'
+import { newsletterSchema, type NewsletterFields } from '@/schemas/home/newsletterSchema'
 
 export const useNewsletter = () => {
 	const {
 		register,
 		handleSubmit,
 		reset,
-		formState: { isSubmitting },
-	} = useForm<NewsletterFields>()
+		formState: { errors, isSubmitting },
+	} = useForm<NewsletterFields>({ resolver: zodResolver(newsletterSchema) })
 
 	const onSubmit = async (data: NewsletterFields) => {
 		try {
@@ -34,6 +32,7 @@ export const useNewsletter = () => {
 
 	return {
 		register,
+		errors,
 		isSubmitting,
 		handleSubmit: handleSubmit(onSubmit),
 	}

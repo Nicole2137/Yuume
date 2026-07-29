@@ -1,16 +1,14 @@
 import { useForm } from 'react-hook-form'
-
-interface PasswordResetFields {
-	email: string
-}
+import { zodResolver } from '@hookform/resolvers/zod'
+import { resetPasswordSchema, type PasswordResetFields } from '@/schemas/auth/resetPasswordSchema'
 
 export const usePasswordReset = () => {
 	const {
 		register,
 		handleSubmit,
 		reset,
-		formState: { isSubmitting },
-	} = useForm<PasswordResetFields>()
+		formState: { errors, isSubmitting },
+	} = useForm<PasswordResetFields>({ resolver: zodResolver(resetPasswordSchema) })
 
 	const onSubmit = async (data: PasswordResetFields) => {
 		try {
@@ -34,6 +32,7 @@ export const usePasswordReset = () => {
 
 	return {
 		register,
+		errors,
 		isSubmitting,
 		handleSubmit: handleSubmit(onSubmit),
 	}

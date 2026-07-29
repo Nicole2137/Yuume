@@ -6,7 +6,7 @@ import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import { useRegister } from '@/hooks/useRegister'
 
 export default function RegisterForm() {
-	const { register, isSubmitting, handleSubmit } = useRegister()
+	const { register, errors, isSubmitting, handleSubmit } = useRegister()
 
 	return (
 		<AuthForm
@@ -24,7 +24,6 @@ export default function RegisterForm() {
 				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
-				required
 				className={styles['auth-form__input']}
 			/>
 

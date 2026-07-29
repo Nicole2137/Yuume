@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { useLogin } from '@/hooks/useLogin'
 
 export default function LoginForm() {
-	const { register, isSubmitting, handleSubmit } = useLogin()
+	const { register, errors, isSubmitting, handleSubmit } = useLogin()
 
 	return (
 		<AuthForm
