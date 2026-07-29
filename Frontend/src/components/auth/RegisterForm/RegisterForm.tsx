@@ -44,7 +44,7 @@ export default function RegisterForm() {
 
 			<div className={`${styles['auth-form__options']} ${styles['auth-form__options--register']}`}>
 				<label className={styles['auth-form__checkbox-options']}>
-					<input type='checkbox' required className={styles['auth-form__checkbox']} />
+					<input type='checkbox' {...register('acceptedTerms')} className={styles['auth-form__checkbox']} />
 					<span className={styles['auth-form__text']}>I agree to the</span>
 				</label>
 

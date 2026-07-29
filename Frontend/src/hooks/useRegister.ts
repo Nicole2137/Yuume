@@ -4,6 +4,7 @@ interface RegisterFields {
 	email: string
 	password: string
 	repeatedPassword: string
+	acceptedTerms: boolean
 }
 
 export const useRegister = () => {
