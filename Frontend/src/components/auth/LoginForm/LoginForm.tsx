@@ -1,7 +1,8 @@
 'use client'
 
-import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
+import AuthForm from '@/components/auth/AuthForm/AuthForm'
+import EmailInput from '@/components/auth/EmailInput/EmailInput'
 import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import Link from 'next/link'
 import { useLogin } from '@/hooks/useLogin'
@@ -18,18 +19,11 @@ export default function LoginForm() {
 			footerText='Don’t have an account?'
 			footerHref='/register'
 			footerLinkText='Sign up'>
-			<input
-				type='email'
-				{...register('email')}
-				disabled={isSubmitting}
-				placeholder='Email'
-				aria-label='Email address'
-				autoComplete='email'
-				className={styles['auth-form__input']}
-			/>
+			<EmailInput registration={register('email')} errorMessage={errors.email?.message} disabled={isSubmitting} />
 
 			<PasswordInput
 				registration={register('password')}
+				errorMessage={errors.password?.message}
 				disabled={isSubmitting}
 				placeholder='Password'
 				autoComplete='current-password'

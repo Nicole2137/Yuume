@@ -3,15 +3,23 @@
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
 import { useState } from 'react'
 import { type UseFormRegisterReturn } from 'react-hook-form'
+import FormErrorMessage from '@/components/layout/FormErrorMessage/FormErrorMessage'
 
 interface PasswordInputProps {
 	registration: UseFormRegisterReturn
+	errorMessage?: string
 	disabled: boolean
 	placeholder: string
 	autoComplete: 'current-password' | 'new-password'
 }
 
-export default function PasswordInput({ registration, disabled, placeholder, autoComplete }: PasswordInputProps) {
+export default function PasswordInput({
+	registration,
+	errorMessage,
+	disabled,
+	placeholder,
+	autoComplete,
+}: PasswordInputProps) {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
 	return (
@@ -37,6 +45,7 @@ export default function PasswordInput({ registration, disabled, placeholder, aut
 					className={styles['auth-form__input-icon']}
 				/>
 			</button>
+			<FormErrorMessage errorMessage={errorMessage} />
 		</div>
 	)
 }

@@ -3,7 +3,6 @@
 $underline-hight: 0.5rem;
 $input-icon-right-space: 1.2rem;
 $input-icon-width: 3.2rem;
-$input-scale: 1.02;
 
 .auth-form {
 	display: flex;
@@ -14,15 +13,15 @@ $input-scale: 1.02;
 		position: relative;
 		display: flex;
 		align-items: center;
-		transition: scale 0.3s;
+		border-radius: 1.2rem;
+		transition:
+			box-shadow 0.3s,
+			scale 0.3s;
 
 		&:focus-within {
-			scale: $input-scale;
+			box-shadow: 0px 0px 1px 2px var(--main-color) inset;
+			scale: 1.02;
 		}
-	}
-
-	&__input-field:focus-within &__input {
-		box-shadow: 0 0 1px 2px var(--main-color) inset;
 	}
 
 	&__input {
@@ -33,23 +32,12 @@ $input-scale: 1.02;
 		background-color: var(--input-background-color);
 		border: 1px solid var(--input-border-color);
 		border-radius: 1.2rem;
-		transition:
-			scale 0.3s,
-			box-shadow 0.3s;
 
 		&::placeholder {
 			font-size: 1.6rem;
 			color: var(--light-text-color);
 		}
-
-		&:focus-visible {
-			box-shadow: 0px 0px 1px 2px var(--main-color) inset;
-		}
-
-		&:not(.auth-form__input--password):focus-visible {
-			scale: $input-scale;
-		}
-
+		
 		&--password {
 			padding-right: calc($input-icon-right-space + $input-icon-width + 1.2rem);
 		}

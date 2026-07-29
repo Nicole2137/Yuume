@@ -2,6 +2,7 @@
 
 import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
+import EmailInput from '@/components/auth/EmailInput/EmailInput'
 import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import { useRegister } from '@/hooks/useRegister'
 
@@ -17,18 +18,12 @@ export default function RegisterForm() {
 			footerText='Already have an account?'
 			footerHref='/login'
 			footerLinkText='Log in'>
-			<input
-				type='email'
-				{...register('email')}
-				disabled={isSubmitting}
-				placeholder='Email'
-				aria-label='Email address'
-				autoComplete='email'
-				className={styles['auth-form__input']}
-			/>
+
+			<EmailInput registration={register('email')} errorMessage={errors.email?.message} disabled={isSubmitting} />
 
 			<PasswordInput
 				registration={register('password')}
+				errorMessage={errors.password?.message}
 				disabled={isSubmitting}
 				placeholder='Password'
 				autoComplete='new-password'
@@ -36,6 +31,7 @@ export default function RegisterForm() {
 
 			<PasswordInput
 				registration={register('repeatedPassword')}
+				errorMessage={errors.repeatedPassword?.message}
 				disabled={isSubmitting}
 				placeholder='Confirm password'
 				autoComplete='new-password'
