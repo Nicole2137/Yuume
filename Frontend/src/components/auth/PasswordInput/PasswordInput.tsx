@@ -23,7 +23,6 @@ export default function PasswordInput({ registration, disabled, placeholder, aut
 				placeholder={placeholder}
 				aria-label={placeholder}
 				autoComplete={autoComplete}
-				required
 				className={`${styles['auth-form__input']} ${styles['auth-form__input--password']}`}
 			/>
 			<button

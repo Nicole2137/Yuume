@@ -23,7 +23,6 @@ export default function ResetPasswordForm() {
 				type='email'
 				aria-label='Email address'
 				autoComplete='email'
-				required
 				className={styles['auth-form__input']}
 			/>
 		</AuthForm>

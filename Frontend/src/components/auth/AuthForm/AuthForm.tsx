@@ -24,7 +24,7 @@ export default function AuthForm({
 	footerLinkText,
 }: AuthFormProps) {
 	return (
-		<form onSubmit={onSubmit} className={styles['auth-form']}>
+		<form noValidate onSubmit={onSubmit} className={styles['auth-form']}>
 			{children}
 			<button disabled={isSubmitting} className={styles['auth-form__btn']}>
 				<span>{submitText}</span>

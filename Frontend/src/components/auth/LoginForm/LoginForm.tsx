@@ -25,7 +25,6 @@ export default function LoginForm() {
 				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
-				required
 				className={styles['auth-form__input']}
 			/>
 

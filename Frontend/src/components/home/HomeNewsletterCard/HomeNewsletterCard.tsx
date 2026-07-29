@@ -16,7 +16,7 @@ export default function HomeNewsletterCard() {
 					and the world we’re building together.
 				</p>
 			</div>
-			<form onSubmit={handleSubmit} className={styles['home-newsletter-card__form']}>
+			<form noValidate onSubmit={handleSubmit} className={styles['home-newsletter-card__form']}>
 				<input
 					type='email'
 					{...register('email')}
