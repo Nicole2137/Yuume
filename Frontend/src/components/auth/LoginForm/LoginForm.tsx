@@ -30,7 +30,7 @@ export default function LoginForm() {
 			/>
 
 			<PasswordInput
-				{...register('password')}
+				registration={register('password')}
 				disabled={isSubmitting}
 				placeholder='Password'
 				autoComplete='current-password'

@@ -29,14 +29,14 @@ export default function RegisterForm() {
 			/>
 
 			<PasswordInput
-				{...register('password')}
+				registration={register('password')}
 				disabled={isSubmitting}
 				placeholder='Password'
 				autoComplete='new-password'
 			/>
 
 			<PasswordInput
-				{...register('repeatedPassword')}
+				registration={register('repeatedPassword')}
 				disabled={isSubmitting}
 				placeholder='Confirm password'
 				autoComplete='new-password'

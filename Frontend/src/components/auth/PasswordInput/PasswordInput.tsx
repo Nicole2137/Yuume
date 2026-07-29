@@ -1,21 +1,24 @@
 'use client'
 
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
-import { ChangeEventHandler, useState } from 'react'
+import { useState } from 'react'
+import { type UseFormRegisterReturn } from 'react-hook-form'
 
 interface PasswordInputProps {
+	registration: UseFormRegisterReturn
 	disabled: boolean
 	placeholder: string
 	autoComplete: 'current-password' | 'new-password'
 }
 
-export default function PasswordInput({ disabled, placeholder, autoComplete }: PasswordInputProps) {
+export default function PasswordInput({ registration, disabled, placeholder, autoComplete }: PasswordInputProps) {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
 	return (
 		<div className={styles['auth-form__input-field']}>
 			<input
 				type={isPasswordVisible ? 'text' : 'password'}
+				{...registration}
 				disabled={disabled}
 				placeholder={placeholder}
 				aria-label={placeholder}
