@@ -1,39 +1,40 @@
-import { useState, type SubmitEvent } from 'react'
+import { useForm } from 'react-hook-form'
+
+interface NewsletterFields {
+	email: string
+}
 
 export const useNewsletter = () => {
-	const [email, setEmail] = useState('')
-	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { isSubmitting },
+	} = useForm<NewsletterFields>()
 
-	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
-		event.preventDefault()
-		
-		setStatus('loading')
-
+	const onSubmit = async (data: NewsletterFields) => {
 		try {
 			const response = await fetch('/api/newsletter', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email }),
+				body: JSON.stringify({ email: data.email }),
 			})
 
 			if (!response.ok) {
 				throw new Error(`Newsletter request failed with status ${response.status}.`)
 			}
 
-			setStatus('success')
-			setEmail('')
+			reset()
 		} catch (error) {
 			console.error(error)
-			setStatus('error')
 		}
 	}
 
 	return {
-		email,
-		setEmail,
-		status,
-		handleSubmit,
+		register,
+		isSubmitting,
+		handleSubmit: handleSubmit(onSubmit),
 	}
 }

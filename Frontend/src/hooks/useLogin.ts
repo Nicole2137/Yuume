@@ -1,36 +1,41 @@
-import { type SubmitEvent, useState } from 'react'
+import { useForm } from 'react-hook-form'
+
+interface LoginFields {
+	email: string
+	password: string
+}
 
 export const useLogin = () => {
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
-	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { isSubmitting },
+	} = useForm<LoginFields>()
 
-	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
-		event.preventDefault()
-
-		setStatus('loading')
-
+	const onSubmit = async (data: LoginFields) => {
 		try {
 			const response = await fetch('/api/login', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email, password }),
+				body: JSON.stringify({ email: data.email, password: data.password }),
 			})
 
 			if (!response.ok) {
 				throw new Error(`Login request failed with status ${response.status}.`)
 			}
 
-			setEmail('')
-			setPassword('')
-			setStatus('success')
+			reset()
 		} catch (error) {
 			console.error(error)
-			setStatus('error')
 		}
 	}
 
-	return { email, setEmail, password, setPassword, status, handleSubmit }
+	return {
+		register,
+		isSubmitting,
+		handleSubmit: handleSubmit(onSubmit),
+	}
 }

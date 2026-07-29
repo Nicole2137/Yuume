@@ -4,23 +4,19 @@ import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
 import { ChangeEventHandler, useState } from 'react'
 
 interface PasswordInputProps {
-	value: string
-	onChange: ChangeEventHandler<HTMLInputElement>
 	disabled: boolean
 	placeholder: string
 	autoComplete: 'current-password' | 'new-password'
 }
 
-export default function PasswordInput({ value, onChange, disabled, placeholder, autoComplete }: PasswordInputProps) {
+export default function PasswordInput({ disabled, placeholder, autoComplete }: PasswordInputProps) {
 	const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
 	return (
 		<div className={styles['auth-form__input-field']}>
 			<input
 				type={isPasswordVisible ? 'text' : 'password'}
-				value={value}
 				disabled={disabled}
-				onChange={onChange}
 				placeholder={placeholder}
 				aria-label={placeholder}
 				autoComplete={autoComplete}

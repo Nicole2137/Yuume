@@ -6,23 +6,21 @@ import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import { useRegister } from '@/hooks/useRegister'
 
 export default function RegisterForm() {
-	const { email, setEmail, password, setPassword, repeatedPassword, setRepeatedPassword, status, handleSubmit } =
-		useRegister()
+	const { register, isSubmitting, handleSubmit } = useRegister()
 
 	return (
 		<AuthForm
 			onSubmit={handleSubmit}
-			status={status}
 			submitText='Sign up'
+			isSubmitting={isSubmitting}
 			dividerText='or sign up with'
 			footerText='Already have an account?'
 			footerHref='/login'
 			footerLinkText='Log in'>
 			<input
 				type='email'
-				value={email}
-				onChange={event => setEmail(event.target.value)}
-				disabled={status === 'loading'}
+				{...register('email')}
+				disabled={isSubmitting}
 				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
@@ -31,17 +29,15 @@ export default function RegisterForm() {
 			/>
 
 			<PasswordInput
-				value={password}
-				onChange={event => setPassword(event.target.value)}
-				disabled={status === 'loading'}
+				{...register('password')}
+				disabled={isSubmitting}
 				placeholder='Password'
 				autoComplete='new-password'
 			/>
 
 			<PasswordInput
-				value={repeatedPassword}
-				onChange={event => setRepeatedPassword(event.target.value)}
-				disabled={status === 'loading'}
+				{...register('repeatedPassword')}
+				disabled={isSubmitting}
 				placeholder='Confirm password'
 				autoComplete='new-password'
 			/>
@@ -52,7 +48,7 @@ export default function RegisterForm() {
 					<span className={styles['auth-form__text']}>I agree to the</span>
 				</label>
 
-				<button type='button' disabled={status === 'loading'} className={styles['auth-form__modal-btn']}>
+				<button type='button' disabled={isSubmitting} className={styles['auth-form__modal-btn']}>
 					Terms of Service
 				</button>
 			</div>

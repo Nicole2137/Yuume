@@ -1,35 +1,40 @@
-import { type SubmitEvent, useState } from 'react'
+import { useForm } from 'react-hook-form'
+
+interface PasswordResetFields {
+	email: string
+}
 
 export const usePasswordReset = () => {
-	const [email, setEmail] = useState('')
-	const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { isSubmitting },
+	} = useForm<PasswordResetFields>()
 
-	const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
-		event.preventDefault()
-
-		setStatus('loading')
-
+	const onSubmit = async (data: PasswordResetFields) => {
 		try {
 			const response = await fetch('/api/reset-password', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email }),
+				body: JSON.stringify({ email: data.email }),
 			})
 
 			if (!response.ok) {
 				throw new Error(`Password reset request failed with status ${response.status}`)
 			}
 
-			setStatus('success')
-
-			setEmail('')
+			reset()
 		} catch (error) {
 			console.error(error)
-			setStatus('error')
 		}
 	}
 
-	return { email, setEmail, status, handleSubmit }
+	return {
+		register,
+		isSubmitting,
+		handleSubmit: handleSubmit(onSubmit),
+	}
 }

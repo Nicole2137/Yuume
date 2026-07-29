@@ -7,11 +7,12 @@ import Link from 'next/link'
 import { useLogin } from '@/hooks/useLogin'
 
 export default function LoginForm() {
-	const { email, setEmail, password, setPassword, status, handleSubmit } = useLogin()
+	const { register, isSubmitting, handleSubmit } = useLogin()
+
 	return (
 		<AuthForm
 			onSubmit={handleSubmit}
-			status={status}
+			isSubmitting={isSubmitting}
 			submitText='Log in'
 			dividerText='or continue with'
 			footerText='Don’t have an account?'
@@ -19,9 +20,8 @@ export default function LoginForm() {
 			footerLinkText='Sign up'>
 			<input
 				type='email'
-				value={email}
-				onChange={event => setEmail(event.target.value)}
-				disabled={status === 'loading'}
+				{...register('email')}
+				disabled={isSubmitting}
 				placeholder='Email'
 				aria-label='Email address'
 				autoComplete='email'
@@ -30,9 +30,8 @@ export default function LoginForm() {
 			/>
 
 			<PasswordInput
-				value={password}
-				onChange={event => setPassword(event.target.value)}
-				disabled={status === 'loading'}
+				{...register('password')}
+				disabled={isSubmitting}
 				placeholder='Password'
 				autoComplete='current-password'
 			/>

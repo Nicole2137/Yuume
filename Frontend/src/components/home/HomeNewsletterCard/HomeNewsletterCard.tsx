@@ -4,7 +4,7 @@ import styles from './HomeNewsletterCard.module.scss'
 import { useNewsletter } from '@/hooks/useNewsletter'
 
 export default function HomeNewsletterCard() {
-	const { email, setEmail, status, handleSubmit } = useNewsletter()
+	const { register, isSubmitting, handleSubmit } = useNewsletter()
 
 	return (
 		<article className={styles['home-newsletter-card']}>
@@ -18,21 +18,25 @@ export default function HomeNewsletterCard() {
 			</div>
 			<form onSubmit={handleSubmit} className={styles['home-newsletter-card__form']}>
 				<input
-					placeholder='Enter your email address'
 					type='email'
+					{...register('email')}
+					disabled={isSubmitting}
+					placeholder='Enter your email address'
 					aria-label='Email address'
 					autoComplete='email'
-					className={styles['home-newsletter-card__input']}
 					required
-					value={email}
-					onChange={event => setEmail(event.target.value)}
-					disabled={status === 'loading'}
+					className={styles['home-newsletter-card__input']}
 				/>
 				<button
-					className={styles['home-newsletter-card__btn']}
 					aria-label='Subscribe to newsletter'
-					disabled={status === 'loading'}>
-					<img src='/img/icons/home/send.svg' alt='' className={styles['home-newsletter-card__img']} />
+					disabled={isSubmitting}
+					className={styles['home-newsletter-card__btn']}>
+					<img
+						src='/img/icons/home/send.svg'
+						alt=''
+						aria-hidden='true'
+						className={styles['home-newsletter-card__img']}
+					/>
 				</button>
 			</form>
 		</article>
