@@ -9,5 +9,5 @@ public class ApplicationDbContext(
     DbContextOptions<ApplicationDbContext> options
 ) : IdentityDbContext<User, IdentityRole<Guid>, Guid>(options)
 {
-    
+
 }
