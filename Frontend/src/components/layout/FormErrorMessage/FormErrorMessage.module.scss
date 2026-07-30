@@ -1,6 +1,27 @@
-.form-error-message{
+.form-error-message {
+	position: absolute;
+	left: calc(100% + 0.8rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.2rem;
+	padding: 1.2rem;
+	min-width: 12.4rem;
+	font-size: 1.4rem;
+	color: #d4846f;
+	background-color: #fde2d0;
+	border-radius: 1.2rem;
 
-    &__text{
-        
-    }
+	&::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: -2px;
+		z-index: -1;
+		transform: translateY(-50%);
+		width: 2.4rem;
+		aspect-ratio: 1/1;
+		background-color: #fde2d0;
+		rotate: 45deg;
+	}
 }

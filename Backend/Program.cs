@@ -1,5 +1,7 @@
 using Backend.Options;
 using Backend.Services;
+using Backend.Validators;
+using FluentValidation;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,8 @@ builder.Services.AddHttpClient<INewsletterService, NewsletterService>((servicePr
     client.BaseAddress = new Uri(options.BaseUrl);
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
 });
+
+builder.Services.AddValidatorsFromAssemblyContaining<UserRegisterRequestValidator>();
 
 var app = builder.Build();
 
