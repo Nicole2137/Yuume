@@ -7,12 +7,13 @@ $input-icon-width: 3.2rem;
 .auth-form {
 	display: flex;
 	flex-direction: column;
-	gap: 1.2rem;
+	gap: 1.8rem;
 
 	&__input-field {
 		position: relative;
 		display: flex;
 		align-items: center;
+		background-color: var(--input-background-color);
 		border-radius: 1.2rem;
 		transition:
 			box-shadow 0.3s,
@@ -22,6 +23,10 @@ $input-icon-width: 3.2rem;
 			box-shadow: 0px 0px 1px 2px var(--main-color) inset;
 			scale: 1.02;
 		}
+
+		&:has([role='alert']):focus-within {
+			box-shadow: 0px 0px 1px 2px var(--form-error-accent-color) inset;
+		}
 	}
 
 	&__input {
@@ -29,7 +34,7 @@ $input-icon-width: 3.2rem;
 		width: 100%;
 		font-size: 1.6rem;
 		color: var(--light-text-color);
-		background-color: var(--input-background-color);
+		background-color: transparent;
 		border: 1px solid var(--input-border-color);
 		border-radius: 1.2rem;
 
@@ -37,7 +42,12 @@ $input-icon-width: 3.2rem;
 			font-size: 1.6rem;
 			color: var(--light-text-color);
 		}
-		
+
+		&:autofill {
+			background-clip: text;
+			-webkit-text-fill-color: var(--light-text-color);
+		}
+
 		&--password {
 			padding-right: calc($input-icon-right-space + $input-icon-width + 1.2rem);
 		}
@@ -190,7 +200,6 @@ $input-icon-width: 3.2rem;
 		justify-content: center;
 		align-items: center;
 		gap: 1.2rem;
-		margin-top: 1.2rem;
 	}
 
 	&__link,

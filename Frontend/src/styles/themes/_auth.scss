@@ -27,6 +27,9 @@
 	--input-background-color: rgba(255, 255, 255, 0.1);
 	--input-border-color: rgba(251, 250, 244, 0.4);
 
+	--form-error-background-color:#fdebd1;
+	--form-error-accent-color:#fc7f52;
+
 	display: flex;
 	flex-direction: column;
 	background-image: url('/img/animations/login-background.png');

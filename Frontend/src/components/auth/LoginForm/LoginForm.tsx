@@ -19,7 +19,11 @@ export default function LoginForm() {
 			footerText='Don’t have an account?'
 			footerHref='/register'
 			footerLinkText='Sign up'>
-			<EmailInput registration={register('email')} errorMessage={errors.email?.message} disabled={isSubmitting} />
+			<EmailInput
+				registration={register('email')}
+				errorMessage={errors.email?.message}
+				disabled={isSubmitting}
+			/>
 
 			<PasswordInput
 				registration={register('password')}

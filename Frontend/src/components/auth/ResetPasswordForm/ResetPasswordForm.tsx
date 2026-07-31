@@ -16,8 +16,11 @@ export default function ResetPasswordForm() {
 			footerText='Remember your password?'
 			footerLinkText='Log in'
 			footerHref='/login'>
-				
-			<EmailInput registration={register('email')} errorMessage={errors.email?.message} disabled={isSubmitting} />
+			<EmailInput
+				registration={register('email')}
+				errorMessage={errors.email?.message}
+				disabled={isSubmitting}
+			/>
 		</AuthForm>
 	)
 }
