@@ -10,4 +10,5 @@ public class User : IdentityUser<Guid>
     }
 
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
+    public DateTimeOffset TermsAcceptedAt { get; set; }
 }

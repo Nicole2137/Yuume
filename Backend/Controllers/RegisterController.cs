@@ -27,7 +27,8 @@ public class RegisterController(IValidator<UserRegisterRequest> userRegisterRequ
         var user = new User
         {
             Email = request.Email,
-            UserName = request.Email
+            UserName = request.Email,
+            TermsAcceptedAt = DateTimeOffset.UtcNow,
         };
 
         var result =
