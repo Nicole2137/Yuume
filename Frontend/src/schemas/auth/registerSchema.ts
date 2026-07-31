@@ -11,7 +11,7 @@ export const registerSchema = z
 			.regex(/[0-9]/, 'Password must contain a number')
 			.regex(/[\p{P}\p{S}]/u, 'Password must contain a special character.'),
 		repeatedPassword: z.string().min(1, 'Enter your password.'),
-		acceptedTerms: z.boolean().refine(value => value, { error: 'You must accept the Terms of Service.' }),
+		acceptedTerms: z.boolean().refine(value => value, { error: 'Please accept the Terms.' }),
 	})
 	.refine(data => data.password === data.repeatedPassword, {
 		error: 'Passwords do not match',

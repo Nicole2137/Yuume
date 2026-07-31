@@ -68,8 +68,12 @@ $input-icon-width: 3.2rem;
 		justify-content: space-between;
 
 		&--register {
+			position: relative;
 			justify-content: flex-start;
+			align-items: center;
 			gap: 0.8rem;
+			padding-right: 0.4rem;
+			width: fit-content;
 		}
 	}
 

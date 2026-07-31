@@ -4,6 +4,7 @@ import AuthForm from '@/components/auth/AuthForm/AuthForm'
 import styles from '@/components/auth/AuthForm/AuthForm.module.scss'
 import EmailInput from '@/components/auth/EmailInput/EmailInput'
 import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
+import FormErrorMessage from '@/components/layout/FormErrorMessage/FormErrorMessage'
 import { useRegister } from '@/hooks/useRegister'
 
 export default function RegisterForm() {
@@ -18,11 +19,7 @@ export default function RegisterForm() {
 			footerText='Already have an account?'
 			footerHref='/login'
 			footerLinkText='Log in'>
-			<EmailInput
-				registration={register('email')}
-				errorMessage={errors.email?.message}
-				disabled={isSubmitting}
-			/>
+			<EmailInput registration={register('email')} errorMessage={errors.email?.message} disabled={isSubmitting} />
 
 			<PasswordInput
 				registration={register('password')}
@@ -49,6 +46,7 @@ export default function RegisterForm() {
 				<button type='button' disabled={isSubmitting} className={styles['auth-form__modal-btn']}>
 					Terms of Service
 				</button>
+				<FormErrorMessage errorMessage={errors.acceptedTerms?.message} />
 			</div>
 		</AuthForm>
 	)

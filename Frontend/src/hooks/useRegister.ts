@@ -17,7 +17,7 @@ export const useRegister = () => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email: data.email, password: data.password }),
+				body: JSON.stringify({ email: data.email, password: data.password, acceptedTerms: data.acceptedTerms }),
 			})
 
 			if (!response.ok) {

@@ -20,5 +20,8 @@ public class UserRegisterRequestValidator : AbstractValidator<UserRegisterReques
         .Matches(@"\p{Lu}").WithMessage("Password must contain an uppercase letter.")
         .Matches("[0-9]").WithMessage("Password must contain a number.")
         .Matches(@"[\p{P}\p{S}]").WithMessage("Password must contain a special character.");
+
+        RuleFor(request => request.AcceptedTerms)
+        .Equal(true).WithMessage("Please accept the Terms.");
     }
 }
