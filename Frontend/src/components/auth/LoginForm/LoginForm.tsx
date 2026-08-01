@@ -39,7 +39,7 @@ export default function LoginForm() {
 					<span className={`${styles['auth-form__text']} ${styles['auth-form__text--focus']}`}>Remember me</span>
 				</label>
 
-				<Link href='/reset-password' className={`${styles['auth-form__text']} ${styles['auth-form__text--focus']}`}>
+				<Link href='/forgot-password' className={`${styles['auth-form__text']} ${styles['auth-form__text--focus']}`}>
 					Forgot password?
 				</Link>
 			</div>

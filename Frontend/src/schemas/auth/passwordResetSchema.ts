@@ -1,8 +1,7 @@
 import { z } from 'zod'
 
-export const registerSchema = z
+export const passwordResetSchema = z
 	.object({
-		email: z.email('Enter a valid email address.'),
 		password: z
 			.string()
 			.min(8, 'Password must contain at least 8 characters.')
@@ -11,11 +10,10 @@ export const registerSchema = z
 			.regex(/[0-9]/, 'Password must contain a number')
 			.regex(/[\p{P}\p{S}]/u, 'Password must contain a special character.'),
 		repeatedPassword: z.string().min(1, 'Enter your password.'),
-		acceptedTerms: z.boolean().refine(value => value, { error: 'Please accept the Terms.' }),
 	})
 	.refine(data => data.password === data.repeatedPassword, {
 		error: 'Passwords do not match',
 		path: ['repeatedPassword'],
 	})
 
-export type RegisterFields = z.infer<typeof registerSchema>
+export type PasswordResetFields = z.infer<typeof passwordResetSchema>

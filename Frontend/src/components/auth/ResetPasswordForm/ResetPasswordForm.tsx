@@ -1,7 +1,7 @@
 'use client'
 
 import AuthForm from '@/components/auth/AuthForm/AuthForm'
-import EmailInput from '@/components/auth/EmailInput/EmailInput'
+import PasswordInput from '@/components/auth/PasswordInput/PasswordInput'
 import { usePasswordReset } from '@/hooks/usePasswordReset'
 
 export default function ResetPasswordForm() {
@@ -16,10 +16,19 @@ export default function ResetPasswordForm() {
 			footerText='Remember your password?'
 			footerLinkText='Log in'
 			footerHref='/login'>
-			<EmailInput
-				registration={register('email')}
-				errorMessage={errors.email?.message}
+			<PasswordInput
+				registration={register('password')}
+				errorMessage={errors.password?.message}
 				disabled={isSubmitting}
+				placeholder='Password'
+				autoComplete='new-password'
+			/>
+			<PasswordInput
+				registration={register('repeatedPassword')}
+				errorMessage={errors.repeatedPassword?.message}
+				disabled={isSubmitting}
+				placeholder='Confirm password'
+				autoComplete='new-password'
 			/>
 		</AuthForm>
 	)

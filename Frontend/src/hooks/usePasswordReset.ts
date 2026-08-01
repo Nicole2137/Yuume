@@ -1,39 +1,39 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { resetPasswordSchema, type PasswordResetFields } from '@/schemas/auth/resetPasswordSchema'
+import { passwordResetSchema, type PasswordResetFields } from '@/schemas/auth/passwordResetSchema'
 
 export const usePasswordReset = () => {
-	const {
-		register,
-		handleSubmit,
-		reset,
-		formState: { errors, isSubmitting },
-	} = useForm<PasswordResetFields>({ resolver: zodResolver(resetPasswordSchema) })
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting },
+    } = useForm<PasswordResetFields>({ resolver: zodResolver(passwordResetSchema) })
 
-	const onSubmit = async (data: PasswordResetFields) => {
-		try {
-			const response = await fetch('/api/reset-password', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ email: data.email }),
-			})
+    const onSubmit = async (data: PasswordResetFields) => {
+        try {
+            const response = await fetch('/api/password-reset', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({password: data.password}),
+            })
 
-			if (!response.ok) {
-				throw new Error(`Password reset request failed with status ${response.status}`)
-			}
+            if (!response.ok) {
+                throw new Error(`Password reset request failed with status ${response.status}.`)
+            }
 
-			reset()
-		} catch (error) {
-			console.error(error)
-		}
-	}
+            reset()
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
-	return {
-		register,
-		errors,
-		isSubmitting,
-		handleSubmit: handleSubmit(onSubmit),
-	}
+    return {
+        register,
+        errors,
+        isSubmitting,
+        handleSubmit: handleSubmit(onSubmit),
+    }
 }
