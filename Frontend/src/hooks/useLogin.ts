@@ -17,7 +17,7 @@ export const useLogin = () => {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ email: data.email, password: data.password }),
+				body: JSON.stringify({ email: data.email, password: data.password, rememberMe: data.rememberMe }),
 			})
 
 			if (!response.ok) {
