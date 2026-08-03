@@ -13,14 +13,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-builder.Services.AddOptions<NewsletterOptions>()
-    .Bind(builder.Configuration.GetSection("Newsletter"))
+builder.Services.AddOptions<BrevoOptions>()
+    .Bind(builder.Configuration.GetSection("Brevo"))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+
+builder.Services.AddOptions<FrontendOptions>()
+    .Bind(builder.Configuration.GetSection("Frontend"))
     .ValidateDataAnnotations()
     .ValidateOnStart();
 
 builder.Services.AddHttpClient<INewsletterService, NewsletterService>((serviceProvider, client) =>
 {
-    var options = serviceProvider.GetRequiredService<IOptions<NewsletterOptions>>().Value;
+    var options = serviceProvider.GetRequiredService<IOptions<BrevoOptions>>().Value;
 
     client.BaseAddress = new Uri(options.BaseUrl);
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
