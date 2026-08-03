@@ -17,4 +17,7 @@ public class BrevoOptions
     [Required(ErrorMessage = "Brevo sender email is required.")]
     [EmailAddress(ErrorMessage = "Brevo sender email is invalid.")]
     public string SenderEmail { get; set; } = string.Empty;
+
+    [Range(1, int.MaxValue, ErrorMessage = "Brevo confirmation template ID is invalid.")]
+    public int ConfirmationTemplateId { get; set; }
 }

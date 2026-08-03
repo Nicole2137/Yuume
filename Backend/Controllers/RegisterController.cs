@@ -5,12 +5,13 @@ using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.WebUtilities;
+using Backend.Services;
 
 namespace Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class RegisterController(IValidator<UserRegisterRequest> userRegisterRequestValidator, UserManager<User> userManager, IOptions<FrontendOptions> frontendOptions) : ControllerBase
+public class RegisterController(IValidator<UserRegisterRequest> userRegisterRequestValidator, UserManager<User> userManager, IOptions<FrontendOptions> frontendOptions, IEmailService emailService) : ControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> Register(UserRegisterRequest request,
@@ -51,6 +52,12 @@ public class RegisterController(IValidator<UserRegisterRequest> userRegisterRequ
                 ["userId"] = user.Id.ToString(),
                 ["token"] = token
             });
+
+        await emailService.SendConfirmationEmailAsync(
+            request.Email,
+            confirmationLink,
+            cancellationToken
+        );
 
         return Ok();
 

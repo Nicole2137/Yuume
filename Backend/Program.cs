@@ -31,6 +31,16 @@ builder.Services.AddHttpClient<INewsletterService, NewsletterService>((servicePr
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
 });
 
+builder.Services.AddHttpClient<IEmailService, EmailService>((serviceProvider, client) =>
+{
+    var options = serviceProvider
+        .GetRequiredService<IOptions<BrevoOptions>>()
+        .Value;
+
+    client.BaseAddress = new Uri(options.BaseUrl);
+    client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
+});
+
 builder.Services.AddValidatorsFromAssemblyContaining<UserRegisterRequestValidator>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
