@@ -17,8 +17,8 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         {
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {
-                ["Newsletter:BaseUrl"] = "https://api.brevo.com/v3/",
-                ["Newsletter:ApiKey"] = "test-api-key"
+                ["Brevo:BaseUrl"] = "https://api.brevo.com/v3/",
+                ["Brevo:ApiKey"] = "test-api-key"
             });
         });
     }
