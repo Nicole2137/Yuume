@@ -3,7 +3,7 @@ import styles from './AuthFormSection.module.scss'
 interface AuthFormSectionProps {
 	greeting: string
 	title: string
-	subtitle: string
+	subtitle?: string
 	description?: string
 	children: React.ReactNode
 }

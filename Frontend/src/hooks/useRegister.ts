@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { registerSchema, type RegisterFields } from '@/schemas/auth/registerSchema'
 
@@ -6,9 +7,10 @@ export const useRegister = () => {
 	const {
 		register,
 		handleSubmit,
-		reset,
 		formState: { errors, isSubmitting },
 	} = useForm<RegisterFields>({ resolver: zodResolver(registerSchema) })
+
+	const router = useRouter()
 
 	const onSubmit = async (data: RegisterFields) => {
 		try {
@@ -24,7 +26,7 @@ export const useRegister = () => {
 				throw new Error(`Register request failed with status ${response.status}.`)
 			}
 
-			reset()
+			router.push('/confirm-email')
 		} catch (error) {
 			console.error(error)
 		}
