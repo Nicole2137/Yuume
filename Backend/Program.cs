@@ -26,7 +26,7 @@ builder.Services.AddOptions<FrontendOptions>()
 builder.Services.AddHttpClient<INewsletterService, NewsletterService>((serviceProvider, client) =>
 {
     var options = serviceProvider.GetRequiredService<IOptions<BrevoOptions>>().Value;
-    
+
     client.BaseAddress = new Uri(options.BaseUrl);
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
 });
@@ -36,7 +36,7 @@ builder.Services.AddHttpClient<IEmailService, EmailService>((serviceProvider, cl
     var options = serviceProvider
         .GetRequiredService<IOptions<BrevoOptions>>()
         .Value;
-    
+
     client.BaseAddress = new Uri(options.BaseUrl);
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
 });
@@ -55,7 +55,7 @@ builder.Services
     {
         options.User.RequireUniqueEmail = true;
         options.SignIn.RequireConfirmedEmail = true;
-        
+
         options.Password.RequiredLength = 8;
         options.Password.RequireUppercase = true;
         options.Password.RequireLowercase = false;
