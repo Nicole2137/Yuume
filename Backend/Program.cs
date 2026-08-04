@@ -1,12 +1,12 @@
+using Backend.Data;
+using Backend.Entities;
 using Backend.Options;
 using Backend.Services;
 using Backend.Validators;
-using Backend.Data;
-using Backend.Entities;
 using FluentValidation;
-using Microsoft.Extensions.Options;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +26,7 @@ builder.Services.AddOptions<FrontendOptions>()
 builder.Services.AddHttpClient<INewsletterService, NewsletterService>((serviceProvider, client) =>
 {
     var options = serviceProvider.GetRequiredService<IOptions<BrevoOptions>>().Value;
-
+    
     client.BaseAddress = new Uri(options.BaseUrl);
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
 });
@@ -36,7 +36,7 @@ builder.Services.AddHttpClient<IEmailService, EmailService>((serviceProvider, cl
     var options = serviceProvider
         .GetRequiredService<IOptions<BrevoOptions>>()
         .Value;
-
+    
     client.BaseAddress = new Uri(options.BaseUrl);
     client.DefaultRequestHeaders.Add("api-key", options.ApiKey);
 });
@@ -46,21 +46,22 @@ builder.Services.AddValidatorsFromAssemblyContaining<UserRegisterRequestValidato
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(
-       builder.Configuration.GetConnectionString("DefaultConnection")
-   );
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    );
 });
 
 builder.Services
     .AddIdentity<User, IdentityRole<Guid>>(options =>
-{
-    options.User.RequireUniqueEmail = true;
-
-    options.Password.RequiredLength = 8;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireDigit = true;
-    options.Password.RequireNonAlphanumeric = true;
-})
+    {
+        options.User.RequireUniqueEmail = true;
+        options.SignIn.RequireConfirmedEmail = true;
+        
+        options.Password.RequiredLength = 8;
+        options.Password.RequireUppercase = true;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireDigit = true;
+        options.Password.RequireNonAlphanumeric = true;
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
@@ -80,4 +81,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

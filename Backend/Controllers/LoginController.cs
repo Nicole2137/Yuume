@@ -37,6 +37,11 @@ public class LoginController(IValidator<UserLoginRequest> userLoginRequestValida
             isPersistent: request.RememberMe,
             lockoutOnFailure: true
         );
+        
+        if (result.IsNotAllowed)
+        {
+            return Unauthorized("You must confirm your email before signing in.");
+        }
 
         if (!result.Succeeded)
         {

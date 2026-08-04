@@ -7,6 +7,7 @@ export const useLogin = () => {
 		register,
 		handleSubmit,
 		reset,
+		setError,
 		formState: { errors, isSubmitting },
 	} = useForm<LoginFields>({ resolver: zodResolver(loginSchema) })
 
@@ -21,7 +22,14 @@ export const useLogin = () => {
 			})
 
 			if (!response.ok) {
-				throw new Error(`Login request failed with status ${response.status}.`)
+				const message = await response.text()
+
+				setError('root.server', {
+					type: 'server',
+					message,
+				})
+
+				return
 			}
 
 			reset()

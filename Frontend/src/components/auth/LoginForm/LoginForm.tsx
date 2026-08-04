@@ -21,7 +21,7 @@ export default function LoginForm() {
 			footerLinkText='Sign up'>
 			<EmailInput
 				registration={register('email')}
-				errorMessage={errors.email?.message}
+				errorMessage={errors.email?.message ?? errors.root?.server?.message}
 				disabled={isSubmitting}
 			/>
 

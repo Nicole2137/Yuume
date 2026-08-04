@@ -7,6 +7,7 @@ export const useRegister = () => {
 	const {
 		register,
 		handleSubmit,
+		setError,
 		formState: { errors, isSubmitting },
 	} = useForm<RegisterFields>({ resolver: zodResolver(registerSchema) })
 
@@ -23,7 +24,14 @@ export const useRegister = () => {
 			})
 
 			if (!response.ok) {
-				throw new Error(`Register request failed with status ${response.status}.`)
+				const message = await response.text()
+
+				setError('root.server', {
+					type: 'server',
+					message,
+				})
+
+				return
 			}
 
 			router.push('/confirm-email')

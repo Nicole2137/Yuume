@@ -40,7 +40,7 @@ public class RegisterController(IValidator<UserRegisterRequest> userRegisterRequ
 
         if (!result.Succeeded)
         {
-            return BadRequest(result.Errors);
+            return BadRequest(result.Errors.First().Description);
         }
 
         var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
